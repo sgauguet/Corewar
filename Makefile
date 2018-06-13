@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/03/09 17:55:29 by jebossue         ###   ########.fr        #
+#    Updated: 2018/06/13 16:10:23 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,17 @@ RES =		\033[0m
 
 #------------------------------------------------------------------------------#
 
-NAME =		lem-in
+NAME =		corewar
 
-SRC =		main.c pars.c parsing_rooms.c parsing_pipes.c save_paths.c	\
-			save_paths_tools.c save_paths_tools2.c send_ants.c del.c		\
-			delpars.c checkintmax.c checkrooms.c
+SRC =		main.c \
 
 SRCDIR =	./srcs
 
 OBJ =		$(SRC:%.c=$(OBJDIR)/%.o)
 
 OBJDIR =	./objs
+
+HEADER =	./includes/corewar.h
 
 #------------------------------------------------------------------------------#
 
@@ -62,7 +62,7 @@ libft:
 	@$(MAKE) -C ./libft all
 	@$(MAKE) $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	@echo "[$(GREEN)Ok$(RES)] Compiling : "$@
 	@$(CC) -g $(FLAGS) $(LFLAGS) $(OBJ) -o $@
 	@echo "Compilation done !"
