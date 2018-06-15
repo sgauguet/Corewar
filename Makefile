@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/13 16:10:23 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/14 16:23:42 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ RES =		\033[0m
 NAME =		corewar
 
 SRC =		main.c \
+			arena.c \
 
 SRCDIR =	./srcs
 
