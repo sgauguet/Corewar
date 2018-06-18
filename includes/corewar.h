@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 10:50:05 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/18 11:52:41 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct	s_player
 {
 	int			player_id;
-	header_t	header_s;
+	header_t	header;
 	char		*instructions;
 	int			nb_lives;
 }				t_player;
@@ -29,15 +29,16 @@ typedef struct	s_env
 	char		arena[MEM_SIZE];
 	int			cycle_to_die;
 	int			nb_players;
-	t_player	*champions;
+	t_player	champions[MAX_PLAYERS];
 }				t_env;
 
 /*
 ** vm_initialization.c
 */
 
-int				init_vm_environment(char **argv, t_env *env);
-
+int				check_constants(void);
+int				init_vm_champions(t_env *env);
+int				init_vm_environment(t_env *env);
 
 /*
 ** vm_options.c
@@ -69,5 +70,12 @@ int				ft_create_player(char *file, t_env *env);
 
 void			display_usage(char **argv);
 void			display_errors(char *error_message);
+
+/*
+** vm_debug.c
+*/
+
+int				check_initialization(t_env *env);
+int				debug(t_env *env);
 
 #endif
