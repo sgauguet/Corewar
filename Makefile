@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/14 16:23:42 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/18 09:50:01 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,13 @@ RES =		\033[0m
 
 NAME =		corewar
 
-SRC =		main.c \
-			arena.c \
+SRC =		vm_main.c \
+			vm_initialization.c \
+			vm_options.c \
+			vm_create_players.c \
+			vm_check_players.c \
+			vm_load_players.c \
+			vm_display_errors.c
 
 SRCDIR =	./srcs
 
