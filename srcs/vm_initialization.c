@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 11:57:46 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/18 12:14:02 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,34 @@
 
 int		check_constants(void)
 {
-	/*IND_SIZE                2
-	REG_SIZE                4
-	DIR_SIZE                REG_SIZE
-	REG_CODE                1
-	DIR_CODE                2
-	IND_CODE                3
-	MAX_ARGS_NUMBER            4
-	MAX_PLAYERS                4
-	MEM_SIZE                (4*1024)
-	IDX_MOD                    (MEM_SIZE / 8)
-	CHAMP_MAX_SIZE            (MEM_SIZE / 6)
-	COMMENT_CHAR            '#'
-	LABEL_CHAR                ':'
-	DIRECT_CHAR                '%'
-	SEPARATOR_CHAR            ','
-	LABEL_CHARS                "abcdefghijklmnopqrstuvwxyz_0123456789"
-	NAME_CMD_STRING            ".name"
-	COMMENT_CMD_STRING        ".comment"
-	REG_NUMBER                16
-	CYCLE_TO_DIE            1536
-	CYCLE_DELTA                50
-	NBR_LIVE                21
-	MAX_CHECKS                10
-	T_REG                    1
-	T_DIR                    2
-	T_IND                    4
-	T_LAB                    8
-	PROG_NAME_LENGTH        (128)
-	COMMENT_LENGTH            (2048)
-	COREWAR_EXEC_MAGIC        0xea83f3*/
+	if (IND_SIZE != 2 || REG_SIZE != 4 || DIR_SIZE != REG_SIZE || REG_CODE != 1 || DIR_CODE != 2 || IND_CODE != 3 || COMMENT_CHAR != '#' || LABEL_CHAR != ':' || DIRECT_CHAR != '%' || SEPARATOR_CHAR != ',' || LABEL_CHARS != "abcdefghijklmnopqrstuvwxyz_0123456789" || NAME_CMD_STRING != ".name" || COMMENT_CMD_STRING ".comment")
+		display_errors("");
+	if (REG_NUMBER != 16)
+		display_errors("");
+	if (MAX_ARGS_NUMBER != 4)
+		display_errors("");
+	if (MAX_PLAYERS != 4)
+		display_errors("");
+	if (MEM_SIZE != (4*1024))
+		display_errors("");
+	if (IDX_MOD != (MEM_SIZE / 8))
+		display_errors("");
+	if (CHAMP_MAX_SIZE != (MEM_SIZE / 6))
+		display_errors("");
+	if (REG_NUMBER != 16)
+		display_errors("");
+	if (CYCLE_TO_DIE != 1536)
+		display_errors("");
+	if (CYCLE_DELTA != 50)
+		display_errors("");
+	if (NBR_LIVE != 21)
+		display_errors("");
+	if (MAX_CHECKS != 10)
+		display_errors("");
+	if (T_REG != 1 || T_DIR != 2 || T_IND != 4 || T_LAB != 8)
+		display_errors("");
+	if (PROG_NAME_LENGTH != (128) || COMMENT_LENGTH != (2048) || COREWAR_EXEC_MAGIC != 0xea83f3)
+		display_errors("");
 	return (1);
 }
 
