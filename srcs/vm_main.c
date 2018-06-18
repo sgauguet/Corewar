@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arena.c                                            :+:      :+:    :+:   */
+/*   vm_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/14 14:27:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/14 17:27:02 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/06/18 10:52:41 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int	ft_create_player(char *file, t_env *env)
+int	main(int argc, char **argv)
 {
-	int fd;
-	char buf[1];
-	int ret;
-	char *str;
-	int i;
+	t_env	env;
+	int		i;
 
-	if (env->nb_players >= 4)
-		return (0);
-	if ((fd = open(file, O_RDONLY)) < 1 || read(fd, buf, 0) == -1)
-		return (0);
-	str = ft_strnew(128 + 2048 + CHAMP_MAX_SIZE);
+	if (argc < 2)
+		display_usage(argv);
+	init_vm_environment(argv, &env);
 	i = 0;
-	while ((ret = read(fd, buf, 1)) == 1 && i < 128 + 2048 + CHAMP_MAX_SIZE)
+	while (i < 3)
 	{
-		str[i] = buf[0];
+		ft_printf("%s\n", env.champions[i]);
 		i++;
 	}
-	env->champions[env->nb_players] = str;
+	ft_printf("%d\n", env.nb_players);
 	return (1);
 }
