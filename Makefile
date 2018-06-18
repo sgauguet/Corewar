@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/18 11:52:52 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/18 18:08:17 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC =		vm_main.c \
 			vm_check_players.c \
 			vm_load_players.c \
 			vm_display_errors.c \
-			vm_debug.c
+			vm_debug.c \
 
 SRCDIR =	./srcs
 

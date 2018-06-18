@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 11:52:41 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/18 18:07:28 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 # define COREWAR_H
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
+
+typedef struct  s_op
+{
+    char    *name;
+    int     number;
+    int     params[3];
+    int     op_code;
+    int     nb_cycles;
+    char    *description;
+    int     modify_carry;
+    int     direct_size;
+}               t_op;
 
 typedef struct	s_player
 {
@@ -30,6 +42,7 @@ typedef struct	s_env
 	int			cycle_to_die;
 	int			nb_players;
 	t_player	champions[MAX_PLAYERS];
+	t_op		*instructions;
 }				t_env;
 
 /*
@@ -77,5 +90,7 @@ void			display_errors(char *error_message);
 
 int				check_initialization(t_env *env);
 int				debug(t_env *env);
+
+t_op			op_tab[17];
 
 #endif
