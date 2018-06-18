@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_main.c                                          :+:      :+:    :+:   */
+/*   vm_debug.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 11:43:10 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/18 11:45:43 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/06/18 11:50:05 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int	main(int argc, char **argv)
+int		check_initialization(t_env *env)
 {
-	t_env	env;
-	int		i;
+	if (env)
+		;
+	return (1);
+}
 
-	if (argc < 2)
-		display_usage(argv);
-	init_vm_environment(&env);
-	i = 0;
-	while (i < 3)
-	{
-		ft_printf("%s\n", env.champions[i]);
-		i++;
-	}
-	ft_printf("%d\n", env.nb_players);
+int		debug(t_env *env)
+{
+	check_initialization(env);
+
 	return (1);
 }
