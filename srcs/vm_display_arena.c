@@ -1,24 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_main.c                                          :+:      :+:    :+:   */
+/*   vm_display_arena.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/19 09:37:11 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/06/19 09:55:13 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int	main(int argc, char **argv)
+int		display_memory_area(char byte)
 {
-	t_env	env;
+	if (byte == '\0')
+		ft_printf("00 ");
+	else
+		ft_printf("%x", byte);
+	return (1);
+}
 
-	if (argc < 2)
-		display_usage(argv);
-	init_vm_environment(&env);
-	debug(&env);
+int		display_arena(t_env *env)
+{
+	int i;
+	int line;
+
+	i = 0;
+	line = 0;
+	while (i < MEM_SIZE)
+	{
+		if (i % 64 == 0)
+		{
+			line++;
+			ft_printf("%#05x : ", i);
+		}
+		display_memory_area(env->arena[i]);
+		if ((i + 1) % 64 == 0)
+			ft_printf("\n");
+		i++;
+	}
+	ft_printf("%d\n", i);
 	return (1);
 }
