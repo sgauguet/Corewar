@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 10:50:50 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/19 16:29:49 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ int		check_options(char **argv, t_env *env)
 	{
 		if (search_options(argv[i]))
 			i++;
-		else if (ft_create_player(argv[i], env))
-			env->nb_players++;
 		else
-			display_errors("Can't read file\n");
+			ft_create_player(argv[i], env);
 		i++;
 	}
 	return (1);
