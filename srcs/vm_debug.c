@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 11:45:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/19 09:22:10 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/19 16:28:06 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int		check_initialization(t_env *env)
 
 int		debug(t_env *env)
 {
-	check_initialization(env);
+	(void)env;
+	if (env)
+		;
+//	check_initialization(env);
 	return (1);
 }
