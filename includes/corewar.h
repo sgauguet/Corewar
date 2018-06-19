@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 18:07:28 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/19 09:50:40 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,13 @@ int				ft_create_player(char *file, t_env *env);
 /*
 ** vm_load_players.c
 */
+
+/*
+** vm_display_arena.c
+*/
+
+int				display_memory_area(char byte);
+int				display_arena(t_env *env);
 
 /*
 ** vm_display_errors.c
