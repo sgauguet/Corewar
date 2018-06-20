@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/19 09:55:13 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/20 10:03:32 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ int		display_arena(t_env *env)
 
 	i = 0;
 	line = 0;
+	ft_printf("0x0000 : ");
 	while (i < MEM_SIZE)
 	{
-		if (i % 64 == 0)
+		if (i % 64 == 0i && i > 1)
 		{
 			line++;
-			ft_printf("%#05x : ", i);
+			ft_printf("%#06x : ", i);
 		}
 		display_memory_area(env->arena[i]);
 		if ((i + 1) % 64 == 0)
