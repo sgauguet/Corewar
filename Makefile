@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/19 09:34:23 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/20 11:26:58 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,10 @@ LIBDIR =	./libft
 
 CC =		gcc
 
-CFLAGS =	-Wall			\
-			-Wextra			\
-			-Werror
+CFLAGS =	-Wall \
+			-Wextra \
+			-Werror \
+			-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)
