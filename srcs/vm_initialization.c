@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/19 09:36:01 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/21 10:52:41 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		init_vm_champions(t_env *env)
 	while (i < MAX_PLAYERS)
 	{
 		env->champions[i].player_id = i + 1;
-		env->champions[i].header.magic = COREWAR_EXEC_MAGIC;
+		env->champions[i].header.magic = 0;
 		ft_bzero(env->champions[i].header.prog_name, PROG_NAME_LENGTH + 1);
 		env->champions[i].header.prog_size = 0;
 		ft_bzero(env->champions[i].header.comment, COMMENT_LENGTH + 1);
