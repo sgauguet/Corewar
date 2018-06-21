@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/21 10:40:08 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/21 15:07:58 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 typedef struct  s_op
 {
-    char    *name;
+    char    name[6];
     int     number;
     int     params[3];
     int     op_code;
     int     nb_cycles;
-    char    *description;
+    char    description[36];
     int     modify_carry;
     int     direct_size;
 }               t_op;
@@ -42,7 +42,7 @@ typedef struct	s_env
 	int			cycle_to_die;
 	int			nb_players;
 	t_player	champions[MAX_PLAYERS];
-	t_op		*instructions;
+	t_op		instructions[16];
 }				t_env;
 
 /*

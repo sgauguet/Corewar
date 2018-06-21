@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 11:45:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/21 11:24:43 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/21 15:08:23 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		display_instructions(t_env *env)
 	int j;
 
 	i = 0;
-	while (i < 17)
+	while (i < 16)
 	{
 		j = -1;
 		ft_printf("name : \"%s\", number : %d params :", env->instructions[i].name, env->instructions[i].number);
@@ -47,7 +47,7 @@ int		check_initialization(t_env *env)
 {
 	if (env)
 		;
-	//display_instructions(env);
+	display_instructions(env);
 	//display_champions(env);
 	//display_arena(env);
 	return (1);
