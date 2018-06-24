@@ -21,14 +21,14 @@ RES =		\033[0m
 NAME =		corewar
 
 SRC =		vm_main.c \
-			vm_initialization.c \
-			vm_options.c \
-			vm_create_players.c \
-			vm_check_players.c \
-			vm_load_players.c \
-			vm_display_arena.c \
-			vm_display_errors.c \
-			vm_debug.c \
+		vm_initialization.c \
+		vm_options.c \
+		vm_create_players.c \
+		vm_check_players.c \
+		vm_load_players.c \
+		vm_display_arena.c \
+		vm_display_errors.c \
+		vm_debug.c \
 
 SRCDIR =	./srcs
 
@@ -51,17 +51,17 @@ LIBDIR =	./libft
 CC =		gcc
 
 CFLAGS =	-Wall \
-			-Wextra \
-			-Werror \
-			-fsanitize=address
+		-Wextra \
+		-Werror \
+		-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
-			-I $(LIBINCDIR)
+		-I $(LIBINCDIR)
 
 LFLAGS =	-L $(LIBDIR) -lft
 
 FLAGS =		$(CFLAGS)		\
-			$(INCFLAGS)
+		$(INCFLAGS)
 
 #------------------------------------------------------------------------------#
 

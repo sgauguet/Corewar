@@ -14,7 +14,7 @@
 
 int		check_constants(void)
 {
-	if (IND_SIZE != 2 || REG_SIZE != 4 || DIR_SIZE != REG_SIZE || REG_CODE != 1 || DIR_CODE != 2 || IND_CODE != 3 || COMMENT_CHAR != '#' || LABEL_CHAR != ':' || DIRECT_CHAR != '%' || SEPARATOR_CHAR != ',' || LABEL_CHARS != "abcdefghijklmnopqrstuvwxyz_0123456789" || NAME_CMD_STRING != ".name" || COMMENT_CMD_STRING ".comment")
+	if (IND_SIZE != 2 || REG_SIZE != 4 || DIR_SIZE != REG_SIZE || REG_CODE != 1 || DIR_CODE != 2 || IND_CODE != 3 || COMMENT_CHAR != '#' || LABEL_CHAR != ':' || DIRECT_CHAR != '%' || SEPARATOR_CHAR != ',')
 		display_errors("");
 	if (REG_NUMBER != 16)
 		display_errors("");
