@@ -26,8 +26,8 @@ int	ft_header_player(char *buf, t_env *env)
 	ft_memcpy(env->champions[env->nb_players].header.prog_name, &buf[sizeof(((header_t*)0)->magic)], PROG_NAME_LENGTH);
 	mod_padding = (sizeof(((header_t*)0)->prog_name) % 4) ? (4 - (sizeof(((header_t*)0)->prog_name) % 4)) : 0;
 	ft_memcpy(prog_size, &buf[sizeof(((header_t*)0)->magic) + sizeof(((header_t*)0)->prog_name) + mod_padding], 4);
-	if (prog_size[1] + prog_size[2] + prog_size[3] != //retour de read - header)
-		display_errors("prog_size != size instructions");
+	//if (prog_size[1] + prog_size[2] + prog_size[3] != //retour de read - header)
+	//	display_errors("prog_size != size instructions");
 	printf("decalage prog_size : %d\n", prog_size[1] << 16 & 0xff0000);
 	printf("decalage prog_size : %d\n", prog_size[2] << 8 & 0x00ff00);
 	printf("prog_size : %d\n", prog_size[3] & 0x0000ff);

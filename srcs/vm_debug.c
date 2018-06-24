@@ -45,8 +45,8 @@ int		display_instructions(t_env *env)
 
 int		check_initialization(t_env *env)
 {
-	if (env)
-		;
+	if (!env)
+		return (0);
 //	display_instructions(env);
 	//display_champions(env);
 	//display_arena(env);
