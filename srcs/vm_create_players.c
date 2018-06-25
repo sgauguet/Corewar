@@ -6,11 +6,17 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:30 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 11:30:59 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 15:43:51 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+int	ft_player_instructions(char *buf, t_env *env)
+{
+	ft_memcpy(env->champions[env->nb_players].instructions, buf, env->champions[env->nb_players].header.prog_size);
+	return (1);
+}
 
 int	ft_header_player(char *buf, t_env *env)
 {
@@ -44,6 +50,11 @@ int	ft_create_player(char *file, t_env *env)
 		display_errors("is too small to be a champion");
 	}
 	ft_header_player(buf, env);
+	if ((ret = read(fd, buf, CHAMP_MAX_SIZE)) != (int)env->champions[env->nb_players].header.prog_size)
+		display_errors("Error prog_size != instructions size");
+	ft_player_instructions(buf, env);
+	if ((ret = read(fd, buf, 1)))
+		display_errors((ret < 0) ? "Read error" : "File too big");
 	env->nb_players++;
 	return (1);
 }

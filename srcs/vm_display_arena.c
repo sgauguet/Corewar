@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/20 10:03:32 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 15:51:11 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		display_memory_area(char byte)
 	if (byte == '\0')
 		ft_printf("00 ");
 	else
-		ft_printf("%x", byte);
+		ft_printf("%02x ", (unsigned char)byte);
 	return (1);
 }
 
@@ -41,6 +41,5 @@ int		display_arena(t_env *env)
 			ft_printf("\n");
 		i++;
 	}
-	ft_printf("%d\n", i);
 	return (1);
 }

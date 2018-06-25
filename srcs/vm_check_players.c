@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:19 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 11:11:00 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 16:15:27 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int		check_magic(char *magic, t_env *env)
 			(magic[3] & 0x0000ff) == (check_magic & 0x0000ff))
 	env->champions[env->nb_players].header.magic = COREWAR_EXEC_MAGIC;
 	else
-		display_errors("Corewar_exec_magic key is not valid.\n");
+		display_errors("Corewar_exec_magic key is not valid.");
 	return (1);
 }

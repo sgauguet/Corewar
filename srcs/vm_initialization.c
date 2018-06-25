@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 11:03:05 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 18:05:55 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		init_vm_champions(t_env *env)
 		ft_bzero(env->champions[i].header.prog_name, PROG_NAME_LENGTH + 1);
 		env->champions[i].header.prog_size = 0;
 		ft_bzero(env->champions[i].header.comment, COMMENT_LENGTH + 1);
-		env->champions[i].instructions = NULL;
+		ft_bzero(env->champions[i].instructions, CHAMP_MAX_SIZE);
 		env->champions[i].nb_lives = 0;
 		i++;
 	}

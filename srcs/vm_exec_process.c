@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_load_players.c                                  :+:      :+:    :+:   */
+/*   vm_exec_process.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 09:49:07 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 15:28:10 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/06/25 16:23:59 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		load_players(t_env *env)
+int		exec_process(t_env *env)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (ft_strlen(env->champions[i].file))
-	{
-		ft_memcpy(&env->arena[j], env->champions[i].instructions, CHAMP_MAX_SIZE);
-		j = j + MEM_SIZE / env->nb_players;
-		i++;
-	}
+	(void)env;
 	return (1);
 }
