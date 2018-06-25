@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/18 10:39:05 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 11:29:52 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	display_usage(char **argv)
 	"\t--stealth : Hides the real contents of the memory\n"
 	"#######################################################################\n",
 	argv[0]);
+	exit(0);
+}
+
+void	display_errors_with_value(int value, int code, t_env *env)
+{
+	if (code == 0)
+		ft_printf("Can't read source file %s\n", env->champions[env->nb_players].file);
+	if (code == 1)
+		ft_printf("Error: File %s has too large a code (%d bytes > %lu bytes).\n", env->champions[env->nb_players].file, value, CHAMP_MAX_SIZE);
 	exit(0);
 }
 

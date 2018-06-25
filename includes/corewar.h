@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/21 15:07:58 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/06/25 11:28:02 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct  s_op
 typedef struct	s_player
 {
 	int			player_id;
+	char		file[50];
 	header_t	header;
 	char		*instructions;
 	int			nb_lives;
@@ -72,6 +73,8 @@ int				ft_create_player(char *file, t_env *env);
 ** vm_check_players.c
 */
 
+int				check_magic(char *magic, t_env *env);
+int				check_prog_size(char *prog_size, t_env *env);
 
 /*
 ** vm_load_players.c
@@ -89,6 +92,7 @@ int				display_arena(t_env *env);
 */
 
 void			display_usage(char **argv);
+void			display_errors_with_value(int value, int code, t_env *env);
 void			display_errors(char *error_message);
 
 /*
@@ -97,7 +101,5 @@ void			display_errors(char *error_message);
 
 int				check_initialization(t_env *env);
 int				debug(t_env *env);
-
-t_op			op_tab[17];
 
 #endif
