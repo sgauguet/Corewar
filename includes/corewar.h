@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 11:28:02 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/25 18:12:11 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
 
+// REG_SIZE modifiable ??
+
+
 typedef struct  s_op
 {
     char    name[6];
     int     number;
     int     params[3];
-    int     op_code;
+    char	op_code;
     int     nb_cycles;
     char    description[36];
     int     modify_carry;
@@ -33,9 +36,25 @@ typedef struct	s_player
 	int			player_id;
 	char		file[50];
 	header_t	header;
-	char		*instructions;
+	char		instructions[CHAMP_MAX_SIZE];
 	int			nb_lives;
 }				t_player;
+
+typedef struct	s_process
+{
+	int					reg[REG_NUMBER];
+	int					current;
+	int					pc;
+	char				opcode;
+	int					cycle_before_exec;
+	struct s_process	*next;
+}				t_process;
+
+typedef struct	s_stack
+{
+	t_process	*first_process;
+	int			nb_process;
+}				t_stack;
 
 typedef struct	s_env 
 {
@@ -44,6 +63,7 @@ typedef struct	s_env
 	int			nb_players;
 	t_player	champions[MAX_PLAYERS];
 	t_op		instructions[16];
+	t_stack		process;
 }				t_env;
 
 /*
@@ -79,6 +99,22 @@ int				check_prog_size(char *prog_size, t_env *env);
 /*
 ** vm_load_players.c
 */
+
+int				load_players(t_env *env);
+
+/*
+** vm_process_stack.c
+*/
+
+int				create_process(t_env *env, int *reg, int current);
+int				destroy_process(t_env *env);
+int				init_process_stack(t_env *env);
+
+/*
+** vm_exec_process.c
+*/
+
+int				exec_process(t_env *env);
 
 /*
 ** vm_display_arena.c

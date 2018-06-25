@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/19 18:45:49 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/06/25 16:27:17 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char **argv)
 		display_usage(argv);
 	init_vm_environment(&env);
 	check_options(argv, &env);
+	load_players(&env);
+	init_process_stack(&env);
 	debug(&env);
 	return (1);
 }
