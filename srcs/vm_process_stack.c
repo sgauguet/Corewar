@@ -6,21 +6,22 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:17:19 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 18:15:47 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 11:48:38 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		destroy_process(t_env *env)
+int		new_instruction(t_env *env, t_process *process)
 {
-	(void)env;
-
-
+	process->current = process->pc;
+	process->opcode = env->arena[process->current];
+	process->cycle_before_exec = search_instruction(env, process->opcode);
+	process->pc = process->current + instruction_size(env, process);
 	return (1);
 }
 
-int		create_process(t_env *env, int *reg, int current)
+int		create_process(t_env *env, int *reg, int start_position)
 {
 	t_process	*new;
 	int			i;
@@ -33,11 +34,15 @@ int		create_process(t_env *env, int *reg, int current)
 		new->reg[i] = reg[i];
 		i++;
 	}
-	new->current = current;
-	new->opcode = env->arena[current];
-	//new->pc = find_pc(); 
+	new->current = start_position;
+	new->opcode = env->arena[start_position];
+	new->pc = start_position;
+	new->cycle_before_exec = 0;
+	new->alive = 0;
 	new->next = env->process.first_process;
 	env->process.first_process = new;
+	new_instruction(env, new);
+	env->process.nb_process++;
 	return(1);
 }
 
@@ -60,7 +65,5 @@ int		init_process_stack(t_env *env)
 		create_process(env, reg, (MEM_SIZE * i) / env->nb_players);
 		i++;
 	}
-
-
 	return (1);
 }
