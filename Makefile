@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/25 16:24:26 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/28 14:17:32 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ SRC =		vm_main.c \
 			vm_create_players.c \
 			vm_check_players.c \
 			vm_load_players.c \
-			vm_process_stack.c \
 			vm_exec_process.c \
+			vm_destroy_process.c \
+			vm_process_stack.c \
+			vm_instructions.c \
 			vm_display_arena.c \
 			vm_display_errors.c \
 			vm_debug.c \

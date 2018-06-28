@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 18:12:11 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 11:21:19 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@
 
 // REG_SIZE modifiable ??
 
-
 typedef struct  s_op
 {
     char    name[6];
-    int     number;
+    int     params_number;
     int     params[3];
     char	op_code;
     int     nb_cycles;
@@ -47,6 +46,7 @@ typedef struct	s_process
 	int					pc;
 	char				opcode;
 	int					cycle_before_exec;
+	int					alive;
 	struct s_process	*next;
 }				t_process;
 
@@ -59,6 +59,7 @@ typedef struct	s_stack
 typedef struct	s_env 
 {
 	char		arena[MEM_SIZE];
+	int			cycle;
 	int			cycle_to_die;
 	int			nb_players;
 	t_player	champions[MAX_PLAYERS];
@@ -78,10 +79,8 @@ int				init_vm_environment(t_env *env);
 ** vm_options.c
 */
 
-
 int				search_options(char *option);
 int				check_options(char **argv, t_env *env);
-
 
 /*
 ** vm_create_players.c
@@ -103,18 +102,34 @@ int				check_prog_size(char *prog_size, t_env *env);
 int				load_players(t_env *env);
 
 /*
-** vm_process_stack.c
-*/
-
-int				create_process(t_env *env, int *reg, int current);
-int				destroy_process(t_env *env);
-int				init_process_stack(t_env *env);
-
-/*
 ** vm_exec_process.c
 */
 
 int				exec_process(t_env *env);
+int				run_the_game(t_env *env);
+
+/*
+** vm_destroy_process.c
+*/
+
+int				destroy_process(t_env *env, t_process *process);
+int				search_dead_process(t_env *env);
+
+/*
+** vm_process_stack.c
+*/
+
+int				new_instruction(t_env *env, t_process *process);
+int				create_process(t_env *env, int *reg, int start_position);
+int				init_process_stack(t_env *env);
+
+/*
+** vm_instructions.c
+*/
+
+int				exec_instruction(t_env *env, t_process *process);
+int				instruction_size(t_env *env, t_process *process);
+int				search_instruction(t_env *env, char opcode);
 
 /*
 ** vm_display_arena.c
@@ -135,7 +150,9 @@ void			display_errors(char *error_message);
 ** vm_debug.c
 */
 
-int				check_initialization(t_env *env);
+int				display_process(t_env *env);
+int				display_champions(t_env *env);
+int				display_instructions(t_env *env);
 int				debug(t_env *env);
 
 #endif
