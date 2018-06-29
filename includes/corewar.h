@@ -6,13 +6,14 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 11:21:19 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 14:42:32 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COREWAR_H
 
 # define COREWAR_H
+# define NB_INSTRUCTIONS 16
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
 
@@ -127,6 +128,7 @@ int				init_process_stack(t_env *env);
 ** vm_instructions.c
 */
 
+int				check_instruction(t_env *env, t_process *process);
 int				exec_instruction(t_env *env, t_process *process);
 int				instruction_size(t_env *env, t_process *process);
 int				search_instruction(t_env *env, char opcode);
