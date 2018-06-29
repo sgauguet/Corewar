@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 14:47:52 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/29 18:06:13 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		exec_process(t_env *env)
 		process->cycle_before_exec--;
 		process = process->next;
 	}
+	display_process(env);
 	return (1);
 }
 

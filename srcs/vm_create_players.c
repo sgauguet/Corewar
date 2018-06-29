@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:30 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 15:43:51 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/29 15:10:30 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int	ft_create_player(char *file, t_env *env)
 	if ((ret = read(fd, buf, 1)))
 		display_errors((ret < 0) ? "Read error" : "File too big");
 	env->nb_players++;
+	if ((ret = close(fd)) == -1)
+		display_errors("Close error.");
 	return (1);
 }
