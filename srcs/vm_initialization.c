@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 11:53:42 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/29 14:54:49 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		init_vm_environment(t_env *env)
 	while (i != 16)
 	{
 		ft_bzero(env->instructions[i].name, 6);
-		ft_bzero(env->instructions[i].description, 36);
+		ft_bzero(env->instructions[i].description, 37);
 		env->instructions[i].params[0] = 0;
 		env->instructions[i].params[1] = 0;
 		env->instructions[i].params[2] = 0;

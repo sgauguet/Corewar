@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 14:42:32 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/29 14:53:39 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct  s_op
     int     params[3];
     char	op_code;
     int     nb_cycles;
-    char    description[36];
+    char    description[37];
     int     modify_carry;
     int     direct_size;
 }               t_op;
@@ -46,6 +46,7 @@ typedef struct	s_process
 	int					current;
 	int					pc;
 	char				opcode;
+	int					ocp[3];
 	int					cycle_before_exec;
 	int					alive;
 	struct s_process	*next;
@@ -128,10 +129,10 @@ int				init_process_stack(t_env *env);
 ** vm_instructions.c
 */
 
-int				check_instruction(t_env *env, t_process *process);
+int				check_ocp(t_env *env, t_process *process);
+int				nb_cycles_instruction(t_env *env, t_process *process);
 int				exec_instruction(t_env *env, t_process *process);
-int				instruction_size(t_env *env, t_process *process);
-int				search_instruction(t_env *env, char opcode);
+int				size_instruction(t_env *env, t_process *process);
 
 /*
 ** vm_display_arena.c
