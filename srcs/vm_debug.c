@@ -6,11 +6,24 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 11:45:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 11:32:18 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 16:09:01 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+int		display_char()
+{
+	int i;
+
+	i = 0;
+	while (i <= 256)
+	{
+		ft_printf("%c\n", i);
+		i++;
+	}
+	return (1);
+}
 
 int		display_process(t_env *env)
 {
@@ -74,7 +87,8 @@ int		debug(t_env *env)
 {
 	if (!env)
 		return (0);
-	display_process(env);
+	display_char();
+	//display_process(env);
 	//display_instructions(env);
 	//display_champions(env);
 	//display_arena(env);

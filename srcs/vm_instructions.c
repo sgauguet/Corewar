@@ -6,17 +6,30 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 10:27:58 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 14:18:05 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 14:46:27 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
+int		check_instruction(t_env *env, t_process *process)
+{
+	int				opcode;
+	char			ocp;
+
+	opcode = (int)process->opcode;
+	if (opcode < 1 || opcode > NB_INSTRUCTIONS)
+		return (0);
+	ocp = env->arena[process->current + 1];
+	ft_printf("ocp : %x\n", ocp);
+	return (1);
+}
+
 int		exec_instruction(t_env *env, t_process *process)
 {
-	if (process && env)
-		return (1);
-	return (0);
+	if (!check_instruction(env, process))
+		return (0);
+	return (1);
 }
 
 int		instruction_size(t_env *env, t_process *process)
