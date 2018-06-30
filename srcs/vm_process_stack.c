@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:17:19 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/29 18:18:55 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/30 10:16:01 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		create_process(t_env *env, int *reg, int start_position)
 	new->opcode = env->arena[start_position];
 	new->pc = start_position;
 	new->cycle_before_exec = 0;
+	new->carry = 0;
 	new->alive = 0;
 	new->next = env->process.first_process;
 	env->process.first_process = new;
