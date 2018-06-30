@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 11:45:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/29 18:05:47 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/30 11:59:59 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int		debug(t_env *env)
 	if (!env)
 		return (0);
 	//display_char();
-	display_process(env);
-	display_instructions(env);
-	display_champions(env);
-	display_arena(env);
+	//display_process(env);
+	//display_instructions(env);
+	//display_champions(env);
+	//display_arena(env);
 	return (1);
 }

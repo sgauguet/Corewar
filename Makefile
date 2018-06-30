@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/28 14:35:18 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/06/30 12:01:54 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,16 @@ SRC =		vm_main.c \
 			vm_destroy_process.c \
 			vm_process_stack.c \
 			vm_instructions.c \
+			vm_exec_instructions.c \
 			vm_display_arena.c \
 			vm_display_errors.c \
 			vm_debug.c \
+			exec_st.c \
+			exec_zjmp.c \
+			exec_sti.c \
+			exec_fork.c \
+			exec_lfork.c \
+			exec_aff.c
 
 SRCDIR =	./srcs
 
