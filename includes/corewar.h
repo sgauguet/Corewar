@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/29 14:53:39 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/30 11:48:42 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_process
 	char				opcode;
 	int					ocp[3];
 	int					cycle_before_exec;
+	int					carry;
 	int					alive;
 	struct s_process	*next;
 }				t_process;
@@ -131,8 +132,17 @@ int				init_process_stack(t_env *env);
 
 int				check_ocp(t_env *env, t_process *process);
 int				nb_cycles_instruction(t_env *env, t_process *process);
-int				exec_instruction(t_env *env, t_process *process);
 int				size_instruction(t_env *env, t_process *process);
+
+/*
+** vm_exec_instructions.c
+*/
+
+int				check_adress(int adress);
+int				copy_register(t_process *process, char *buf, int reg_number);
+void			modify_memory_content(t_env *env, char *buf, int start, int size);
+void			copy_memory_area(t_env *env, char *buf, int start, int size);
+int				exec_instruction(t_env *env, t_process *process);
 
 /*
 ** vm_display_arena.c
@@ -157,5 +167,17 @@ int				display_process(t_env *env);
 int				display_champions(t_env *env);
 int				display_instructions(t_env *env);
 int				debug(t_env *env);
+
+/*
+** exec
+*/
+
+int				exec_st(t_env *env, t_process *process);
+int				exec_zjmp(t_env *env, t_process *process);
+int				exec_sti(t_env *env, t_process *process);
+int				exec_fork(t_env *env, t_process *process);
+int				exec_lfork(t_env *env, t_process *process);
+int				exec_aff(t_env *env, t_process *process);
+
 
 #endif
