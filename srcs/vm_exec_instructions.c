@@ -72,5 +72,12 @@ int		exec_instruction(t_env *env, t_process *process)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 9)
 		exec_zjmp(env, process);
+	if ((int)(process->opcode) == 11)
+		exec_sti(env, process);
+	if ((int)(process->opcode) == 12)
+		exec_fork(env, process);
+	if ((int)(process->opcode) == 16)
+		exec_aff(env, process);
+	ft_printf("nb_process : %d\n", env->process.nb_process);
 	return (1);
 }

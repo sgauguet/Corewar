@@ -14,7 +14,14 @@
 
 int        exec_aff(t_env *env, t_process *process)
 {
-    if (env && process)
-        return (1);
+    char reg_value[4];
+	int	value;
+
+	if (!copy_register(process, reg_value, (int)env->arena[check_adress(process->current + 2)]))
+		return (0);
+	if (process->ocp[0] != 1)
+		return (0);
+	value = reg_value[0] << 24 | reg_value[1] << 16 | reg_value[2] << 8 | reg_value[3];
+	ft_printf("aff : %d\n", value);
     return (0);
 }

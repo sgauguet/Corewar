@@ -123,7 +123,7 @@ int				search_dead_process(t_env *env);
 */
 
 int				new_instruction(t_env *env, t_process *process);
-int				create_process(t_env *env, int *reg, int start_position);
+int				create_process(t_env *env, int *reg, int start_position, int fork);
 int				init_process_stack(t_env *env);
 
 /*
