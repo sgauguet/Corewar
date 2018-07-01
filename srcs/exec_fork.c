@@ -14,7 +14,13 @@
 
 int        exec_fork(t_env *env, t_process *process)
 {
-    if (env && process)
-        return (1);
+	char dest[2];
+	int fork_pc;
+	
+	ft_bzero(dest, 2);
+	copy_memory_area(env, dest, check_adress(process->current), 2);
+	fork_pc = check_adress((dest[0] << 8 | dest[1]) % IDX_MOD);
+	create_process(env, process->reg, process-> current, fork_pc);
+	//ft_printf("process crée a l'adresse %d\n", fork_pc);
     return (0);
 }
