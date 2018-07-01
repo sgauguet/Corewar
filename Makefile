@@ -47,7 +47,8 @@ OBJ =		$(SRC:%.c=$(OBJDIR)/%.o)
 
 OBJDIR =	./objs
 
-HEADER =	./includes/corewar.h
+HEADER =	$(INCDIR)/corewar.h \
+		$(INCDIR)/op.h \
 
 #------------------------------------------------------------------------------#
 
@@ -64,7 +65,7 @@ CC =		gcc
 CFLAGS =	-Wall \
 			-Wextra \
 			-Werror \
-			-fsanitize=address
+			#-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)
@@ -82,12 +83,12 @@ libft:
 	@$(MAKE) -C ./libft all
 	@$(MAKE) $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
+$(NAME): $(OBJ)
 	@echo "[$(GREEN)Ok$(RES)] Compiling : "$@
-	@$(CC) -g $(FLAGS) $(LFLAGS) $(OBJ) -o $@
+	@$(CC) -g $(FLAGS) $(OBJ) -o $@ $(LFLAGS)
 	@echo "Compilation done !"
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
 	@mkdir -p $(OBJDIR)
 	@echo "[$(GREEN)Ok$(RES)] Compiling : "$@
 	@$(CC) -g $(FLAGS) -o $@ -c $<
