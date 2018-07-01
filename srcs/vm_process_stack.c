@@ -24,7 +24,7 @@ int		new_instruction(t_env *env, t_process *process)
 	return (1);
 }
 
-int		create_process(t_env *env, int *reg, int start_position)
+int		create_process(t_env *env, int *reg, int start_position, int fork)
 {
 	t_process	*new;
 	int			i;
@@ -39,13 +39,14 @@ int		create_process(t_env *env, int *reg, int start_position)
 	}
 	new->current = start_position;
 	new->opcode = env->arena[start_position];
-	new->pc = start_position;
+	new->pc = (fork) ? fork : start_position;
 	new->cycle_before_exec = 0;
 	new->carry = 0;
 	new->alive = 0;
 	new->next = env->process.first_process;
 	env->process.first_process = new;
-	new_instruction(env, new);
+	if (fork)
+		new_instruction(env, new);
 	env->process.nb_process++;
 	return(1);
 }
@@ -66,7 +67,7 @@ int		init_process_stack(t_env *env)
 			reg[j] = 0;
 			j++;
 		}
-		create_process(env, reg, (MEM_SIZE * i) / env->nb_players);
+		create_process(env, reg, (MEM_SIZE * i) / env->nb_players, 0);
 		i++;
 	}
 	return (1);
