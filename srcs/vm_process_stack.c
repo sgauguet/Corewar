@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:17:19 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 10:16:01 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 11:08:50 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int		new_instruction(t_env *env, t_process *process)
 	process->ocp[0] = 0;
 	process->ocp[1] = 0;
 	process->ocp[2] = 0;
-	process->pc = (process->current + size_instruction(env, process)) % MEM_SIZE;
+	process->pc = (process->current + size_instruction(env, process))
+		% MEM_SIZE;
 	return (1);
 }
 
-int		create_process(t_env *env, int *reg, int start_position, int fork)
+int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 {
 	t_process	*new;
 	int			i;
@@ -39,16 +40,16 @@ int		create_process(t_env *env, int *reg, int start_position, int fork)
 	}
 	new->current = start_position;
 	new->opcode = env->arena[start_position];
-	new->pc = (fork) ? fork : start_position;
+	new->pc = (fork) ? fork->pc : start_position;
 	new->cycle_before_exec = 0;
-	new->carry = 0;
-	new->alive = 0;
+	new->carry = (fork) ? fork->carry : 0;
+	new->alive = (fork) ? fork->alive : 0;
 	new->next = env->process.first_process;
 	env->process.first_process = new;
 	if (fork)
 		new_instruction(env, new);
 	env->process.nb_process++;
-	return(1);
+	return (1);
 }
 
 int		init_process_stack(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 11:48:42 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 11:48:08 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ typedef struct	s_stack
 	int			nb_process;
 }				t_stack;
 
+typedef	struct	s_fork
+{
+	int			pc;
+	int			carry;
+	int			alive;
+}				t_fork;
+
 typedef struct	s_env 
 {
 	char		arena[MEM_SIZE];
@@ -75,6 +82,8 @@ typedef struct	s_env
 */
 
 int				check_constants(void);
+int				init_instructions_2(t_env *env);
+int				init_instructions(t_env *env);
 int				init_vm_champions(t_env *env);
 int				init_vm_environment(t_env *env);
 
@@ -123,7 +132,7 @@ int				search_dead_process(t_env *env);
 */
 
 int				new_instruction(t_env *env, t_process *process);
-int				create_process(t_env *env, int *reg, int start_position, int fork);
+int				create_process(t_env *env, int *reg, int start_position, t_fork *fork);
 int				init_process_stack(t_env *env);
 
 /*
@@ -178,6 +187,5 @@ int				exec_sti(t_env *env, t_process *process);
 int				exec_fork(t_env *env, t_process *process);
 int				exec_lfork(t_env *env, t_process *process);
 int				exec_aff(t_env *env, t_process *process);
-
 
 #endif

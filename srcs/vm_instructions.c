@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 10:27:58 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 10:19:37 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 12:02:58 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int		size_param(t_env *env, t_process *process)
 
 	i = 0;
 	result = 2;
-	instruction = (int)(process->opcode);
+	instruction = (int)(process->opcode) - 1;
+	if (instruction < 1 && instruction > NB_INSTRUCTIONS)
+		return (result);
 	while (i < 3)
 	{
 		if (process->ocp[i] == 1)
@@ -34,10 +36,10 @@ int		size_param(t_env *env, t_process *process)
 	return (result);
 }
 
-int     check_ocp(t_env *env, t_process *process)
+int		check_ocp(t_env *env, t_process *process)
 {
 	int		ocp;
-	int     result;
+	int		result;
 
 	ocp = (unsigned int)env->arena[process->current + 1] / 4;
 	process->ocp[2] = ocp % 4;

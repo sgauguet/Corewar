@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 15:55:01 by jebossue          #+#    #+#             */
-/*   Updated: 2017/11/01 12:49:31 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/04 11:37:49 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
+# include <limits.h>
 # include <ctype.h>
 # include <sys/types.h>
 # include <sys/stat.h>
