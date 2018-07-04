@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:07 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/25 15:28:10 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 12:05:37 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		load_players(t_env *env)
 	j = 0;
 	while (ft_strlen(env->champions[i].file))
 	{
-		ft_memcpy(&env->arena[j], env->champions[i].instructions, CHAMP_MAX_SIZE);
+		ft_memcpy(&env->arena[j], env->champions[i].instructions,
+				CHAMP_MAX_SIZE);
 		j = j + MEM_SIZE / env->nb_players;
 		i++;
 	}

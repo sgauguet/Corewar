@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 11:52:44 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 12:48:29 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		check_adress(int adress)
 	int result;
 
 	result = adress % MEM_SIZE;
-	result = (result < 0) ? (MEM_SIZE - result) : result;
+	result = (result < 0) ? (MEM_SIZE + result) : result;
 	return (result);
 }
 
@@ -42,7 +42,7 @@ void	modify_memory_content(t_env *env, char *buf, int start, int size)
 	int pos;
 
 	i = 0;
-	pos = start;
+	pos = start - 1;
 	while (i < size)
 	{
 		pos = check_adress(pos + 1);
@@ -78,6 +78,5 @@ int		exec_instruction(t_env *env, t_process *process)
 		exec_fork(env, process);
 	if ((int)(process->opcode) == 16)
 		exec_aff(env, process);
-	ft_printf("nb_process : %d\n", env->process.nb_process);
 	return (1);
 }

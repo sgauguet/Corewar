@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:08:02 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 10:45:20 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 12:59:20 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int		exec_zjmp(t_env *env, t_process *process)
 		return (0);
 	ft_bzero(zjmp, 3);
 	copy_memory_area(env, zjmp, process->current, 2);
-	//ft_printf("zjmp[0] vaut : %x\n", (unsigned char)zjmp[0]);
-	//ft_printf("zjmp[1] vaut : %x\n", (unsigned char)zjmp[1]);
 	jump = process->current + (zjmp[0] << 8 | zjmp[1]);
 	jump = check_adress(jump);
 	process->current = jump;
-	//ft_printf("jump vaut : %d\n", jump);
 	return (1);
 }
