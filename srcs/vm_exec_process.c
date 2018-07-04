@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/30 10:18:07 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/04 12:09:18 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		exec_process(t_env *env)
 		if (process->cycle_before_exec == 0)
 			new_instruction(env, process);
 		if (process->cycle_before_exec == 1)
-		   exec_instruction(env, process);
+			exec_instruction(env, process);
 		process->cycle_before_exec--;
 		process = process->next;
 	}
@@ -46,6 +46,7 @@ int		run_the_game(t_env *env)
 		env->cycle++;
 		cycle_to_die++;
 	}
+	display_arena(env);
 	ft_printf("end of the game cycle : %d\n", env->cycle - 1);
 	return (1);
 }
