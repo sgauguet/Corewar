@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/04 10:36:44 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/05 11:40:48 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ int		display_memory_area(char byte)
 		ft_printf("00 ");
 	else
 		ft_printf("%02x ", (unsigned char)byte);
+	return (1);
+}
+
+int		display_specific_area(t_env *env, int start, int size)
+{
+	int i;
+
+	i = start;
+	while (size)
+	{
+		i = check_adress(i);
+		display_memory_area(env->arena[i]);
+		size--;
+		i++;
+	}
 	return (1);
 }
 
