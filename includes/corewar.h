@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/04 11:48:08 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/05 12:01:11 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,17 @@ int				exec_instruction(t_env *env, t_process *process);
 */
 
 int				display_memory_area(char byte);
+int				display_specific_area(t_env *env, int start, int end);
 int				display_arena(t_env *env);
+
+/*
+** vm_display_messages.c
+*/
+
+int				show_deaths(t_env *env, t_process *process);
+int				show_pc_movements(t_env *env, t_process *process);
+int				display_end(t_env *env);
+int				display_start(t_env *env);
 
 /*
 ** vm_display_errors.c

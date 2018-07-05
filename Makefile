@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/06/30 12:01:54 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/07/05 10:07:44 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC =		vm_main.c \
 			vm_instructions.c \
 			vm_exec_instructions.c \
 			vm_display_arena.c \
+			vm_display_messages.c \
 			vm_display_errors.c \
 			vm_debug.c \
 			exec_st.c \
@@ -65,7 +66,7 @@ CC =		gcc
 CFLAGS =	-Wall \
 			-Wextra \
 			-Werror \
-			#-fsanitize=address
+			-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)
