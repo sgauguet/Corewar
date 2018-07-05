@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/04 12:09:18 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/05 11:37:02 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		run_the_game(t_env *env)
 	int cycle_to_die;
 
 	cycle_to_die = 0;
-	ft_printf("start of the game\n");
+	display_start(env);
 	while (env->process.nb_process)
 	{
 		if (cycle_to_die == env->cycle_to_die)
@@ -47,6 +47,6 @@ int		run_the_game(t_env *env)
 		cycle_to_die++;
 	}
 	display_arena(env);
-	ft_printf("end of the game cycle : %d\n", env->cycle - 1);
+	display_end(env);
 	return (1);
 }
