@@ -1,0 +1,113 @@
+Introducing contestants...
+* Player 1, weighing 25 bytes, "blabla" ("Commentaire") !
+P    1 | live 42
+P    1 | lld 11 r1
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+P    1 | st r1 -12
+P    1 | and 11 0 r3
+P    1 | zjmp -22 OK
+Contestant 1, "blabla", has won !

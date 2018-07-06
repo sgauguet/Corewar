@@ -6,19 +6,34 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 12:04:30 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/06 11:47:28 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
+int		show_operations(t_env *env, t_process *process, t_param *param)
+{
+	int i;
+
+	i = 0;
+	if ((int)process->opcode < 1 || (int)process->opcode > NB_INSTRUCTIONS)
+		return (0);
+	ft_printf("P %4d | %s", process->id, env->instructions[(int)(process->opcode) - 1].name);
+	while (i < 3)
+	{
+		if (process->ocp[i])
+			(process->ocp[i] == 1) ? ft_printf(" r%d", param->p[i]) : ft_printf(" %d", param->p[i]);
+		i++;
+	}
+	ft_printf("\n");
+	return (1);
+}
+
 int		show_deaths(t_env *env, t_process *process)
 {
-	if (env && process)
-		return (0);
-	// Ajouter un ID par process pour l'affichage
-	//ft_printf("Process %d hasn't lived for %d cycles ((CTD %d)\n",
-	//			process->id, process->alive, env->cycle_to_die);
+	ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id,
+			process->alive, env->cycle_to_die);
 	return (1);
 }
 

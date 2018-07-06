@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 12:18:42 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/04 12:48:03 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/06 11:51:30 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int		exec_sti(t_env *env, t_process *process)
 	copy_memory_area(env, param, check_adress(process->current + 2),
 		param1_size);
 	adress = (param1_size == 2) ? (param[0] << 8 | param[1]) : param[0];
-	copy_memory_area(env, param, check_adress(process->current + 2 +
-		param1_size), param2_size);
+	copy_memory_area(env, param, check_adress(process->current + 2 
+		+ param1_size), param2_size);
 	adress += (param2_size = 2) ? (param[0] << 8 | param[1]) : param[0];
 	adress = check_adress(adress % IDX_MOD + process->current);
 	modify_memory_content(env, reg_value, adress, 4);
 	process->carry = 1;
+	//show_operations(env, adress, param);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 11:37:02 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/06 10:42:25 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		run_the_game(t_env *env)
 		env->cycle++;
 		cycle_to_die++;
 	}
-	display_arena(env);
 	display_end(env);
 	return (1);
 }

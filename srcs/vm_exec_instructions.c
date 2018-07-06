@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 11:05:01 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/06 11:19:23 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	copy_memory_area(t_env *env, char *buf, int start, int size)
 
 int		exec_instruction(t_env *env, t_process *process)
 {
-	show_pc_movements(env, process);
+	//show_pc_movements(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 9)
