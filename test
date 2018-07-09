@@ -1,0 +1,179 @@
+commit 8bbc7e0dc95ad00a2a356df9585c22ad326c65bb
+Author: Simon GAUGUET <sgauguet@e2r12p11.42.fr>
+Date:   Mon Jul 9 13:03:23 2018 +0200
+
+    show operations
+
+commit 40d0ea3d3261031b93e7e8ebf04da41da41d666f
+Author: Simon GAUGUET <sgauguet@e2r12p13.42.fr>
+Date:   Fri Jul 6 11:54:58 2018 +0200
+
+    delete useless filess
+
+commit 68cf939be1a7a35b1f22147eda5577e61e75f97e
+Author: Simon GAUGUET <sgauguet@e2r12p13.42.fr>
+Date:   Fri Jul 6 11:52:38 2018 +0200
+
+    show operations
+
+commit c979af0ad1145dc9f0eee3ed29a33a7a4a3df8dc
+Author: Simon GAUGUET <sgauguet@e2r12p13.42.fr>
+Date:   Thu Jul 5 12:06:25 2018 +0200
+
+    pc movements
+
+commit da2ad2a5886330c401e2e0bec5601b91581629ae
+Author: Simon GAUGUET <sgauguet@e2r12p13.42.fr>
+Date:   Wed Jul 4 13:05:01 2018 +0200
+
+    norm + modifs sti
+
+commit f9853c2b7d6375f159fdbb9b77594b9bd0e94ace
+Author: root <root@Simon.localdomain>
+Date:   Sun Jul 1 18:04:21 2018 +0200
+
+    new instructions : sti + fork + lfork + aff
+
+commit 017bafb342df582ef3bddc173bf9c40ec7fec069
+Author: root <root@Simon.localdomain>
+Date:   Sun Jul 1 15:32:20 2018 +0200
+
+    Makefile modification -> linking with gcc
+
+commit 9eaccecdcb90f1bbd34312aab05f4865ba2975b7
+Author: Simon GAUGUET <sgauguet@e3r10p6.42.fr>
+Date:   Sat Jun 30 12:03:04 2018 +0200
+
+    add new functions for instruction exec + zjmp and st
+
+commit c3ea812d9d9f5970df834aab6a945084ec1a2978
+Author: Simon GAUGUET <sgauguet@e3r12p9.42.fr>
+Date:   Fri Jun 29 18:39:31 2018 +0200
+
+    move pc
+
+commit 73befaf167d7350efc9fd5988871427ff8ec14f2
+Author: Simon GAUGUET <sgauguet@e3r10p6.42.fr>
+Date:   Fri Jun 29 09:18:19 2018 +0200
+
+    check instruction
+
+commit 49e3e1ac49c2301d1b041692df1cb861e8a150fd
+Author: Simon GAUGUET <sgauguet@e3r10p1.42.fr>
+Date:   Thu Jun 28 14:22:42 2018 +0200
+
+    process execution framework
+
+commit 3565d1a860ab24df989dba2c0ca48b4a6513050e
+Author: Simon GAUGUET <sgauguet@e2r6p12.42.fr>
+Date:   Mon Jun 25 18:17:52 2018 +0200
+
+    Load players + process creation
+
+commit b5d81e8ca5db2676bd3dba8a9ce3423e95d632c1
+Author: Simon GAUGUET <sgauguet@e2r9p2.42.fr>
+Date:   Mon Jun 25 11:32:18 2018 +0200
+
+    check header informations in players creation process
+
+commit 228becb9546ba0436a2bc88ba97ac79e27915b01
+Author: root <root@Simon.localdomain>
+Date:   Sun Jun 24 20:44:22 2018 +0200
+
+    compilation linux
+
+commit 22024f210cf6d3af803f9aa17855efda5156201f
+Author: Jean BOSSUET-TIERCELIN <jebossue@e3r8p18.42.fr>
+Date:   Thu Jun 21 17:41:25 2018 +0200
+
+    need finish to check prog size
+
+commit 1c9a4b36b8f54f902b1ab93ed39425903a6ba6d4
+Author: Jean BOSSUET-TIERCELIN <jebossue@e3r8p18.42.fr>
+Date:   Thu Jun 21 15:12:09 2018 +0200
+
+    env->instruction done
+
+commit aa765d61e8600340e567ff10da5a47d4fd6a6a91
+Author: Simon GAUGUET <sgauguet@e3r8p20.42.fr>
+Date:   Thu Jun 21 12:26:56 2018 +0200
+
+    check magic in header_s
+
+commit 51edcf31764944e9a7a4a018d2e9619b025578e4
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Wed Jun 20 11:28:20 2018 +0200
+
+    compilation with fsanitize
+
+commit 1d61f12d13de21708919c791a78114b38cbfdc89
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Wed Jun 20 10:04:05 2018 +0200
+
+    display arena
+
+commit 554e5646abeccfe691e3346dd3d721c6602be45f
+Author: Jean BOSSUET-TIERCELIN <jebossue@e3r10p18.42.fr>
+Date:   Tue Jun 19 18:46:11 2018 +0200
+
+    ves
+
+commit 788c1a3e7d9a92ead0276c0ca1254bbf2acf8bea
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Tue Jun 19 09:57:12 2018 +0200
+
+    add display_arena.c
+
+commit 96271297ad8d0905d1da0dbf56c329b6cb655238
+Author: Simon GAUGUET <sgauguet@e3r10p19.42.fr>
+Date:   Mon Jun 18 18:46:05 2018 +0200
+
+    op tab
+
+commit a5d2788bc28bb0ade603898264c885bff8a7b9c7
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Mon Jun 18 12:15:35 2018 +0200
+
+    new files
+
+commit d1070be91a8c6a284b032789cc54b2fd806b60f8
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Mon Jun 18 11:58:33 2018 +0200
+
+    new files
+
+commit 0ced57f3d4e4f81be06c126388f8972610541f79
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Mon Jun 18 11:01:16 2018 +0200
+
+    remove file
+
+commit d643e32c8478993b554831a61c97ce06268b8b21
+Author: Simon GAUGUET <sgauguet@e2r10p1.42.fr>
+Date:   Mon Jun 18 10:53:44 2018 +0200
+
+    new files
+
+commit d6d409a3e9ceaff9bc98d4e0131a21aa629aac27
+Author: Simon GAUGUET <sgauguet@e2r10p2.42.fr>
+Date:   Fri Jun 15 11:09:22 2018 +0200
+
+    Corewar
+
+commit ab503ba0ab079c8c20cde7bd432145e0280b5059
+Author: Simon GAUGUET <sgauguet@e3r10p17.42.fr>
+Date:   Wed Jun 13 16:11:48 2018 +0200
+
+    structuration du dossier - recompilation header
+
+commit 93215661a8688ca8c1491abae65a1d7269504877
+Author: Jean BOSSUET-TIERCELIN <jebossue@e3r9p15.42.fr>
+Date:   Wed Jun 13 16:01:26 2018 +0200
+
+    libft
+
+commit 37ad7a533e140568322176159ec9966d4b810b27
+Author: Jean BOSSUET-TIERCELIN <jebossue@e3r9p15.42.fr>
+Date:   Wed Jun 13 15:23:29 2018 +0200
+
+    FIRST
