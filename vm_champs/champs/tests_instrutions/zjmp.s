@@ -1,6 +1,8 @@
 .name "zjmp!"
 .comment "Test de l'instruction Jump en avant et en arriere"
 
+	live %1
+	st r1, 996205515
 ping:
 	lld %-112685, r3
 	aff r3

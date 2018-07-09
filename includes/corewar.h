@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/06 11:41:20 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/09 09:51:15 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ typedef	struct	s_fork
 
 typedef	struct	s_param
 {
-	int			p[3];
+	int			value[3];
+	int			size[3];
 	int			adress;
+	int			success;
 }				t_param;
 
 typedef struct	s_env 
@@ -156,11 +158,17 @@ int				size_instruction(t_env *env, t_process *process);
 ** vm_exec_instructions.c
 */
 
+int				exec_instruction(t_env *env, t_process *process);
+
+/*
+** vm_exec_instructions.c
+*/
+
 int				check_adress(int adress);
+int				params_size_ocp(t_env *env, t_process *process, t_param *param);
 int				copy_register(t_process *process, char *buf, int reg_number);
 void			modify_memory_content(t_env *env, char *buf, int start, int size);
 void			copy_memory_area(t_env *env, char *buf, int start, int size);
-int				exec_instruction(t_env *env, t_process *process);
 
 /*
 ** vm_display_arena.c
