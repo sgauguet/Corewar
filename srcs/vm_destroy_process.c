@@ -6,18 +6,11 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 09:34:57 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/06 09:22:20 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/06/28 14:05:53 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-int		free_memory(t_env *env, t_process *process)
-{
-	show_deaths(env, process);
-	ft_memdel((void **)&process);
-	return (1);
-}
 
 int		destroy_process(t_env *env, t_process *process)
 {
@@ -28,7 +21,7 @@ int		destroy_process(t_env *env, t_process *process)
 	if (tmp == process)
 	{
 		env->process.first_process = process->next;
-		free_memory(env, process);
+		ft_memdel((void **)&process);
 		return (1);
 	}
 	while (tmp->next != process && tmp->next)
@@ -36,7 +29,7 @@ int		destroy_process(t_env *env, t_process *process)
 	if (tmp->next == process)
 	{
 		tmp->next = process->next;
-		free_memory(env, process);
+		ft_memdel((void **)&process);
 		return (1);
 	}
 	return (0);

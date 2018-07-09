@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_process_stack.c                                 :+:      :+:    :+:   */
+/*   process_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 10:54:09 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/06 10:56:17 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/25 16:17:19 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/07/05 11:36:56 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 		new->reg[i] = reg[i];
 		i++;
 	}
-	new->id = env->process.process_id;
 	new->current = start_position;
 	new->opcode = env->arena[start_position];
 	new->pc = (fork) ? fork->pc : start_position;
@@ -49,7 +48,6 @@ int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 	env->process.first_process = new;
 	if (fork)
 		new_instruction(env, new);
-	env->process.process_id++;
 	env->process.nb_process++;
 	return (1);
 }
