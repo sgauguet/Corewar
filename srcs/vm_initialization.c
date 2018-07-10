@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/04 12:04:02 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/09 08:58:33 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		init_instructions(t_env *env)
 	env->instructions[11] = (t_op){"fork", 1, {T_DIR}, 12, 800, "fork", 0, 1};
 	env->instructions[12] = (t_op){"lld", 2, {T_DIR | T_IND, T_REG}, 13, 10,
 		"long load", 1, 0};
-	return (1);
+	return (init_instructions_2(env));
 }
 
 int		init_vm_champions(t_env *env)
@@ -121,6 +121,7 @@ int		init_vm_environment(t_env *env)
 	}
 	env->process.first_process = NULL;
 	env->process.nb_process = 0;
+	env->process.process_id = 1;
 	init_vm_champions(env);
 	init_instructions(env);
 	return (1);

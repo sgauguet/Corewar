@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 12:01:11 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 09:38:12 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_player
 
 typedef struct	s_process
 {
+	unsigned long		id;
 	int					reg[REG_NUMBER];
 	int					current;
 	int					pc;
@@ -57,6 +58,7 @@ typedef struct	s_stack
 {
 	t_process	*first_process;
 	int			nb_process;
+	int			process_id;
 }				t_stack;
 
 typedef	struct	s_fork
@@ -65,6 +67,14 @@ typedef	struct	s_fork
 	int			carry;
 	int			alive;
 }				t_fork;
+
+typedef struct	s_param
+{
+	int			value[3];
+	int			size[3];
+	int			adress;
+	int			success;
+}				t_param;
 
 typedef struct	s_env 
 {
@@ -124,6 +134,7 @@ int				run_the_game(t_env *env);
 ** vm_destroy_process.c
 */
 
+int				free_memory(t_env *env, t_process *process);
 int				destroy_process(t_env *env, t_process *process);
 int				search_dead_process(t_env *env);
 
@@ -144,13 +155,19 @@ int				nb_cycles_instruction(t_env *env, t_process *process);
 int				size_instruction(t_env *env, t_process *process);
 
 /*
-** vm_exec_instructions.c
+** vm_exec_functions.c
 */
 
 int				check_adress(int adress);
+int				params_size_ocp(t_env *env, t_process *process, t_param *param);
 int				copy_register(t_process *process, char *buf, int reg_number);
 void			modify_memory_content(t_env *env, char *buf, int start, int size);
 void			copy_memory_area(t_env *env, char *buf, int start, int size);
+
+/*
+** vm_exec_instructions.c
+*/
+
 int				exec_instruction(t_env *env, t_process *process);
 
 /*
@@ -165,6 +182,7 @@ int				display_arena(t_env *env);
 ** vm_display_messages.c
 */
 
+int				show_operations(t_env *env, t_process *process, t_param *param);
 int				show_deaths(t_env *env, t_process *process);
 int				show_pc_movements(t_env *env, t_process *process);
 int				display_end(t_env *env);
