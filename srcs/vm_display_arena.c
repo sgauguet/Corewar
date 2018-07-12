@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 11:40:48 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 10:48:23 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		display_specific_area(t_env *env, int start, int size)
 	int i;
 
 	i = start;
-	while (size)
+	while (size > 0)
 	{
 		i = check_adress(i);
 		display_memory_area(env->arena[i]);

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 10:27:58 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 10:57:34 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:44:22 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		size_param(t_env *env, t_process *process)
 	i = 0;
 	result = 2;
 	instruction = (int)(process->opcode) - 1;
-	if (instruction < 1 && instruction > NB_INSTRUCTIONS)
+	if (instruction < 0 || instruction > NB_INSTRUCTIONS + 1)
 		return (result);
 	while (i < 3)
 	{
@@ -66,7 +66,7 @@ int		size_instruction(t_env *env, t_process *process)
 	int opcode;
 
 	opcode = (int)process->opcode;
-	if (process->cycle_before_exec == 1)
+	if (opcode < 1 || opcode > (int)NB_INSTRUCTIONS)
 		return (1);
 	else if (opcode == 9 || opcode == 12 || opcode == 15)
 		return (3);

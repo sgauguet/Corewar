@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 10:54:09 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/06 10:56:17 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:53:49 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int		new_instruction(t_env *env, t_process *process)
 	process->ocp[0] = 0;
 	process->ocp[1] = 0;
 	process->ocp[2] = 0;
-	process->pc = (process->current + size_instruction(env, process))
-		% MEM_SIZE;
+	process->pc = check_adress(process->current + size_instruction(env, process));
 	return (1);
 }
 

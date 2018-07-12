@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/09 10:22:30 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:39:12 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		show_operations(t_env *env, t_process *process, t_param *param)
 	while (i < 3)
 	{
 		if (process->ocp[i])
-			(process->ocp[i] == 1) ? ft_printf(" r%d", param->value[i]) 
+			(process->ocp[i] == 1 && i == 0) ? ft_printf(" r%d", param->value[i]) 
 				: ft_printf(" %d", param->value[i]);
 		i++;
 	}
@@ -54,10 +54,8 @@ int		show_pc_movements(t_env *env, t_process *process)
 	int size;
 	
 	op = (int)process->opcode;
-	size = 1;
-	size += (op == 1 || op == 9 || op == 12 || op == 15) ? 0 : 1;
-	size += process->ocp[0] + process->ocp[1] + process->ocp[2];
-	if (size == 1)
+	size = size_instruction(env, process);
+	if (size == 1 || op < 1 || op > NB_INSTRUCTIONS)
 		return (0);
 	ft_printf("ADV %d ", size);
 	(process->current) ? ft_printf("(%#06x -> ", check_adress(process->current))
@@ -84,6 +82,7 @@ int		display_start(t_env *env)
 	int i;
 
 	i = 0;
+	ft_printf("Introducing contestants...\n");
 	while (ft_strlen(env->champions[i].file))
 	{
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n", 

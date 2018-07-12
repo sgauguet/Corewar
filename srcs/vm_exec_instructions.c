@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/09 12:11:13 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:07:00 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		exec_instruction(t_env *env, t_process *process)
 {
-	//show_pc_movements(env, process);
+	show_pc_movements(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 9)

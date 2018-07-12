@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/28 14:18:47 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:53:37 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	check_options(argv, &env);
 	load_players(&env);
 	init_process_stack(&env);
-	debug(&env);
 	run_the_game(&env);
+	//debug(&env);
 	return (1);
 }
