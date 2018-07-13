@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/12 16:23:02 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/13 10:06:01 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ typedef struct	s_process
 
 typedef struct	s_stack
 {
-	t_process	*first_process;
-	int			nb_process;
-	int			process_id;
+	t_process		*first_process;
+	int				nb_process;
+	unsigned long	process_id;
 }				t_stack;
 
 typedef	struct	s_fork
@@ -160,9 +160,12 @@ int				size_instruction(t_env *env, t_process *process);
 
 int				check_adress(int adress);
 int				params_size_ocp(t_env *env, t_process *process, t_param *param);
+int				indirect_value(t_env *env, int start);
+int				register_value(t_process *process, int reg_number);
 int				copy_register(t_process *process, char *buf, int reg_number);
-void			modify_memory_content(t_env *env, char *buf, int start, int size);
 void			copy_memory_area(t_env *env, char *buf, int start, int size);
+void			modify_register_content(t_process *process, char *new_value, int reg_number);
+void			modify_memory_content(t_env *env, char *buf, int start, int size);
 
 /*
 ** vm_exec_instructions.c

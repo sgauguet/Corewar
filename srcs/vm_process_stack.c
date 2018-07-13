@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 10:54:09 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/10 11:53:49 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/12 18:10:49 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		init_process_stack(t_env *env)
 	i = 0;
 	while (ft_strlen(env->champions[i].file))
 	{
-		reg[0] = env->champions[i].player_id;
+		reg[0] = -1 * env->champions[i].player_id;
 		j = 1;
 		while (j < REG_NUMBER)
 		{
