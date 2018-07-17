@@ -6,7 +6,11 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/07/17 17:22:13 by aserguie         ###   ########.fr       */
+=======
+/*   Updated: 2018/07/17 17:34:06 by jebossue         ###   ########.fr       */
+>>>>>>> 182e39c2563a359b7e9c4d318d35382fd434dbb2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +87,7 @@ typedef struct	s_param
 	int			size[3];
 	int			adress;
 	int			success;
+	char		param[1][4];
 }				t_param;
 
 /*
@@ -232,6 +237,7 @@ int				exec_lld(t_env *env, t_process *process);
 int				exec_ldi(t_env *env, t_process *process);
 int				exec_lldi(t_env *env, t_process *process);
 int				exec_st(t_env *env, t_process *process);
+int				exec_and(t_env *env, t_process *process);
 int				exec_zjmp(t_env *env, t_process *process);
 int				exec_sti(t_env *env, t_process *process);
 int				exec_fork(t_env *env, t_process *process);
