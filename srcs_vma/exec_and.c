@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/17 19:04:37 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/17 19:06:40 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 		ft_strcpy(param->param[i], ft_itoa_base(register_value(process, (int)tmp[0]), 16, "0123456789abcdef")); //if register_value == 0 and good value on reg_number we are fuuck up
 	}
 	j = 0;
-	param->param[0][8] = '\0';
+	param->param[0][3] = '\0';
 	ft_printf("ICI : ");
 	while (param->param[0][j])
 	{
