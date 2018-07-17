@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_process_stack.c                                 :+:      :+:    :+:   */
+/*   vm_create_process.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/06 10:54:09 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/12 18:10:49 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/07/17 09:47:44 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-
-int		new_instruction(t_env *env, t_process *process)
-{
-	process->current = process->pc;
-	process->opcode = env->arena[process->current];
-	process->cycle_before_exec = nb_cycles_instruction(env, process);
-	process->ocp[0] = 0;
-	process->ocp[1] = 0;
-	process->ocp[2] = 0;
-	process->pc = check_adress(process->current + size_instruction(env, process));
-	return (1);
-}
 
 int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 {

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   put.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpacaly <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/12 16:42:04 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/06/12 16:43:09 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/05/01 17:03:30 by tpacaly           #+#    #+#             */
+/*   Updated: 2018/05/01 17:03:31 by tpacaly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include 
+#include "../includes/corewar.h"
 
-int main (int argc, char **argv)
+void	ft_put(char *str, char c, char fd, char bool_free)
 {
-	if (argc == 2)
-	{
-		fd = open(argv[1]);
-
-
-	}
-	return (1);
+	if (!str)
+		return ;
+	write(fd, str, ft_strlen(str));
+	(c != 0) ? write(fd, &c, 1) : 0;
+	(bool_free == 1) ? ft_strdel(&str) : 0;
 }

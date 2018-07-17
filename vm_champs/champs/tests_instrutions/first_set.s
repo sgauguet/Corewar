@@ -1,6 +1,5 @@
-.name "zjmp!"
-.comment "Test de l'instruction Jump en avant et en arriere"
-
+.name "tests!"
+.comment "tests"
 
 st r1, 150
 st r2, 155
@@ -27,7 +26,12 @@ sti r8, %1265, %12
 sti r9, %1275, %42
 sti r18, 1285, r9
 zjmp %12
-zjmp %4185181534541
 zjmp %458164151231445151622121
 zjmp %-1
 zjmp %-4086513411532596
+lfork %-154
+lfork %-1513854841512
+lfork %42
+lfork %0
+fork %-111145310
+fork %4158118415051585435135154531

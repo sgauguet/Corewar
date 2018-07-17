@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/28 15:53:25 by jebossue          #+#    #+#              #
-#    Updated: 2017/11/01 12:48:14 by jebossue         ###   ########.fr        #
+#    Updated: 2018/07/17 14:57:43 by juspende         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,16 +62,17 @@ GIT	= README.md
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_LIB)
-	ar rc $@ $^
-	ranlib $@
+	@echo "Compilation \033[36mOf Libft\033[0m: [\033[32mcompleted\033[0m]"
+	@ar rc $@ $^
+	@ranlib $@
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(INC)
-	mkdir -p $(OBJDIR)
-	$(CC) -o $@ -c $< $(CFLAGS)
+	@mkdir -p $(OBJDIR)
+	@$(CC) -o $@ -c $< $(CFLAGS)
 
 $(OBJLIBDIR)/%.o: $(LIBDIR)/%.c $(INC)
-	mkdir -p $(OBJDIR)
-	$(CC) -o $@ -c $< $(CFLAGS)
+	@mkdir -p $(OBJDIR)
+	@$(CC) -o $@ -c $< $(CFLAGS)
 
 .PHONY: all git no printf check clean fclean re $(LIBFT)
 
@@ -90,10 +91,10 @@ printf:
 check: no printf
 
 clean:
-	rm -rf $(OBJDIR) $(OBJLIBDIR)
+	@rm -rf $(OBJDIR) $(OBJLIBDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 # $(MAKE) needed so that the cleaning is done before starting to create again \
 	# 	# cf make -j 

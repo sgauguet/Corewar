@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_display_errors.c                                :+:      :+:    :+:   */
+/*   exec_zjmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 09:48:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 10:43:12 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/30 09:08:02 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/07/13 11:20:09 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	display_errors_with_value(int value, int code, t_env *env)
+int		exec_zjmp(t_env *env, t_process *process)
 {
-	if (code == 0)
-		ft_printf("Can't read source file %s\n",
-				env->champions[env->nb_players].file);
-	if (code == 1)
-		ft_printf("Error: File %s has too large a code (%d bytes > %lu "
-			"bytes).\n", env->champions[env->nb_players].file,
-			value, CHAMP_MAX_SIZE);
-	exit(0);
-}
+	char	zjmp[2];
+	t_param	param;
+	int		jump;
 
-void	display_errors(char *error_message)
-{
-	ft_printf("%s\n", error_message);
-	exit(0);
+	ft_bzero(zjmp, 2);
+	copy_memory_area(env, zjmp, process->current, 2);
+	jump = zjmp[0] << 8 | (unsigned char)zjmp[1];
+	param.value[0] = jump;
+	param.success = (process->carry) ? 1 : 0;
+	jump = check_adress(jump);
+	show_operations(env, process, &param);
+	if (process->carry == 0)
+		return (0);
+	process->current = jump;
+	return (1);
 }

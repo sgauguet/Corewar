@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vm_display_errors.c                                :+:      :+:    :+:   */
+/*   vm_load_players.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/18 09:48:43 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 10:43:12 by sgauguet         ###   ########.fr       */
+/*   Created: 2018/06/18 09:49:07 by sgauguet          #+#    #+#             */
+/*   Updated: 2018/07/04 12:05:37 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	display_errors_with_value(int value, int code, t_env *env)
+int		load_players(t_env *env)
 {
-	if (code == 0)
-		ft_printf("Can't read source file %s\n",
-				env->champions[env->nb_players].file);
-	if (code == 1)
-		ft_printf("Error: File %s has too large a code (%d bytes > %lu "
-			"bytes).\n", env->champions[env->nb_players].file,
-			value, CHAMP_MAX_SIZE);
-	exit(0);
-}
+	int i;
+	int j;
 
-void	display_errors(char *error_message)
-{
-	ft_printf("%s\n", error_message);
-	exit(0);
+	i = 0;
+	j = 0;
+	while (ft_strlen(env->champions[i].file))
+	{
+		ft_memcpy(&env->arena[j], env->champions[i].instructions,
+				CHAMP_MAX_SIZE);
+		j = j + MEM_SIZE / env->nb_players;
+		i++;
+	}
+	return (1);
 }
