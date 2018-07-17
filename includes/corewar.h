@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 14:34:23 by juspende         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:34:06 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct	s_param
 	int			size[3];
 	int			adress;
 	int			success;
+	char		param[1][4];
 }				t_param;
 
 /*
@@ -228,6 +229,7 @@ int				debug(t_env *env);
  */
 
 int				exec_st(t_env *env, t_process *process);
+int				exec_and(t_env *env, t_process *process);
 int				exec_zjmp(t_env *env, t_process *process);
 int				exec_sti(t_env *env, t_process *process);
 int				exec_fork(t_env *env, t_process *process);
