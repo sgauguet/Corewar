@@ -6,15 +6,38 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/13 10:55:53 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/17 10:24:54 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		exec_instruction(t_env *env, t_process *process)
+int	nb_cycles_instruction(t_env *env, t_process *process)
 {
-	//show_pc_movements(env, process);
+	int	opcode;
+
+	opcode = (int)process->opcode;
+	if (opcode < 1 || opcode > NB_INSTRUCTIONS)
+		return (1);
+	return (env->instructions[opcode - 1].nb_cycles);
+}
+
+int	new_instruction(t_env *env, t_process *process)
+{
+	process->current = process->pc;
+	process->opcode = env->arena[process->current];
+	process->cycle_before_exec = nb_cycles_instruction(env, process);
+	process->ocp[0] = 0;
+	process->ocp[1] = 0;
+	process->ocp[2] = 0;
+	process->pc = check_adress(process->current
+		+ size_instruction(env, process));
+	return (1);
+}
+
+int	exec_instruction(t_env *env, t_process *process)
+{
+	show_pc_movements(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 9)

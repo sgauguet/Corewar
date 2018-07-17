@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/13 10:06:01 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/17 10:39:31 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,23 @@
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
 
-// REG_SIZE modifiable ??
-
-typedef struct  s_op
+typedef struct	s_op
 {
-    char    name[6];
-    int     params_number;
-    int     params[3];
-    char	op_code;
-    int     nb_cycles;
-    char    description[37];
-    int     modify_carry;
-    int     direct_size;
-}               t_op;
+	char	name[6];
+	int		params_number;
+	int		params[3];
+	char	op_code;
+	int		nb_cycles;
+	char	description[37];
+	int		modify_carry;
+	int		direct_size;
+}				t_op;
 
 typedef struct	s_player
 {
 	int			player_id;
 	char		file[50];
-	header_t	header;
+	t_header	header;
 	char		instructions[CHAMP_MAX_SIZE];
 	int			nb_lives;
 }				t_player;
@@ -68,7 +66,7 @@ typedef	struct	s_fork
 	int			alive;
 }				t_fork;
 
-typedef struct	s_env 
+typedef struct	s_env
 {
 	char		arena[MEM_SIZE];
 	int			cycle;
@@ -108,7 +106,9 @@ int				check_options(char **argv, t_env *env);
 ** vm_create_players.c
 */
 
-int				ft_create_player(char *file, t_env *env);
+int				player_instructions(char *buf, t_env *env);
+int				player_header(char *buf, t_env *env);
+int				create_player(char *file, t_env *env);
 
 /*
 ** vm_check_players.c
@@ -124,11 +124,12 @@ int				check_prog_size(char *prog_size, t_env *env);
 int				load_players(t_env *env);
 
 /*
-** vm_exec_process.c
+** vm_create_process.c
 */
 
-int				exec_process(t_env *env);
-int				run_the_game(t_env *env);
+int				create_process(t_env *env, int *reg, int start_position,
+				t_fork *fork);
+int				init_process_stack(t_env *env);
 
 /*
 ** vm_destroy_process.c
@@ -139,39 +140,47 @@ int				destroy_process(t_env *env, t_process *process);
 int				search_dead_process(t_env *env);
 
 /*
-** vm_process_stack.c
+** vm_exec_process.c
 */
 
-int				new_instruction(t_env *env, t_process *process);
-int				create_process(t_env *env, int *reg, int start_position, t_fork *fork);
-int				init_process_stack(t_env *env);
+int				exec_process(t_env *env);
+int				run_the_game(t_env *env);
 
 /*
-** vm_instructions.c
+** vm_instructions_size.c
 */
 
+int				params_size_ocp(t_env *env, t_process *process, t_param *param);
+int				size_param(t_env *env, t_process *process);
 int				check_ocp(t_env *env, t_process *process);
-int				nb_cycles_instruction(t_env *env, t_process *process);
 int				size_instruction(t_env *env, t_process *process);
+
+/*
+** vm_exec_instructions.c
+*/
+
+int				nb_cycles_instruction(t_env *env, t_process *process);
+int				new_instruction(t_env *env, t_process *process);
+int				exec_instruction(t_env *env, t_process *process);
 
 /*
 ** vm_exec_functions.c
 */
 
 int				check_adress(int adress);
-int				params_size_ocp(t_env *env, t_process *process, t_param *param);
-int				indirect_value(t_env *env, int start);
 int				register_value(t_process *process, int reg_number);
-int				copy_register(t_process *process, char *buf, int reg_number);
-void			copy_memory_area(t_env *env, char *buf, int start, int size);
-void			modify_register_content(t_process *process, char *new_value, int reg_number);
-void			modify_memory_content(t_env *env, char *buf, int start, int size);
+int				indirect_value(t_env *env, int start);
 
 /*
-** vm_exec_instructions.c
+** vm_exec_functions_2.c
 */
 
-int				exec_instruction(t_env *env, t_process *process);
+int				copy_register(t_process *process, char *buf, int reg_number);
+void			copy_memory_area(t_env *env, char *buf, int start, int size);
+void			modify_register_content(t_process *process, char *new_value,
+				int reg_number);
+void			modify_memory_content(t_env *env, char *buf, int start,
+				int size);
 
 /*
 ** vm_display_arena.c
@@ -185,17 +194,23 @@ int				display_arena(t_env *env);
 ** vm_display_messages.c
 */
 
+void			display_usage(char **argv);
+int				display_end(t_env *env);
+int				display_start(t_env *env);
+
+/*
+** vm_display_options.c
+*/
+
+int				show_details(t_env *env, t_process *process, t_param *param);
 int				show_operations(t_env *env, t_process *process, t_param *param);
 int				show_deaths(t_env *env, t_process *process);
 int				show_pc_movements(t_env *env, t_process *process);
-int				display_end(t_env *env);
-int				display_start(t_env *env);
 
 /*
 ** vm_display_errors.c
 */
 
-void			display_usage(char **argv);
 void			display_errors_with_value(int value, int code, t_env *env);
 void			display_errors(char *error_message);
 

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/05 10:39:06 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/17 09:39:01 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		check_options(char **argv, t_env *env)
 		if (search_options(argv[i]))
 			;
 		else
-			ft_create_player(argv[i], env);
+			create_player(argv[i], env);
 		i++;
 	}
 	return (1);
