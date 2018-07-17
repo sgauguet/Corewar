@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 14:34:23 by juspende         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:22:13 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,6 +227,10 @@ int				debug(t_env *env);
  ** exec
  */
 
+int				exec_ld(t_env *env, t_process *process);
+int				exec_lld(t_env *env, t_process *process);
+int				exec_ldi(t_env *env, t_process *process);
+int				exec_lldi(t_env *env, t_process *process);
 int				exec_st(t_env *env, t_process *process);
 int				exec_zjmp(t_env *env, t_process *process);
 int				exec_sti(t_env *env, t_process *process);

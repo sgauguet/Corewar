@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/07/17 14:57:29 by juspende         ###   ########.fr        #
+#    Updated: 2018/07/17 17:58:02 by aserguie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,8 @@ SRCS_VMA =		vm_main.c \
 				vm_display_errors.c \
 				vm_debug.c \
 				exec_st.c \
+				exec_ld.c \
+				exec_lld.c \
 				exec_zjmp.c \
 				exec_sti.c \
 				exec_fork.c \

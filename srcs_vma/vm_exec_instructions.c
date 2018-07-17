@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:24:54 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/17 17:59:16 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	new_instruction(t_env *env, t_process *process)
 int	exec_instruction(t_env *env, t_process *process)
 {
 	show_pc_movements(env, process);
+	if ((int)(process->opcode) == 2)
+		exec_ld(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 9)
@@ -46,6 +48,8 @@ int	exec_instruction(t_env *env, t_process *process)
 		exec_sti(env, process);
 	if ((int)(process->opcode) == 12)
 		exec_fork(env, process);
+	if ((int)(process->opcode) == 13)
+		exec_lld(env, process);
 	if ((int)(process->opcode) == 15)
 		exec_lfork(env, process);
 	if ((int)(process->opcode) == 16)
