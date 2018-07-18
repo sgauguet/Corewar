@@ -6,7 +6,11 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/07/18 18:10:13 by aserguie         ###   ########.fr       */
+=======
+/*   Updated: 2018/07/17 19:09:03 by jebossue         ###   ########.fr       */
+>>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +87,7 @@ typedef struct	s_param
 	int			size[3];
 	int			adress;
 	int			success;
-	char		param[1][4];
+	char		param[2][4];
 }				t_param;
 
 /*
