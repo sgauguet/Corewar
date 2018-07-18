@@ -6,11 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/17 18:27:57 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/18 18:39:12 by jebossue         ###   ########.fr       */
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
+/*   Updated: 2018/07/18 18:56:32 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +14,6 @@
 
 int	and_param(t_env *env, t_process *process, t_param *param, int i)
 {
-<<<<<<< HEAD
 	/*char	tmp[4];
 =======
 	char	tmp[4];
@@ -55,8 +50,6 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 	if (param->size[i] == 2)*/
 	if (env && process && param && i)
 		return (0);
-=======
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
 	return (1);
 }
 
@@ -81,8 +74,7 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 
 int	exec_and(t_env *env, t_process *process)
 {
-<<<<<<< HEAD
-	/*t_param	param;
+	t_param	param;/*
 	char	param1[4];
 	char	param2[4];
 =======
@@ -109,7 +101,6 @@ int	exec_and(t_env *env, t_process *process)
 	show_operations(env, process, &param);*/
 	if (env && process)
 		return (0);
-=======
 	if (!and_param(env, process, &param, 1))
 		return (0);
 /*	result[0] = param.param[0][0] & param.param[1][0];
@@ -118,6 +109,5 @@ int	exec_and(t_env *env, t_process *process)
 	result[3] = param.param[0][3] & param.param[1][3];
 	modify_register_content(process, result, param.value[2]);*/
 	show_operations(env, process, &param);
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
 	return (1);
 }

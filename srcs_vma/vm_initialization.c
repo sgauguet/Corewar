@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 16:51:13 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 20:57:13 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int		init_vm_champions(t_env *env)
 	i = 0;
 	while (i < MAX_PLAYERS)
 	{
+
 		env->champions[i].player_id = i + 1;
 		ft_bzero(env->champions[i].file, 50);
 		env->champions[i].header.magic = 0;
@@ -110,6 +111,8 @@ int		init_vm_environment(t_env *env)
 	env->cycle = 0;
 	env->cycle_to_die = CYCLE_TO_DIE;
 	env->nb_players = 0;
+	env->nb_live_env = 0;
+	env->last_alive = NULL;
 	while (i != 16)
 	{
 		ft_bzero(env->instructions[i].name, 6);

@@ -6,11 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/17 18:21:47 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/18 17:41:50 by jebossue         ###   ########.fr       */
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
+/*   Updated: 2018/07/18 21:04:54 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +22,8 @@ int	main(int argc, char **argv)
 	check_options(argv, &env);
 	load_players(&env);
 	init_process_stack(&env);
+	env.last_alive = &env.champions[0];
 	run_the_game(&env);
-	debug(&env);
+	//debug(&env);
 	return (1);
 }

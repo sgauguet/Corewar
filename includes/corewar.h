@@ -6,11 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/18 18:10:13 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/17 19:09:03 by jebossue         ###   ########.fr       */
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
+/*   Updated: 2018/07/18 22:18:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +49,7 @@ typedef struct	s_process
 	int					cycle_before_exec;
 	int					carry;
 	int					alive;
+	int					last;
 	struct s_process	*next;
 }				t_process;
 
@@ -76,7 +73,9 @@ typedef struct	s_env
 	int			cycle;
 	int			cycle_to_die;
 	int			nb_players;
+	int			nb_live_env;
 	t_player	champions[MAX_PLAYERS];
+	t_player	*last_alive;
 	t_op		instructions[16];
 	t_stack		process;
 }				t_env;
@@ -104,7 +103,7 @@ int				init_vm_environment(t_env *env);
  ** vm_options.c
  */
 
-int				search_options(char *option);
+//int				search_options(char *option);
 int				check_options(char **argv, t_env *env);
 
 /*

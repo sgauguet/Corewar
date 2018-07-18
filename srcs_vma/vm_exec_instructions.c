@@ -6,11 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/18 18:09:36 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/18 17:10:53 by jebossue         ###   ########.fr       */
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
+/*   Updated: 2018/07/18 21:36:36 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +37,11 @@ int	new_instruction(t_env *env, t_process *process)
 
 int	exec_instruction(t_env *env, t_process *process)
 {
-<<<<<<< HEAD
 	//show_pc_movements(env, process);
 	if ((int)(process->opcode) == 1)
 		exec_live(env, process);
 	if ((int)(process->opcode) == 2)
 		exec_ld(env, process);
-=======
-//	show_pc_movements(env, process);
->>>>>>> 0e0f16a8eba8a5780deeaf5f4eccbc9f6f527c9b
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
 	if ((int)(process->opcode) == 6)
