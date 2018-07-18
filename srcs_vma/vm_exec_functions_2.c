@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:03:45 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/18 16:32:26 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:06:47 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	copy_memory_area(t_env *env, char *buf, int start, int size)
 	{
 		pos = check_adress(pos + 1);
 		buf[i] = env->arena[pos];
+//		ft_printf("buf[i] : %x\n", buf[i]);
 		i++;
 	}
 }

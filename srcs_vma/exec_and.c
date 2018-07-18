@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/18 16:32:22 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:39:12 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
 	int		head;
+	int		head2param;
 
 	if (i == 1)
 		head = process->current + 1 + param->size[0];
@@ -35,9 +36,12 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 	}
 	else if (param->size[i] == 2)
 	{
-		copy_memory_area(env, param->param[i], ((int)tmp[0]) - 1, 2);
-		printf("pos : %d", ((int)tmp[0]) - 1);
-		param->value[i] = param->param[i][0] << 8 | param->param[i][1];
+		head2param = tmp[0] << 8 | (unsigned char)tmp[1];
+		copy_memory_area(env, param->param[i], head2param  +  process->current, 2);
+		printf("head2 : %d\n", head2param);
+//		param->value[i] = indirect_value(env, head2param);
+		param->value[i] = param->param[i][0] << 8 | (unsigned char)param->param[i][1];
+		ft_printf("param->value[i] : %d\n", param->value[i]);
 	}
 	return (1);
 }
@@ -62,7 +66,7 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 int	exec_and(t_env *env, t_process *process)
 {
 	t_param	param;
-	char	result[4];
+//	char	result[4];
 
 	if (!check_and(env, process, &param))
 		return (0);
@@ -70,11 +74,11 @@ int	exec_and(t_env *env, t_process *process)
 		return (0);
 	if (!and_param(env, process, &param, 1))
 		return (0);
-	result[0] = param.param[0][0] & param.param[1][0];
+/*	result[0] = param.param[0][0] & param.param[1][0];
 	result[1] = param.param[0][1] & param.param[1][1];
 	result[2] = param.param[0][2] & param.param[1][2];
 	result[3] = param.param[0][3] & param.param[1][3];
-	modify_register_content(process, result, param.value[2]);
+	modify_register_content(process, result, param.value[2]);*/
 	show_operations(env, process, &param);
 	return (1);
 }
