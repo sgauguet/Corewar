@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/17 19:06:40 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 16:32:22 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,30 @@
 int	and_param(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
-	int		j;
+	int		head;
 
-	copy_memory_area(env, tmp, check_adress(process->current + 1), param->size[i]);
+	if (i == 1)
+		head = process->current + 1 + param->size[0];
+	else
+		head = process->current + 1;
+	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
 	if (param->size[i] == 1)
 	{
-		ft_strcpy(param->param[i], ft_itoa_base(register_value(process, (int)tmp[0]), 16, "0123456789abcdef")); //if register_value == 0 and good value on reg_number we are fuuck up
+		copy_register(process, param->param[i], (int)tmp[0]);
+		param->value[i] = register_value(process, (int)tmp[0]);
 	}
-	j = 0;
-	param->param[0][3] = '\0';
-	ft_printf("ICI : ");
-	while (param->param[0][j])
+	else if (param->size[i] == 4)
 	{
-		ft_printf("%c", param->param[0][j]);
-		j++;
+		copy_memory_area(env, param->param[i], head, 4);
+		param->value[i] = param->param[i][0] << 24 | param->param[i][1] << 16 |
+			param->param[i][2] << 8 | param->param[i][3];
 	}
-	ft_printf("  %d\n", j);
+	else if (param->size[i] == 2)
+	{
+		copy_memory_area(env, param->param[i], ((int)tmp[0]) - 1, 2);
+		printf("pos : %d", ((int)tmp[0]) - 1);
+		param->value[i] = param->param[i][0] << 8 | param->param[i][1];
+	}
 	return (1);
 }
 
@@ -54,24 +62,19 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 int	exec_and(t_env *env, t_process *process)
 {
 	t_param	param;
-//	char	param1[4];
-//	char	param2[4];
+	char	result[4];
 
 	if (!check_and(env, process, &param))
 		return (0);
 	if (!and_param(env, process, &param, 0))
 		return (0);
-/*	if (param.size[0] == 1 && ((int)tmp[0] < 1 || (int)tmp[0] > NB_INSTRUCTIONS))
-			return (0);
-	param.value[0] = (param.size[0] == 2) ? (tmp[0] << 8 | (unsigned char)tmp[1]) : register_value(process, (int)tmp[0]);
-	if (process->ocp[0] == 3)
-		param.value[0] = indirect_value(env, param.value[0]);
-	copy_memory_area(env, tmp, check_adress(process->current + 2 + param.size[0]), param.size[1]);
-	if (param.size[1] == 1 && ((int)tmp[0] < 1 || (int)tmp[0] > NB_INSTRUCTIONS))
+	if (!and_param(env, process, &param, 1))
 		return (0);
-	param.value[1] = (param.size[1] == 2) ? (tmp[0] << 8 | (unsigned char)tmp[1]) : register_value(process, (int)tmp[0]);
-	if (process->ocp[1] == 3)
-		param.value[1] = indirect_value(env, param.value[1]);*/
+	result[0] = param.param[0][0] & param.param[1][0];
+	result[1] = param.param[0][1] & param.param[1][1];
+	result[2] = param.param[0][2] & param.param[1][2];
+	result[3] = param.param[0][3] & param.param[1][3];
+	modify_register_content(process, result, param.value[2]);
 	show_operations(env, process, &param);
 	return (1);
 }
