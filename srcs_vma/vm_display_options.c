@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 16:50:02 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 17:49:06 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 int		show_details(t_env *env, t_process *process, t_param *param)
 {
+	if (env && (int)process->opcode == 14)
+		ft_printf("\n       | -> load from  %d + %d = %d (with pc %d)",
+			param->value[0], param->value[1], param->value[0] + param->value[1],
+			param->adress);
+	if (env && (int)process->opcode == 10)
+		ft_printf("\n       | -> load from  %d + %d = %d (with pc and mod %d)",
+			param->value[0], param->value[1], param->value[0] + param->value[1],
+			param->adress);
 	if (env && (int)process->opcode == 11)
 		ft_printf("\n       | -> store to %d + %d = %d (with pc and mod %d)",
 			param->value[1], param->value[2], param->value[1] + param->value[2],
@@ -40,7 +48,7 @@ int		show_operations(t_env *env, t_process *process, t_param *param)
 	while (i < 3)
 	{
 		if (process->ocp[i])
-			(process->ocp[i] == 1 && env->instructions[(int)process->opcode].params[i] == 1)
+			(process->ocp[i] == 1 && env->instructions[(int)process->opcode - 1].params[i] == 1)
 				? ft_printf(" r%d", param->value[i])
 				: ft_printf(" %d", param->value[i]);
 		i++;

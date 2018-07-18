@@ -6,11 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/17 17:59:16 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/17 16:29:19 by jebossue         ###   ########.fr       */
->>>>>>> 182e39c2563a359b7e9c4d318d35382fd434dbb2
+/*   Updated: 2018/07/18 18:09:36 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +37,9 @@ int	new_instruction(t_env *env, t_process *process)
 
 int	exec_instruction(t_env *env, t_process *process)
 {
-	show_pc_movements(env, process);
+	//show_pc_movements(env, process);
+	if ((int)(process->opcode) == 1)
+		exec_live(env, process);
 	if ((int)(process->opcode) == 2)
 		exec_ld(env, process);
 	if ((int)(process->opcode) == 3)
@@ -50,12 +48,16 @@ int	exec_instruction(t_env *env, t_process *process)
 		exec_and(env, process);
 	if ((int)(process->opcode) == 9)
 		exec_zjmp(env, process);
+	if ((int)(process->opcode) == 10)
+		exec_ldi(env, process);
 	if ((int)(process->opcode) == 11)
 		exec_sti(env, process);
 	if ((int)(process->opcode) == 12)
 		exec_fork(env, process);
 	if ((int)(process->opcode) == 13)
 		exec_lld(env, process);
+	if ((int)(process->opcode) == 14)
+		exec_lldi(env, process);
 	if ((int)(process->opcode) == 15)
 		exec_lfork(env, process);
 	if ((int)(process->opcode) == 16)

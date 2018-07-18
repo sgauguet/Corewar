@@ -6,11 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2018/07/17 17:58:02 by aserguie         ###   ########.fr        #
-=======
-#    Updated: 2018/07/17 16:11:19 by jebossue         ###   ########.fr        #
->>>>>>> 182e39c2563a359b7e9c4d318d35382fd434dbb2
+#    Updated: 2018/07/18 18:10:38 by aserguie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,13 +63,13 @@ SRCS_VMA =		vm_main.c \
 				vm_display_arena.c \
 				vm_display_errors.c \
 				vm_debug.c \
+				exec_live.c \
 				exec_st.c \
-<<<<<<< HEAD
 				exec_ld.c \
 				exec_lld.c \
-=======
+				exec_ldi.c \
+				exec_lldi.c \
 				exec_and.c \
->>>>>>> 182e39c2563a359b7e9c4d318d35382fd434dbb2
 				exec_zjmp.c \
 				exec_sti.c \
 				exec_fork.c \

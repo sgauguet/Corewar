@@ -6,11 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/17 17:22:13 by aserguie         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/17 17:34:06 by jebossue         ###   ########.fr       */
->>>>>>> 182e39c2563a359b7e9c4d318d35382fd434dbb2
+/*   Updated: 2018/07/18 18:10:13 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,6 +228,7 @@ int				debug(t_env *env);
  ** exec
  */
 
+int				exec_live(t_env *env, t_process *process);
 int				exec_ld(t_env *env, t_process *process);
 int				exec_lld(t_env *env, t_process *process);
 int				exec_ldi(t_env *env, t_process *process);

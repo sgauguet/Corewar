@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:03:45 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:25:38 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/18 16:35:03 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void	modify_register_content(t_process *process, char *new_value,
 
 	if (reg_number < 1 || reg_number > NB_INSTRUCTIONS)
 		return ;
-	result = new_value[0] << 24 | new_value[1] << 16
-		| new_value[2] << 8 | new_value[3];
+	result = new_value[0] << 24 | (unsigned char)new_value[1] << 16
+		| (unsigned char)new_value[2] << 8 | (unsigned char)new_value[3];
+//	ft_printf("res = %d\n", result);
 	process->reg[reg_number - 1] = result;
 }
 
