@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 10:19:51 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 15:35:17 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,20 @@ int		check_constants(void)
 	return (1);
 }
 
-int		init_instructions_2(t_env *env)
+int		init_options(t_env *env)
 {
 	env->instructions[13] = (t_op){"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR |
 		T_REG, T_REG}, 14, 50, "long load index", 1, 1};
 	env->instructions[14] = (t_op){"lfork", 1, {T_DIR}, 15, 1000,
 		"long fork", 0, 1};
 	env->instructions[15] = (t_op){"aff", 1, {T_REG}, 16, 2, "aff", 1, 0};
+	env->option.a = 0;
+	env->option.d = 0;
+	env->option.s = 0;
+	env->option.v = 0;
+	env->option.b = 0;
+	env->option.stealth = 0;
+	env->option.n = 0;
 	return (1);
 }
 
@@ -77,7 +84,7 @@ int		init_instructions(t_env *env)
 	env->instructions[11] = (t_op){"fork", 1, {T_DIR}, 12, 800, "fork", 0, 1};
 	env->instructions[12] = (t_op){"lld", 2, {T_DIR | T_IND, T_REG}, 13, 10,
 		"long load", 1, 0};
-	return (init_instructions_2(env));
+	return (init_options(env));
 }
 
 int		init_vm_champions(t_env *env)

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/18 22:18:35 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/19 15:56:38 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,17 @@ typedef	struct	s_fork
 	int			alive;
 }				t_fork;
 
+typedef struct	s_option
+{
+	int			a;
+	int			d;
+	int			s;
+	int			v;
+	int			b;
+	int			stealth;
+	int			n;
+}				t_option;
+
 typedef struct	s_env
 {
 	char		arena[MEM_SIZE];
@@ -78,6 +89,7 @@ typedef struct	s_env
 	t_player	*last_alive;
 	t_op		instructions[16];
 	t_stack		process;
+	t_option	option;
 }				t_env;
 
 typedef struct	s_param
@@ -94,7 +106,7 @@ typedef struct	s_param
  */
 
 int				check_constants(void);
-int				init_instructions_2(t_env *env);
+int				init_options(t_env *env);
 int				init_instructions(t_env *env);
 int				init_vm_champions(t_env *env);
 int				init_vm_environment(t_env *env);
@@ -103,7 +115,7 @@ int				init_vm_environment(t_env *env);
  ** vm_options.c
  */
 
-//int				search_options(char *option);
+int				search_options(t_env *env, char **argv, int i);
 int				check_options(char **argv, t_env *env);
 
 /*
@@ -147,6 +159,7 @@ int				search_dead_process(t_env *env);
  ** vm_exec_process.c
  */
 
+int				exec_options(t_env *env);
 int				exec_process(t_env *env);
 int				run_the_game(t_env *env);
 

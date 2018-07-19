@@ -24,7 +24,8 @@ int		exec_zjmp(t_env *env, t_process *process)
 	param.value[0] = jump;
 	param.success = (process->carry) ? 1 : 0;
 	jump = check_adress(process->current + (jump % IDX_MOD));
-	show_operations(env, process, &param);
+    if (env->option.v == 4 || env->option.v < 0)
+        show_operations(env, process, &param);
 	if (process->carry == 0)
 		return (0);
 	process->pc = jump;

@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:52:59 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/19 16:03:00 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/19 17:05:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		exec_lld(t_env *env, t_process *process)
 	if (param.value[1] >= REG_NUMBER || param.value[1] <= 0)
 		return (0);
 	ft_printf("par.size[0] = %d\n", param.size[0]);
-	param.value[0] = param.size[0] == 2 ? indirect_value(env, param.value[0])
+	param.value[0] = param.size[0] == 2 ? indirect_value(env, process->current - 1 + param.value[0])
 		: param.value[0];
 	process->reg[param.value[1] - 1] = param.value[0];
 	process->carry = 1;
