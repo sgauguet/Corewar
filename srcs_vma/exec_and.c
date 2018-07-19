@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/19 17:16:07 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/19 18:29:01 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	exec_and(t_env *env, t_process *process)
 	t_param	param;
 	int		i;
 	char	result[4];
+	int		intresult;
 
 	i = 0;
 	if (!check_and(env, process, &param))
@@ -95,6 +96,9 @@ int	exec_and(t_env *env, t_process *process)
 		i++;
 	}
 	modify_register_content(process, result, param.value[2]);
-	show_operations(env, process, &param);
+	intresult = result[0] << 24 | result[1] << 16 | result[2] << 8 | result[3];
+	process->carry = (intresult == 0) ? 1 : 0;
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }

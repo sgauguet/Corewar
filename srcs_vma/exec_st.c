@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:07:44 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 16:52:17 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 18:05:41 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		exec_st(t_env *env, t_process *process)
 		modify_memory_content(env, reg_value, param.adress, 4);
 	else
 		modify_register_content(process, reg_value, (int)param.value[1]);
-    if (env->option.v == 4 || env->option.v < 0)
-        show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }
