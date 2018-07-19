@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 09:34:57 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/06 09:22:20 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 15:58:12 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int		free_memory(t_env *env, t_process *process)
 {
-	show_deaths(env, process);
+	if (env->option.v == 8 || env->option.v < 0)
+		show_deaths(env, process);
 	ft_memdel((void **)&process);
 	return (1);
 }

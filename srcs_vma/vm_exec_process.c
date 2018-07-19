@@ -6,11 +6,20 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 14:38:53 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 15:57:28 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+int		exec_options(t_env *env)
+{
+	if (env->option.v == 2 || env->option.v < 0)
+		ft_printf("It is now cycle : %d\n", env->cycle);
+	if (env->option.d && env->option.d == env->cycle)
+		display_arena(env);
+	return (1);
+}
 
 int		exec_process(t_env *env)
 {
@@ -49,8 +58,7 @@ int		run_the_game(t_env *env)
 			}
 		}
 		exec_process(env);
-		if (env)
-			ft_printf("It is now cycle : %d\n", env->cycle);
+		exec_options(env);
 		env->cycle++;
 		cycle_consumed++;
 	}
