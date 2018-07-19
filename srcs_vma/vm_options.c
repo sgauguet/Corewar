@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 16:23:53 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 16:31:53 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		search_options(t_env *env, char **argv, int argc, int i)
 		env->option.s = ft_atoi(argv[i + 1]);
 	else if (!ft_strcmp(argv[i], "-v") && check && (ret = 2))
 		env->option.v = ft_atoi(argv[i + 1]);
-	else if (!ft_strcmp(argv[i], "-b") && check && (ret = 2))
+	else if (!ft_strcmp(argv[i], "-b") && (ret = 1))
 		env->option.b = 1;
 	else if (!ft_strcmp(argv[i], "-n") && (ret = 1))
 		env->option.n = 1;
