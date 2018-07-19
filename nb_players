@@ -1,0 +1,119 @@
+./srcs_vma/exec_add.c:	register1 = (int)env->arena[check_adress(process->current + 2)];
+./srcs_vma/exec_add.c:	register2 = (int)env->arena[check_adress(process->current + 3)];
+./srcs_vma/exec_add.c:	register3 = (int)env->arena[check_adress(process->current + 4)];
+./srcs_vma/exec_aff.c:				(int)env->arena[check_adress(process->current + 2)]))
+./srcs_vma/exec_and.c:	param->value[2] = (int)env->arena[check_adress(process->current + 2
+./srcs_vma/exec_ld.c:	param.value[1] = (int)env->arena[check_adress(param.size[0]
+./srcs_vma/exec_ldi.c:	param->value[2] = (int)env->arena[check_adress(process->current + 2
+./srcs_vma/exec_live.c://	ft_printf("nb %d\n", env->nb_players);
+./srcs_vma/exec_live.c:	if (param.value[0] >= (-1 * env->nb_players) && param.value[0] < 0)
+./srcs_vma/exec_live.c:		env->champions[-1 * param.value[0] - 1].nb_lives += 1;
+./srcs_vma/exec_live.c:	env->nb_live_env++;
+./srcs_vma/exec_live.c://		ft_printf("live %d\n", ((env->champions[-1 * param.value[0] - 1]).nb_lives));
+./srcs_vma/exec_live.c://	ft_printf("live %d\n", ((env->champions[-1 * param.value[0] - 1]).nb_lives));
+./srcs_vma/exec_lld.c:	param.value[1] = (int)env->arena[check_adress(param.size[0]
+./srcs_vma/exec_lldi.c:	param->value[2] = (int)env->arena[check_adress(process->current + 2
+./srcs_vma/exec_st.c:	param.value[0] = (int)env->arena[check_adress(process->current + 2)];
+./srcs_vma/exec_sti.c:	param->value[0] = (int)env->arena[check_adress(process->current + 2)];
+./srcs_vma/exec_sub.c:	register1 = (int)env->arena[check_adress(process->current + 2)];
+./srcs_vma/exec_sub.c:	register2 = (int)env->arena[check_adress(process->current + 3)];
+./srcs_vma/exec_sub.c:	register3 = (int)env->arena[check_adress(process->current + 4)];
+./srcs_vma/vm_check_players.c:	env->champions[env->nb_players].header.prog_size = result;
+./srcs_vma/vm_check_players.c:		env->champions[env->nb_players].header.magic = COREWAR_EXEC_MAGIC;
+./srcs_vma/vm_create_players.c:	ft_memcpy(env->champions[env->nb_players].instructions, buf,
+./srcs_vma/vm_create_players.c:			env->champions[env->nb_players].header.prog_size);
+./srcs_vma/vm_create_players.c:	ft_memcpy(env->champions[env->nb_players].header.prog_name,
+./srcs_vma/vm_create_players.c:	ft_memcpy(env->champions[env->nb_players].header.comment,
+./srcs_vma/vm_create_players.c:	ft_memcpy(env->champions[env->nb_players].file, file,
+./srcs_vma/vm_create_players.c:			(int)env->champions[env->nb_players].header.prog_size)
+./srcs_vma/vm_create_players.c:	env->nb_players++;
+./srcs_vma/vm_create_process.c:	new->id = env->process.process_id;
+./srcs_vma/vm_create_process.c:	new->opcode = env->arena[start_position];
+./srcs_vma/vm_create_process.c:	new->next = env->process.first_process;
+./srcs_vma/vm_create_process.c:	env->process.first_process = new;
+./srcs_vma/vm_create_process.c:	env->process.process_id++;
+./srcs_vma/vm_create_process.c:	env->process.nb_process++;
+./srcs_vma/vm_create_process.c:	while (ft_strlen(env->champions[i].file))
+./srcs_vma/vm_create_process.c:		reg[0] = -1 * env->champions[i].player_id;
+./srcs_vma/vm_create_process.c:		create_process(env, reg, (MEM_SIZE * i) / env->nb_players, 0);
+./srcs_vma/vm_debug.c:	process = env->process.first_process;
+./srcs_vma/vm_debug.c:	while (env->champions[i].header.magic != 0)
+./srcs_vma/vm_debug.c:			" %d, comment : %s\n", env->champions[i].player_id,
+./srcs_vma/vm_debug.c:			env->champions[i].header.magic, env->champions[i].header.prog_name,
+./srcs_vma/vm_debug.c:			env->champions[i].header.prog_size,
+./srcs_vma/vm_debug.c:			env->champions[i].header.comment);
+./srcs_vma/vm_debug.c:				env->instructions[i].name, env->instructions[i].params_number);
+./srcs_vma/vm_debug.c:			ft_printf(" %d", env->instructions[i].params[j]);
+./srcs_vma/vm_debug.c:			"%d, direct_size %d.\n", env->instructions[i].op_code,
+./srcs_vma/vm_debug.c:			env->instructions[i].nb_cycles, env->instructions[i].description,
+./srcs_vma/vm_debug.c:			env->instructions[i].modify_carry,
+./srcs_vma/vm_debug.c:			env->instructions[i].direct_size);
+./srcs_vma/vm_destroy_process.c:	if ((tmp = env->process.first_process) == NULL)
+./srcs_vma/vm_destroy_process.c:		env->process.first_process = process->next;
+./srcs_vma/vm_destroy_process.c:	process = env->process.first_process;
+./srcs_vma/vm_destroy_process.c:				env->process.nb_process--;
+./srcs_vma/vm_display_arena.c:		display_memory_area(env->arena[i]);
+./srcs_vma/vm_display_arena.c:		display_memory_area(env->arena[i]);
+./srcs_vma/vm_display_errors.c:				env->champions[env->nb_players].file);
+./srcs_vma/vm_display_errors.c:			"bytes).\n", env->champions[env->nb_players].file,
+./srcs_vma/vm_display_messages.c:	ft_printf("Contestant %d, \"%s\", has won !\n", env->champions[i].player_id,
+./srcs_vma/vm_display_messages.c:			env->champions[i].header.prog_name);
+./srcs_vma/vm_display_messages.c:	while (ft_strlen(env->champions[i].file))
+./srcs_vma/vm_display_messages.c:			env->champions[i].player_id, env->champions[i].header.prog_size,
+./srcs_vma/vm_display_messages.c:			env->champions[i].header.prog_name,
+./srcs_vma/vm_display_messages.c:			env->champions[i].header.comment);
+./srcs_vma/vm_display_options.c:			env->instructions[(int)(process->opcode) - 1].name);
+./srcs_vma/vm_display_options.c:			(process->ocp[i] == 1 && env->instructions[(int)process->opcode - 1].params[i] == 1)
+./srcs_vma/vm_display_options.c:			process->alive, env->cycle_to_die);
+./srcs_vma/vm_exec_functions_2.c:		buf[i] = env->arena[pos];
+./srcs_vma/vm_exec_functions_2.c:		env->arena[pos] = buf[i];
+./srcs_vma/vm_exec_instructions.c:	return (env->instructions[opcode - 1].nb_cycles);
+./srcs_vma/vm_exec_instructions.c:	process->opcode = env->arena[process->current];
+./srcs_vma/vm_exec_process.c:	process = env->process.first_process;
+./srcs_vma/vm_exec_process.c:	while (env->process.nb_process)
+./srcs_vma/vm_exec_process.c:		if (cycle_to_die == env->cycle_to_die)
+./srcs_vma/vm_exec_process.c:		env->cycle++;
+./srcs_vma/vm_initialization.c:	env->instructions[13] = (t_op){"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR |
+./srcs_vma/vm_initialization.c:	env->instructions[14] = (t_op){"lfork", 1, {T_DIR}, 15, 1000,
+./srcs_vma/vm_initialization.c:	env->instructions[15] = (t_op){"aff", 1, {T_REG}, 16, 2, "aff", 1, 0};
+./srcs_vma/vm_initialization.c:	env->instructions[0] = (t_op){"live", 1, {T_DIR}, 1, 10, "alive", 0, 0};
+./srcs_vma/vm_initialization.c:	env->instructions[1] = (t_op){"ld", 2, {T_DIR | T_IND, T_REG},
+./srcs_vma/vm_initialization.c:	env->instructions[2] = (t_op){"st", 2, {T_REG, T_IND | T_REG},
+./srcs_vma/vm_initialization.c:	env->instructions[3] = (t_op){"add", 3, {T_REG, T_REG, T_REG},
+./srcs_vma/vm_initialization.c:	env->instructions[4] = (t_op){"sub", 3, {T_REG, T_REG, T_REG},
+./srcs_vma/vm_initialization.c:	env->instructions[5] = (t_op){"and", 3, {T_REG | T_DIR | T_IND, T_REG |
+./srcs_vma/vm_initialization.c:	env->instructions[6] = (t_op){"or", 3, {T_REG | T_IND | T_DIR, T_REG | T_IND
+./srcs_vma/vm_initialization.c:	env->instructions[7] = (t_op){"xor", 3, {T_REG | T_IND | T_DIR, T_REG |
+./srcs_vma/vm_initialization.c:	env->instructions[8] = (t_op){"zjmp", 1, {T_DIR}, 9, 20, "jump if zero",
+./srcs_vma/vm_initialization.c:	env->instructions[9] = (t_op){"ldi", 3, {T_REG | T_DIR | T_IND, T_DIR |
+./srcs_vma/vm_initialization.c:	env->instructions[10] = (t_op){"sti", 3, {T_REG, T_REG | T_DIR | T_IND,
+./srcs_vma/vm_initialization.c:	env->instructions[11] = (t_op){"fork", 1, {T_DIR}, 12, 800, "fork", 0, 1};
+./srcs_vma/vm_initialization.c:	env->instructions[12] = (t_op){"lld", 2, {T_DIR | T_IND, T_REG}, 13, 10,
+./srcs_vma/vm_initialization.c:		env->champions[i].player_id = i + 1;
+./srcs_vma/vm_initialization.c:		ft_bzero(env->champions[i].file, 50);
+./srcs_vma/vm_initialization.c:		env->champions[i].header.magic = 0;
+./srcs_vma/vm_initialization.c:		ft_bzero(env->champions[i].header.prog_name, PROG_NAME_LENGTH + 1);
+./srcs_vma/vm_initialization.c:		env->champions[i].header.prog_size = 0;
+./srcs_vma/vm_initialization.c:		ft_bzero(env->champions[i].header.comment, COMMENT_LENGTH + 1);
+./srcs_vma/vm_initialization.c:		ft_bzero(env->champions[i].instructions, CHAMP_MAX_SIZE);
+./srcs_vma/vm_initialization.c:		env->champions[i].nb_lives = 0;
+./srcs_vma/vm_initialization.c:	ft_bzero(env->arena, MEM_SIZE);
+./srcs_vma/vm_initialization.c:	env->cycle = 0;
+./srcs_vma/vm_initialization.c:	env->cycle_to_die = CYCLE_TO_DIE;
+./srcs_vma/vm_initialization.c:	env->nb_players = 0;
+./srcs_vma/vm_initialization.c:	env->nb_live_env = 0;
+./srcs_vma/vm_initialization.c:	env->last_alive = NULL;
+./srcs_vma/vm_initialization.c:		ft_bzero(env->instructions[i].name, 6);
+./srcs_vma/vm_initialization.c:		ft_bzero(env->instructions[i].description, 37);
+./srcs_vma/vm_initialization.c:		env->instructions[i].params[0] = 0;
+./srcs_vma/vm_initialization.c:		env->instructions[i].params[1] = 0;
+./srcs_vma/vm_initialization.c:		env->instructions[i].params[2] = 0;
+./srcs_vma/vm_initialization.c:	env->process.first_process = NULL;
+./srcs_vma/vm_initialization.c:	env->process.nb_process = 0;
+./srcs_vma/vm_initialization.c:	env->process.process_id = 1;
+./srcs_vma/vm_instructions_size.c:		if (param->size[i] == 2 && env->instructions[op - 1].direct_size == 0)
+./srcs_vma/vm_instructions_size.c:			result += (env->instructions[instruction].direct_size == 1) ? 2 : 4;
+./srcs_vma/vm_instructions_size.c:	ocp = (unsigned int)env->arena[process->current + 1] / 4;
+./srcs_vma/vm_load_players.c:	while (ft_strlen(env->champions[i].file))
+./srcs_vma/vm_load_players.c:		ft_memcpy(&env->arena[j], env->champions[i].instructions,
+./srcs_vma/vm_load_players.c:		j = j + MEM_SIZE / env->nb_players;

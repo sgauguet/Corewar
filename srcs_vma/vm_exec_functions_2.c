@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:03:45 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 19:04:33 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:54:45 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	copy_memory_area(t_env *env, char *buf, int start, int size)
 	{
 		pos = check_adress(pos + 1);
 		buf[i] = env->arena[pos];
+//		ft_printf("buf[i] : %x\n", buf[i]);
 		i++;
 	}
 }
@@ -49,8 +50,9 @@ void	modify_register_content(t_process *process, char *new_value,
 
 	if (reg_number < 1 || reg_number > NB_INSTRUCTIONS)
 		return ;
-	result = new_value[0] << 24 | new_value[1] << 16
-		| new_value[2] << 8 | new_value[3];
+	result = new_value[0] << 24 | (unsigned char)new_value[1] << 16
+		| (unsigned char)new_value[2] << 8 | (unsigned char)new_value[3];
+//	ft_printf("res = %d\n", result);
 	process->reg[reg_number - 1] = result;
 }
 

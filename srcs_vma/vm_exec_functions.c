@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 08:27:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:05:14 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/18 18:20:24 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		indirect_value(t_env *env, int start)
 	char	tmp[2];
 
 	copy_memory_area(env, tmp, start - 1, 2);
+	ft_printf("tmp[0] : %x\n", tmp[0]);
+	ft_printf("tmp[1] : %x\n", (unsigned char)tmp[1]);
 	result = tmp[0] << 8 | (unsigned char)tmp[1];
 	return (result);
 }

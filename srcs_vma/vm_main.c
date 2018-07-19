@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 16:35:19 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 21:04:54 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	check_options(argv, &env);
 	load_players(&env);
 	init_process_stack(&env);
+	env.last_alive = &env.champions[0];
 	run_the_game(&env);
 	//debug(&env);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 19:04:36 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/18 22:18:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_process
 	int					cycle_before_exec;
 	int					carry;
 	int					alive;
+	int					last;
 	struct s_process	*next;
 }				t_process;
 
@@ -72,7 +73,9 @@ typedef struct	s_env
 	int			cycle;
 	int			cycle_to_die;
 	int			nb_players;
+	int			nb_live_env;
 	t_player	champions[MAX_PLAYERS];
+	t_player	*last_alive;
 	t_op		instructions[16];
 	t_stack		process;
 }				t_env;
@@ -100,7 +103,7 @@ int				init_vm_environment(t_env *env);
  ** vm_options.c
  */
 
-int				search_options(char *option);
+//int				search_options(char *option);
 int				check_options(char **argv, t_env *env);
 
 /*
@@ -228,6 +231,11 @@ int				debug(t_env *env);
  ** exec
  */
 
+int				exec_live(t_env *env, t_process *process);
+int				exec_ld(t_env *env, t_process *process);
+int				exec_lld(t_env *env, t_process *process);
+int				exec_ldi(t_env *env, t_process *process);
+int				exec_lldi(t_env *env, t_process *process);
 int				exec_st(t_env *env, t_process *process);
 int				exec_and(t_env *env, t_process *process);
 int				exec_zjmp(t_env *env, t_process *process);
