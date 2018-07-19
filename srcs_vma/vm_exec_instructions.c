@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 15:45:07 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 17:28:21 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,16 @@ int	exec_instruction(t_env *env, t_process *process)
 		exec_ld(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
+	if ((int)(process->opcode) == 4)
+		exec_add(env, process);
+	if ((int)(process->opcode) == 5)
+		exec_sub(env, process);
 	if ((int)(process->opcode) == 6)
 		exec_and(env, process);
+	if ((int)(process->opcode) == 7)
+		exec_or(env, process);
+	if ((int)(process->opcode) == 8)
+		exec_xor(env, process);
 	if ((int)(process->opcode) == 9)
 		exec_zjmp(env, process);
 	if ((int)(process->opcode) == 10)
