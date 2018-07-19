@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:24:54 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/17 16:29:19 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	exec_instruction(t_env *env, t_process *process)
 	show_pc_movements(env, process);
 	if ((int)(process->opcode) == 3)
 		exec_st(env, process);
+	if ((int)(process->opcode) == 6)
+		exec_and(env, process);
 	if ((int)(process->opcode) == 9)
 		exec_zjmp(env, process);
 	if ((int)(process->opcode) == 11)
