@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 12:18:42 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 19:04:40 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/19 13:17:51 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int		exec_sti(t_env *env, t_process *process)
 		+ param.size[1]), param.size[2]);
 	param.value[2] = (param.size[2] == 2) ? (tmp[0] << 8
 		| (unsigned char)tmp[1]) : register_value(process, (int)tmp[0]);
-	if (process->ocp[2] == 3)
-		param.value[2] = indirect_value(env, param.value[2]);
 	if (param.size[2] == 1 && ((int)tmp[0] < 1
 		|| (int)tmp[0] > NB_INSTRUCTIONS))
 		return (0);

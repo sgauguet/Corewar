@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:08:02 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/13 11:20:09 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 14:14:32 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int		exec_zjmp(t_env *env, t_process *process)
 	jump = zjmp[0] << 8 | (unsigned char)zjmp[1];
 	param.value[0] = jump;
 	param.success = (process->carry) ? 1 : 0;
-	jump = check_adress(jump);
+	jump = check_adress(process->current + (jump % IDX_MOD));
 	show_operations(env, process, &param);
 	if (process->carry == 0)
 		return (0);
-	process->current = jump;
+	process->pc = jump;
 	return (1);
 }

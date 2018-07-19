@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/18 22:08:19 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/19 14:38:53 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ int		run_the_game(t_env *env)
 			{
 				env->nb_live_env = 0;
 				env->cycle_to_die -= (env->cycle_to_die >= CYCLE_DELTA)
-					? CYCLE_DELTA : env->cycle_to_die;
+					? CYCLE_DELTA : (env->cycle_to_die - 1);
 			}
 		}
 		exec_process(env);
+		if (env)
+			ft_printf("It is now cycle : %d\n", env->cycle);
 		env->cycle++;
 		cycle_consumed++;
 	}
