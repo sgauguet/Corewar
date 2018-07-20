@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 16:35:02 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 17:24:18 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,8 @@ int				exec_lfork(t_env *env, t_process *process);
 int				exec_aff(t_env *env, t_process *process);
 int				exec_add(t_env *env, t_process *process);
 int				exec_sub(t_env *env, t_process *process);
-
+int				exec_or(t_env *env, t_process *process);
+int				exec_xor(t_env *env, t_process *process);
 /*
  ** ============================================================================
  */

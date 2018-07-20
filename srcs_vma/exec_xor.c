@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_and.c                                         :+:      :+:    :+:   */
+/*   exec_xor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/20 11:39:49 by jebossue         ###   ########.fr       */
+/*   Created: 2018/07/19 17:24:38 by jebossue          #+#    #+#             */
+/*   Updated: 2018/07/20 11:41:58 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int	and_param2(t_env *env, t_process *process, t_param *param, int i)
+int	xor_param2(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
 	int		head;
@@ -37,7 +37,7 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	return (1);
 }
 
-int	and_param(t_env *env, t_process *process, t_param *param, int i)
+int	xor_param(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
 	int		head;
@@ -59,10 +59,10 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 			j++;
 		}
 	}
-	return (and_param2(env, process, param, i));
+	return (xor_param2(env, process, param, i));
 }
 
-int	check_and(t_env *env, t_process *process, t_param *param)
+int	check_xor(t_env *env, t_process *process, t_param *param)
 {
 	if ((process->ocp[0] != 1 && process->ocp[0] != 2 && process->ocp[0] != 3)
 		|| (process->ocp[1] != 1 && process->ocp[1] != 2
@@ -77,7 +77,7 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 	return (1);
 }
 
-int	exec_and(t_env *env, t_process *process)
+int	exec_xor(t_env *env, t_process *process)
 {
 	t_param	param;
 	int		i;
@@ -85,15 +85,15 @@ int	exec_and(t_env *env, t_process *process)
 	int		intresult;
 
 	i = 0;
-	if (!check_and(env, process, &param))
+	if (!check_xor(env, process, &param))
 		return (0);
-	if (!and_param(env, process, &param, 0))
+	if (!xor_param(env, process, &param, 0))
 		return (0);
-	if (!and_param(env, process, &param, 1))
+	if (!xor_param(env, process, &param, 1))
 		return (0);
 	while (i < 4)
 	{
-		result[i] = param.param[0][i] & param.param[1][i];
+		result[i] = param.param[0][i] ^ param.param[1][i];
 		i++;
 	}
 	modify_register_content(process, result, param.value[2]);

@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/07/18 18:10:38 by aserguie         ###   ########.fr        #
+#    Updated: 2018/07/20 10:48:45 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,12 @@ SRCS_VMA =		vm_main.c \
 				exec_sti.c \
 				exec_fork.c \
 				exec_lfork.c \
-				exec_aff.c
+				exec_aff.c \
+				exec_or.c \
+				exec_xor.c \
+				exec_add.c \
+				exec_sub.c
+
 
 SRCDIR_ASM =	./srcs_asm
 
@@ -106,7 +111,7 @@ CC =		gcc
 CFLAGS =	-Wall \
 			-Wextra \
 			-Werror \
-			-fsanitize=address
+			#-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)

@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 18:03:08 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/20 15:28:19 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/20 15:32:21 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		exec_live(t_env *env, t_process *process)
 	process->alive = 1;
 	process->last = env->cycle;
 	env->nb_live_env += 1;
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }
