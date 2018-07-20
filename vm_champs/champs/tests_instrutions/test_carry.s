@@ -33,15 +33,14 @@
 	zjmp %3
 	or r3, r4, r6
 	zjmp %3
-	zor r3, r4, r7
+	sub r3, r4, r8
 	zjmp %3
-	zor r3, r4, r8
-	zjmp %3
-	zor r3, r4, r9
+	and r3, r4, r9
 	zjmp %3
 	
 ## carry -> 1
-	ld %0, r5
+	xor r3, r4, r7
+	zjmp %3
 	zjmp %3
 	and r1, r3, r4
 	zjmp %3
