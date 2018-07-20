@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/18 22:26:32 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/20 11:51:20 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 
 	if (!(new = (t_process *)malloc(sizeof(t_process))))
 		display_errors("Error : process memory not allocated.");
-	i = 0;
-	while (i < REG_NUMBER)
-	{
+	i = -1;
+	while (++i < REG_NUMBER)
 		new->reg[i] = reg[i];
-		i++;
-	}
 	new->id = env->process.process_id;
 	new->current = start_position;
 	new->opcode = env->arena[start_position];

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 17:28:21 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/20 11:56:33 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,8 @@ int	new_instruction(t_env *env, t_process *process)
 	return (1);
 }
 
-int	exec_instruction(t_env *env, t_process *process)
+int	exec_instruction2(t_env *env, t_process *process)
 {
-	if (env->option.v == 16 || env->option.v < 0)
-		show_pc_movements(env, process);
-	if ((int)(process->opcode) == 1)
-		exec_live(env, process);
-	if ((int)(process->opcode) == 2)
-		exec_ld(env, process);
-	if ((int)(process->opcode) == 3)
-		exec_st(env, process);
-	if ((int)(process->opcode) == 4)
-		exec_add(env, process);
-	if ((int)(process->opcode) == 5)
-		exec_sub(env, process);
-	if ((int)(process->opcode) == 6)
-		exec_and(env, process);
-	if ((int)(process->opcode) == 7)
-		exec_or(env, process);
 	if ((int)(process->opcode) == 8)
 		exec_xor(env, process);
 	if ((int)(process->opcode) == 9)
@@ -72,4 +56,25 @@ int	exec_instruction(t_env *env, t_process *process)
 	if ((int)(process->opcode) == 16)
 		exec_aff(env, process);
 	return (1);
+}
+
+int	exec_instruction(t_env *env, t_process *process)
+{
+	if (env->option.v == 16 || env->option.v < 0)
+		show_pc_movements(env, process);
+	if ((int)(process->opcode) == 1)
+		exec_live(env, process);
+	if ((int)(process->opcode) == 2)
+		exec_ld(env, process);
+	if ((int)(process->opcode) == 3)
+		exec_st(env, process);
+	if ((int)(process->opcode) == 4)
+		exec_add(env, process);
+	if ((int)(process->opcode) == 5)
+		exec_sub(env, process);
+	if ((int)(process->opcode) == 6)
+		exec_and(env, process);
+	if ((int)(process->opcode) == 7)
+		exec_or(env, process);
+	return (exec_instruction2(env, process));
 }

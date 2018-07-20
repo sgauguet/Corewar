@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 14:29:22 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/20 11:59:28 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int		show_operations(t_env *env, t_process *process, t_param *param)
 	while (i < 3)
 	{
 		if (process->ocp[i])
-			(process->ocp[i] == 1 && env->instructions[(int)process->opcode - 1].params[i] == 1)
+			(process->ocp[i] == 1
+			&& env->instructions[(int)process->opcode - 1].params[i] == 1)
 				? ft_printf(" r%d", param->value[i])
 				: ft_printf(" %d", param->value[i]);
 		i++;
