@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:50:38 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/19 15:56:14 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/20 15:27:04 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ int		exec_ld(t_env *env, t_process *process)
 			| (unsigned char)tmp[3]);
 	param.value[1] = (int)env->arena[check_adress(param.size[0]
 			+ process->current + 2)];
-	if (param.value[1] >= REG_NUMBER || param.value[1] <= 0)
+	if (param.value[1] > REG_NUMBER || param.value[1] <= 0)
 		return (0);
-	param.value[0] = param.size[0] == 2 ? indirect_value(env, param.value[0]
-			% IDX_MOD) : param.value[0];
+	param.value[0] = param.size[0] == 2 ? indirect_value(env, process->current
+			+ param.value[0] % IDX_MOD) : param.value[0];
 	process->reg[param.value[1] - 1] = param.value[0];
 	process->carry = 1;
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 14:29:22 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/19 18:29:29 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int		show_details(t_env *env, t_process *process, t_param *param)
 {
 	if (env && (int)process->opcode == 14)
-		ft_printf("\n       | -> load from  %d + %d = %d (with pc %d)",
+		ft_printf("\n       | -> load from %d + %d = %d (with pc %d)",
 			param->value[0], param->value[1], param->value[0] + param->value[1],
 			param->adress);
 	if (env && (int)process->opcode == 10)
-		ft_printf("\n       | -> load from  %d + %d = %d (with pc and mod %d)",
+		ft_printf("\n       | -> load from %d + %d = %d (with pc and mod %d)",
 			param->value[0], param->value[1], param->value[0] + param->value[1],
 			param->adress);
 	if (env && (int)process->opcode == 11)

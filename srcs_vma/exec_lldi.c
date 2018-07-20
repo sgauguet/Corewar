@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:44:42 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/19 15:29:53 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/19 18:34:28 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	ft_do_lldi(t_env *env, t_process *process, t_param param, char *tmp)
 	copy_memory_area(env, tmp, check_adress(param.adress - 1), 4);
 	modify_register_content(process, tmp, param.value[2]);
 	process->carry = 1;
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 }
 
 int		exec_lldi(t_env *env, t_process *process)
@@ -49,7 +50,7 @@ int		exec_lldi(t_env *env, t_process *process)
 	{
 		copy_memory_area(env, (tmp + 2 * i), check_adress(process->current + 1
 					+ i * param.size[0]), param.size[i]);
-		if (((int)tmp[2 * i] < 1 || (int)tmp[2 * i] >= (int)REG_NUMBER)
+		if (((int)tmp[2 * i] < 1 || (int)tmp[2 * i] > (int)REG_NUMBER)
 				&& param.size[i] == 1)
 			return (0);
 		else if (param.size[i] == 1)
