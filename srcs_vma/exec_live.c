@@ -34,6 +34,7 @@ int		exec_live(t_env *env, t_process *process)
 		process->last = env->cycle;
 		env->nb_live_env += 1;
 //	ft_printf("live %d\n", ((env->champions[-1 * param.value[0] - 1]).nb_lives));
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }

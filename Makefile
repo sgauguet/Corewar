@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/07/19 17:30:15 by jebossue         ###   ########.fr        #
+#    Updated: 2018/07/20 10:48:45 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ CC =		gcc
 CFLAGS =	-Wall \
 			-Wextra \
 			-Werror \
-			-fsanitize=address
+			#-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)

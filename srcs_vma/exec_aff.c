@@ -17,6 +17,8 @@ int		exec_aff(t_env *env, t_process *process)
 	char	reg_value[4];
 	int		value;
 
+	if (!env->option.a)
+		return (0);
 	if (!copy_register(process, reg_value,
 				(int)env->arena[check_adress(process->current + 2)]))
 		return (0);
