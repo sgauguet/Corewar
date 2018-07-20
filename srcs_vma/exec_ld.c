@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:50:38 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/20 15:31:23 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/20 15:52:01 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		exec_ld(t_env *env, t_process *process)
 	param.value[0] = param.size[0] == 2 ? indirect_value(env, process->current
 			+ param.value[0] % IDX_MOD) : param.value[0];
 	process->reg[param.value[1] - 1] = param.value[0];
-	process->carry = 1;
+	process->carry = (param.value[0] == 0) ? 1 : 0;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);
 	return (1);
