@@ -26,6 +26,7 @@ int		exec_lfork(t_env *env, t_process *process)
 	lfork.carry = process->carry;
 	lfork.alive = process->alive;
 	create_process(env, process->reg, process->current, &lfork);
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }

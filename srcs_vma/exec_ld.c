@@ -35,6 +35,7 @@ int		exec_ld(t_env *env, t_process *process)
 			% IDX_MOD) : param.value[0];
 	process->reg[param.value[1] - 1] = param.value[0];
 	process->carry = 1;
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 	return (1);
 }

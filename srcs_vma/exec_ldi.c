@@ -34,7 +34,8 @@ void	ft_do_ldi(t_env *env, t_process *process, t_param param, char *tmp)
 	copy_memory_area(env, tmp, check_adress(param.adress - 1), 4);
 	modify_register_content(process, tmp, param.value[2]);
 	process->carry = 1;
-	show_operations(env, process, &param);
+	if (env->option.v == 4 || env->option.v < 0)
+		show_operations(env, process, &param);
 }
 
 int		exec_ldi(t_env *env, t_process *process)
