@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:44:42 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/20 15:32:58 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/20 15:56:02 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_do_lldi(t_env *env, t_process *process, t_param param, char *tmp)
 	param.adress = process->current + (param.value[0] + param.value[1]);
 	copy_memory_area(env, tmp, check_adress(param.adress - 1), 4);
 	modify_register_content(process, tmp, param.value[2]);
-	process->carry = 1;
+	process->carry = (process->reg[param.value[2] - 1 ] == 0) ? 1 : 0;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);
 }

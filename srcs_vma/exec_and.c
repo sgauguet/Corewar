@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/20 11:39:49 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/20 16:26:08 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	else if (param->size[i] == 2)
 	{
 		head2param = tmp[0] << 8 | (unsigned char)tmp[1];
-		copy_memory_area(env, param->param[i], head2param
-				+ process->current, 4);
-		param->value[i] = indirect_value(env, head2param + process->current);
+		copy_memory_area(env, param->param[i], check_adress(head2param
+				+ process->current), 4);
+		param->value[i] = indirect_value(env, check_adress(head2param
+					+ process->current));
 	}
 	return (1);
 }
@@ -51,7 +52,7 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
 	if (param->size[i] == 1)
 	{
-		copy_register(process, param->param[i], (int)tmp[0]);
+		//copy_register(process, param->param[i], (int)tmp[0]);
 		param->value[i] = register_value(process, (int)tmp[0]);
 		while (j < 4)
 		{
@@ -72,7 +73,7 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 		return (0);
 	param->value[2] = (int)env->arena[check_adress(process->current + 2
 			+ param->size[0] + param->size[1])];
-	if (param->value[2] < 1 || param->value[2] > NB_INSTRUCTIONS)
+	if (param->value[2] < 1 || param->value[2] >= REG_NUMBER)
 		return (0);
 	return (1);
 }
@@ -97,7 +98,7 @@ int	exec_and(t_env *env, t_process *process)
 		i++;
 	}
 	modify_register_content(process, result, param.value[2]);
-	intresult = result[0] << 24 | result[1] << 16 | result[2] << 8 | result[3];
+	intresult = result[0] << 24 | (unsigned char)result[1] << 16 | (unsigned char)result[2] << 8 | (unsigned char)result[3];
 	process->carry = (intresult == 0) ? 1 : 0;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);
