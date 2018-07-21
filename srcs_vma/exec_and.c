@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/20 16:26:08 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/21 18:39:56 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
 	int		head;
-	int		head2param;
+	int		head_indirect;
 
 	head = (i == 1) ? (process->current + 1 + param->size[0]) :
 		(process->current + 1);
@@ -24,15 +24,14 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	if (param->size[i] == 4)
 	{
 		copy_memory_area(env, param->param[i], head, 4);
-		param->value[i] = param->param[i][0] << 24 | param->param[i][1] << 16 |
-			param->param[i][2] << 8 | param->param[i][3];
+		param->value[i] = indirect_value(env, head);
 	}
 	else if (param->size[i] == 2)
 	{
-		head2param = tmp[0] << 8 | (unsigned char)tmp[1];
-		copy_memory_area(env, param->param[i], check_adress(head2param
+		head_indirect = tmp[0] << 8 | (unsigned char)tmp[1];
+		copy_memory_area(env, param->param[i], check_adress(head_indirect
 				+ process->current), 4);
-		param->value[i] = indirect_value(env, check_adress(head2param
+		param->value[i] = indirect_value(env, check_adress(head_indirect
 					+ process->current));
 	}
 	return (1);
@@ -52,13 +51,8 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
 	if (param->size[i] == 1)
 	{
-		//copy_register(process, param->param[i], (int)tmp[0]);
+		copy_register(process, param->param[i], (int)tmp[0]);
 		param->value[i] = register_value(process, (int)tmp[0]);
-		while (j < 4)
-		{
-			param->param[i][j] = param->value[i] >> (24 - (8 * i));
-			j++;
-		}
 	}
 	return (and_param2(env, process, param, i));
 }
@@ -98,7 +92,8 @@ int	exec_and(t_env *env, t_process *process)
 		i++;
 	}
 	modify_register_content(process, result, param.value[2]);
-	intresult = result[0] << 24 | (unsigned char)result[1] << 16 | (unsigned char)result[2] << 8 | (unsigned char)result[3];
+	intresult = result[0] << 24 | (unsigned char)result[1] << 16
+		| (unsigned char)result[2] << 8 | (unsigned char)result[3];
 	process->carry = (intresult == 0) ? 1 : 0;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);

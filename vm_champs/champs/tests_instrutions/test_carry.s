@@ -131,7 +131,7 @@
 	zjmp %3
 	lld %-164183548, r14
 	zjmp %3
-	lld r3, r14
+	lld %543, r14
 	zjmp %3
 	lld %12, r14
 	zjmp %3

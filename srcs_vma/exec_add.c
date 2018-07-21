@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 18:18:21 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/20 11:40:17 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/21 18:19:37 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	exec_add(t_env *env, t_process *process)
 			(param.value[1] < 1 || param.value[1] > REG_NUMBER) ||
 			(param.value[2] < 1 || param.value[2] > REG_NUMBER))
 		return (0);
-	process->reg[param.value[2]] = process->reg[param.value[0]] +
-		process->reg[param.value[1]];
-	if (process->reg[param.value[2]] == 0)
+	process->reg[param.value[2] - 1] = process->reg[param.value[0] - 1] +
+		process->reg[param.value[1] - 1];
+	if (process->reg[param.value[2] - 1] == 0)
 		process->carry = 1;
 	else
 		process->carry = 0;
