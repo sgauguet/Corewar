@@ -49,8 +49,6 @@
 	zjmp %3
 	and r10, r11, r12
 	zjmp %3
-	xor r10, r11, r12
-	zjmp %3
 	st r7, 100
 	zjmp %3
 	st r8, 100

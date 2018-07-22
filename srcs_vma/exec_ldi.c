@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:32:50 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/20 15:55:53 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/22 14:30:37 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_do_ldi(t_env *env, t_process *process, t_param param, char *tmp)
 		+ (param.value[0] + param.value[1]) % IDX_MOD;
 	copy_memory_area(env, tmp, check_adress(param.adress - 1), 4);
 	modify_register_content(process, tmp, param.value[2]);
-	process->carry = (process->reg[param.value[2] - 1 ] == 0) ? 1 : 0;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);
 }

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/20 15:35:18 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/22 15:17:22 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int		show_pc_movements(t_env *env, t_process *process)
 	op = (int)process->opcode;
 	size = size_instruction(env, process);
 	if (size == 1 || op < 1 || op > NB_INSTRUCTIONS)
+		return (0);
+	if (op == 9 && process->carry == 1)
 		return (0);
 	ft_printf("ADV %d ", size);
 	(process->current) ? ft_printf("(%#06x -> ", check_adress(process->current))

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 12:18:42 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 18:23:32 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/22 14:30:15 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int		do_sti(t_env *env, t_process *process, t_param *param, char *reg_value)
 	param->adress = (param->value[1] + param->value[2]) % IDX_MOD
 		+ process->current;
 	modify_memory_content(env, reg_value, check_adress(param->adress), 4);
-	process->carry = 1;
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, param);
 	return (1);
