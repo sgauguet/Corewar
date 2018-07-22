@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 17:44:42 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/20 15:56:02 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:02:14 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		check_lldi(t_env *env, t_process *process, t_param *param)
 		return (0);
 	param->value[2] = (int)env->arena[check_adress(process->current + 2
 			+ param->size[0] + param->size[1])];
-	if (param->value[2] < 1 || param->value[2] >= (int)REG_NUMBER)
+	if (param->value[2] < 1 || param->value[2] > (int)REG_NUMBER)
 		return (0);
 	return (1);
 }
@@ -59,7 +59,7 @@ int		exec_lldi(t_env *env, t_process *process)
 			param.value[i] = (tmp[2 * i] << 8 | (unsigned char)tmp[2 * i + 1]);
 		else if (i == 0)
 			param.value[0] = indirect_value(env, check_adress(process->current
-						+ (tmp[0] << 8 | (unsigned char)tmp[1])));
+						+ (tmp[0] << 8 | (unsigned char)tmp[1]) % IDX_MOD));
 	}
 	ft_do_lldi(env, process, param, tmp);
 	return (1);

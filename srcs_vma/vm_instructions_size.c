@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:48:18 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:12:40 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/22 17:57:01 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		size_param(t_env *env, t_process *process)
 	i = 0;
 	result = 2;
 	instruction = (int)(process->opcode) - 1;
-	if (instruction < 0 || instruction > NB_INSTRUCTIONS + 1)
+	if (instruction < 0 || instruction >= NB_INSTRUCTIONS)
 		return (result);
-	while (i < 3)
+	while (i < 3 && i < env->instructions[instruction].params_number)
 	{
 		if (process->ocp[i] == 1)
 			result++;
@@ -63,8 +63,10 @@ int		check_ocp(t_env *env, t_process *process)
 {
 	int		ocp;
 	int		result;
+	int		i;
 
-	ocp = (unsigned int)env->arena[process->current + 1] / 4;
+	i = 1;
+	ocp = (unsigned int)env->arena[check_adress(process->current + i)] / 4;
 	process->ocp[2] = ocp % 4;
 	ocp = ocp / 4;
 	process->ocp[1] = ocp % 4;

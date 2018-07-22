@@ -149,32 +149,8 @@
 	zjmp %3
 
 ## carry -> 1 : lldi passe le carry a 0 si le résultat stocké est différent de zéro
-	lldi %15, %21, r14
-	zjmp %3
-
-## carry -> ? : aff ne modifie pas le carry
-	aff r1
-	zjmp %3
-	aff r2
-	zjmp %3
-	aff r3
-	zjmp %3
-	aff r4
-	zjmp %3
-	aff r5
-	zjmp %3
-	aff r6
-	zjmp %3
-	aff r7
-	zjmp %3
-	aff r8
-	zjmp %3
-	aff r10
-	zjmp %3
-	aff r14
-	zjmp %3
-	aff r51
-	zjmp %3
+##	lldi %15, %21, r14
+##	zjmp %3
 
 
 

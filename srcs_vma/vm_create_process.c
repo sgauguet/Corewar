@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/20 11:51:20 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:47:57 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 	new->cycle_before_exec = 0;
 	new->carry = (fork) ? fork->carry : 0;
 	new->alive = (fork) ? fork->alive : 0;
-	new->last = 0;
+	new->last = (fork) ? fork->last : 0;
 	new->next = env->process.first_process;
 	env->process.first_process = new;
 	if (fork)

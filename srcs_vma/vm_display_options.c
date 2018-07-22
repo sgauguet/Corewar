@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 15:17:22 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/22 17:38:16 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		show_pc_movements(t_env *env, t_process *process)
 	int size;
 
 	op = (int)process->opcode;
-	size = size_instruction(env, process);
+	size = process->size;
 	if (size == 1 || op < 1 || op > NB_INSTRUCTIONS)
 		return (0);
 	if (op == 9 && process->carry == 1)

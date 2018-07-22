@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/21 18:39:56 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/22 18:02:56 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	check_and(t_env *env, t_process *process, t_param *param)
 		return (0);
 	param->value[2] = (int)env->arena[check_adress(process->current + 2
 			+ param->size[0] + param->size[1])];
-	if (param->value[2] < 1 || param->value[2] >= REG_NUMBER)
+	if (param->value[2] < 1 || param->value[2] > REG_NUMBER)
 		return (0);
 	return (1);
 }

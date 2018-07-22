@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 17:24:18 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:48:14 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_process
 	int					carry;
 	int					alive;
 	int					last;
+	int					size;
 	struct s_process	*next;
 }				t_process;
 
@@ -65,6 +66,7 @@ typedef	struct	s_fork
 	int			pc;
 	int			carry;
 	int			alive;
+	int			last;
 }				t_fork;
 
 typedef struct	s_option

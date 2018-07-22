@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 16:11:18 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:22:13 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,21 @@ int		exec_process(t_env *env)
 int		run_the_game(t_env *env)
 {
 	int cycle_consumed;
+	int check;
 
 	cycle_consumed = 0;
+	check = 0;
 	display_start(env);
 	while (env->process.nb_process)
 	{
-		if (cycle_consumed == env->cycle_to_die)// || cycle_consumed == MAX_CHECKS)
+		if (cycle_consumed == env->cycle_to_die)
 		{
+			check++;
 			search_dead_process(env);
 			cycle_consumed = 0;
-			if (env->nb_live_env >= NBR_LIVE)
+			if (env->nb_live_env >= NBR_LIVE || check == MAX_CHECKS)
 			{
+				check = 0;
 				env->nb_live_env = 0;
 				env->cycle_to_die -= (env->cycle_to_die >= CYCLE_DELTA)
 					? CYCLE_DELTA : (env->cycle_to_die - 1);

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:08:52 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/09 13:01:39 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/22 19:48:55 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		exec_lfork(t_env *env, t_process *process)
 	lfork.pc = check_adress(param.adress);
 	lfork.carry = process->carry;
 	lfork.alive = process->alive;
+	lfork.last = process->last;
 	create_process(env, process->reg, process->current, &lfork);
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/20 11:56:33 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/22 17:35:39 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int	new_instruction(t_env *env, t_process *process)
 	process->ocp[0] = 0;
 	process->ocp[1] = 0;
 	process->ocp[2] = 0;
+	process->size = size_instruction(env, process);
 	process->pc = check_adress(process->current
-		+ size_instruction(env, process));
+		+ process->size);
 	return (1);
 }
 
@@ -55,13 +56,13 @@ int	exec_instruction2(t_env *env, t_process *process)
 		exec_lfork(env, process);
 	if ((int)(process->opcode) == 16)
 		exec_aff(env, process);
+	if (env->option.v == 16 || env->option.v < 0)
+		show_pc_movements(env, process);
 	return (1);
 }
 
 int	exec_instruction(t_env *env, t_process *process)
 {
-	if (env->option.v == 16 || env->option.v < 0)
-		show_pc_movements(env, process);
 	if ((int)(process->opcode) == 1)
 		exec_live(env, process);
 	if ((int)(process->opcode) == 2)
