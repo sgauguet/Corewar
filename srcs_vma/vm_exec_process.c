@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/23 17:07:42 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 20:07:57 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ int		run_the_game(t_env *env)
 			if (env->nb_live_env >= NBR_LIVE || check == MAX_CHECKS)
 			{
 				check = 0;
-				env->nb_live_env = 0;
 				env->cycle_to_die -= CYCLE_DELTA;
 				if (env->option.v == 2 || env->option.v < 0)
 					ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
 			}
+				env->nb_live_env = 0;
 		}
 		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
 			ft_printf("It is now cycle %d\n", env->cycle);
+//		ft_printf("total live %d\nchecks %d\n", env->nb_live_env, check);
 		exec_process(env);
 		exec_options(env);
 		env->cycle++;
