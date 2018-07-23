@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/20 11:57:31 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/23 14:36:20 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int		init_vm_environment(t_env *env)
 	i = 0;
 	check_constants();
 	ft_bzero(env->arena, MEM_SIZE);
-	env->cycle = 0;
+	env->cycle = 1;
 	env->cycle_to_die = CYCLE_TO_DIE;
 	env->nb_players = 0;
 	env->nb_live_env = 0;

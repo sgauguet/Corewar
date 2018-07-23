@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 17:38:16 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 16:13:06 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int		show_pc_movements(t_env *env, t_process *process)
 	if (op == 9 && process->carry == 1)
 		return (0);
 	ft_printf("ADV %d ", size);
-	(process->current) ? ft_printf("(%#06x -> ", check_adress(process->current))
+	(process->current) ? ft_printf("(%#06x -> ", process->current)
 		: ft_printf("(0x0000 -> ");
-	(process->pc) ? ft_printf("%#06x) ", check_adress(process->pc))
+	(process->pc) ? ft_printf("%#06x) ", process->pc)
 		: ft_printf("0x0000) ");
 	display_specific_area(env, (int)process->current, size);
 	ft_printf("\n");

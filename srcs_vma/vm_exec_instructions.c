@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 17:35:39 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 15:48:30 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,14 @@ int	nb_cycles_instruction(t_env *env, t_process *process)
 
 int	new_instruction(t_env *env, t_process *process)
 {
-	process->current = process->pc;
+	process->current = check_adress(process->pc);
 	process->opcode = env->arena[process->current];
 	process->cycle_before_exec = nb_cycles_instruction(env, process);
 	process->ocp[0] = 0;
 	process->ocp[1] = 0;
 	process->ocp[2] = 0;
 	process->size = size_instruction(env, process);
-	process->pc = check_adress(process->current
-		+ process->size);
+	process->pc = (process->current + process->size);
 	return (1);
 }
 
