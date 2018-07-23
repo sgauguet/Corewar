@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/04 12:18:42 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 14:30:15 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 17:53:15 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		exec_sti(t_env *env, t_process *process)
 		|| (int)tmp[0] > REG_NUMBER))
 		return (0);
 	if (process->ocp[1] == 3)
-		param.value[1] = indirect_value(env, param.value[1] + process->current);
+		param.value[1] = indirect_value(env, param.value[1] % IDX_MOD + process->current);
 	copy_memory_area(env, tmp, check_adress(process->current + 2
 		+ param.size[1]), param.size[2]);
 	param.value[2] = (param.size[2] == 2) ? (tmp[0] << 8

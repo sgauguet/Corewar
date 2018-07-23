@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/23 15:38:56 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 17:07:42 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		run_the_game(t_env *env)
 					ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
 			}
 		}
-		if (env->option.v == 2 || env->option.v < 0)
+		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
 			ft_printf("It is now cycle %d\n", env->cycle);
 		exec_process(env);
 		exec_options(env);

@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/22 18:02:56 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/23 17:45:41 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	else if (param->size[i] == 2)
 	{
 		head_indirect = tmp[0] << 8 | (unsigned char)tmp[1];
-		copy_memory_area(env, param->param[i], check_adress(head_indirect
+		copy_memory_area(env, param->param[i], check_adress(head_indirect % IDX_MOD
 				+ process->current), 4);
-		param->value[i] = indirect_value(env, check_adress(head_indirect
+		param->value[i] = indirect_value(env, check_adress(head_indirect % IDX_MOD
 					+ process->current));
 	}
 	return (1);
