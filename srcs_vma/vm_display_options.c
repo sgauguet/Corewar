@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/23 16:13:06 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/24 16:41:27 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,12 @@ int		show_operations(t_env *env, t_process *process, t_param *param)
 
 int		show_deaths(t_env *env, t_process *process)
 {
-	ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id,
+	ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id, env->cycle_to_die >= 0 ? (env->cycle - process->last - ((env->cycle - process->last > 0)
+				? 1 : 0)) : 0, env->cycle_to_die);
+	/*ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id,
 			env->cycle - process->last - ((env->cycle - process->last > 0)
-				? 1 : 0), env->cycle_to_die);
+				? 1 : 0), env->cycle_to_die);*/
+	//ft_printf("cycle : %d\n last : %d\n to die : %d\n", env->cycle, process->last, env->cycle_to_die);
 	return (1);
 }
 

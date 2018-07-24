@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/17 10:30:27 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/24 18:16:58 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ void	display_usage(char **argv)
 
 int		display_end(t_env *env)
 {
-	int i;
-
-	i = 0;
-	ft_printf("Contestant %d, \"%s\", has won !\n", env->champions[i].player_id,
-			env->champions[i].header.prog_name);
+	ft_printf("Contestant %d, \"%s\", has won !\n", env->last_alive->player_id,
+				env->last_alive->header.prog_name);
 	return (1);
 }
 

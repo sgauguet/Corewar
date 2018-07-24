@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/23 14:36:20 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/24 19:19:38 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int		init_options(t_env *env)
 		"long fork", 0, 1};
 	env->instructions[15] = (t_op){"aff", 1, {T_REG}, 16, 2, "aff", 1, 0};
 	env->option.a = 0;
-	env->option.d = 0;
-	env->option.s = 0;
+	env->option.d = -1;
+	env->option.s = -1;
 	env->option.v = 0;
 	env->option.b = 0;
 	env->option.stealth = 0;

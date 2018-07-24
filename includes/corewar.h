@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 19:48:14 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/24 20:52:33 by jebossue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct	s_env
 	int			nb_live_env;
 	t_player	champions[MAX_PLAYERS];
 	t_player	*last_alive;
-	t_op		instructions[16];
+	t_op		instructions[NB_INSTRUCTIONS];
 	t_stack		process;
 	t_option	option;
 }				t_env;
