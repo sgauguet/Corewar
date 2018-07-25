@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 17:24:38 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/23 19:00:34 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/07/25 16:45:50 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	xor_param(t_env *env, t_process *process, t_param *param, int i)
 	else
 		head = process->current + 1;
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
+	if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
+		return (0);
 	if (param->size[i] == 1)
 	{
 		copy_register(process, param->param[i], (int)tmp[0]);

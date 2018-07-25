@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:08:34 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 19:48:36 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/07/25 16:13:58 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		exec_fork(t_env *env, t_process *process)
 	ft_bzero(dest, 2);
 	copy_memory_area(env, dest, check_adress(process->current), 2);
 	param.value[0] = (dest[0] << 8) | (unsigned char)dest[1];
-	param.adress = (param.value[0] + process->current);
+	param.adress = (param.value[0] % IDX_MOD + process->current);
 	fork.pc = check_adress(param.adress);
 	fork.carry = process->carry;
 	fork.alive = process->alive;

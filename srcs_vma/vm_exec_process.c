@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 20:56:38 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/25 17:59:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int		exec_options(t_env *env)
 
 	c = '0';
 
-	quel comportement si -d et -s sont actives? on prend le premier des deux? le plus petit?...
+	//quel comportement si -d et -s sont actives? on prend le premier des deux? le plus petit?...
 
 	if (env->option.d != -1 && env->option.d == env->cycle - 1)
 	{
 		display_arena(env);
-		free les process et eventuellement l'arene
+		//free les process et eventuellement l'arene
 	}
-	if (env->option.s != -1 && ((env->cycle == 1) || ((env->cycle) % env->option.s == 0)))
+	if (env->option.s != -1 && (/*(env->cycle == 1) ||*/ ((env->cycle - 1) % env->option.s == 0)))
 	{
 		display_arena(env);
 		while (c != '\n')
@@ -88,11 +88,13 @@ int		run_the_game(t_env *env)
 			delta = 0;
 			ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
 		}
-		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
-			ft_printf("It is now cycle %d\n", env->cycle);
-		exec_process(env);
+
 		if (env->cycle != 1)
 			exec_options(env);
+		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
+			ft_printf("It is now cycle %d\n", env->cycle);
+
+		exec_process(env);
 //		if (cycle_consumed >= env->cycle_to_die && env->process.nb_process)
 //			search_dead_process(env);
 		env->cycle++;

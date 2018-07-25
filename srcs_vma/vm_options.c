@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 20:59:44 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/07/25 15:27:31 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		search_options(t_env *env, char **argv, int argc, int i)
 	int ret;
 	int check;
 
-	Pour les flags prenant un param numerique, verifier les bornes (j'ai une fonction toute prete dans mon push_swap)
+	//Pour les flags prenant un param numerique, verifier les bornes (j'ai une fonction toute prete dans mon push_swap)
 
 	ret = 0;
 	check = ((i + 1) < argc) ? 1 : 0;
