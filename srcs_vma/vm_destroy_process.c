@@ -3,7 +3,10 @@
 int		free_memory(t_env *env, t_process *process)
 {
 	if (env->option.v == 8 || env->option.v < 0)
-		show_deaths(env, process);
+	{
+		if(!(env->option.d != -1 && env->option.d == env->cycle - 1))
+			show_deaths(env, process);
+	}
 	ft_memdel((void **)&process);
 	return (1);
 }
@@ -29,6 +32,22 @@ int		destroy_process(t_env *env, t_process *process)
 		return (1);
 	}
 	return (0);
+}
+
+int		destroy_all(t_env *env)
+{
+	t_process *process;
+	t_process *tmp;
+
+	process = env->process.first_process;
+	while (process)
+	{
+		tmp = process->next;
+		destroy_process(env, process);
+		env->process.nb_process--;
+		process = tmp;
+	}
+	return (1);
 }
 
 int		search_dead_process(t_env *env)

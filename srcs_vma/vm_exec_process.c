@@ -17,23 +17,20 @@ int		exec_options(t_env *env)
 	char c;
 
 	c = '0';
-
-	//quel comportement si -d et -s sont actives? on prend le premier des deux? le plus petit?...
-
 	if (env->option.d != -1 && env->option.d == env->cycle - 1)
 	{
 		display_arena(env);
-		//free les process et eventuellement l'arene
 	}
-	if (env->option.s != -1 && (/*(env->cycle == 1) ||*/ ((env->cycle - 1) % env->option.s == 0)))
+	if (env->option.s != -1 && ((env->cycle - 1) % env->option.s == 0))
 	{
+		if(env->option.d != -1 && env->option.d <= env->cycle - 1)
+			return (0);
 		display_arena(env);
 		while (c != '\n')
 		{
 			read(0, &c, 1);
 		}
 	}
-
 	return (1);
 }
 
@@ -66,7 +63,6 @@ int		run_the_game(t_env *env)
 	exec_options(env);
 	while (env->process.nb_process && cycle_consumed >= 0)
 	{
-/*		ft_printf("to die %d\nconsumed %d\nalive %d\nlast %d\nlive_env %d\nnb_process %d\n", env->cycle_to_die, cycle_consumed, env->process.first_process->alive, env->process.first_process->last, env->nb_live_env, env->process.nb_process);*/
 		if (cycle_consumed >= env->cycle_to_die)
 		{
 			check++;
@@ -80,27 +76,22 @@ int		run_the_game(t_env *env)
 			}
 				env->nb_live_env = 0;
 		}
-
-//		ft_printf("consumed2 %d\n", cycle_consumed);
-
 		if (delta && (env->option.v == 2 || env->option.v < 0))
 		{
 			delta = 0;
 			ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
 		}
-
 		if (env->cycle != 1)
 			exec_options(env);
+		if (env->option.d != -1 && (env->option.d == env->cycle - 1))
+			destroy_all(env);
 		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
 			ft_printf("It is now cycle %d\n", env->cycle);
-
 		exec_process(env);
-//		if (cycle_consumed >= env->cycle_to_die && env->process.nb_process)
-//			search_dead_process(env);
 		env->cycle++;
 		cycle_consumed++;
 	}
-//	(env->cycle_to_die > -15 || ((env->process.nb_process != 0) && env->process.first_process->alive < cycle_consumed)))
-	display_end(env);
+	if (env->option.d == -1)
+		display_end(env);
 	return (1);
 }

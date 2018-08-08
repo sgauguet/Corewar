@@ -22,7 +22,7 @@ int		check_ldi(t_env *env, t_process *process, t_param *param)
 		return (0);
 	param->value[2] = (int)env->arena[check_adress(process->current + 2
 			+ param->size[0] + param->size[1])];
-	if (param->value[2] < 1 || param->value[2] >= (int)REG_NUMBER)
+	if (param->value[2] < 1 || param->value[2] > (int)REG_NUMBER)
 		return (0);
 	return (1);
 }

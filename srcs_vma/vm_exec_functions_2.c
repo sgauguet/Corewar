@@ -17,7 +17,7 @@ int		copy_register(t_process *process, char *buf, int reg_number)
 	int i;
 
 	i = 0;
-	if (reg_number < 1 || reg_number >= REG_NUMBER)
+	if (reg_number < 1 || reg_number > REG_NUMBER)
 		return (0);
 	while (i < 4)
 	{

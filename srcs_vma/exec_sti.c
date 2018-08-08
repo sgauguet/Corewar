@@ -55,8 +55,7 @@ int		exec_sti(t_env *env, t_process *process)
 		+ param.size[1]), param.size[2]);
 	param.value[2] = (param.size[2] == 2) ? (tmp[0] << 8
 		| (unsigned char)tmp[1]) : register_value(process, (int)tmp[0]);
-	if (param.size[2] == 1 && ((int)tmp[0] < 1
-		|| (int)tmp[0] > REG_NUMBER))
+	if (param.size[2] == 1 && ((int)tmp[0] < 1 || (int)tmp[0] > REG_NUMBER))
 		return (0);
 	return (do_sti(env, process, &param, reg_value));
 }

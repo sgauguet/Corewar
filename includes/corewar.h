@@ -156,6 +156,7 @@ int				init_process_stack(t_env *env);
 int				free_memory(t_env *env, t_process *process);
 int				destroy_process(t_env *env, t_process *process);
 int				search_dead_process(t_env *env);
+int				destroy_all(t_env *env);
 
 /*
  ** vm_exec_process.c
