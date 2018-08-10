@@ -1,0 +1,16 @@
+40a41
+> P    2 | and -2 0 r1
+41a43
+> P    1 | and -1 0 r1
+2121a2124
+> P    2 | and 0 0 r1
+2122a2126
+> P    1 | and 0 0 r1
+4202a4207
+> P    2 | and 0 0 r1
+4203a4209
+> P    1 | and 0 0 r1
+6186c6192
+< Contestant 1, "zork", has won !
+---
+> Contestant 2, "zork", has won !

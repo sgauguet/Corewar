@@ -18,13 +18,14 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	int		head;
 	int		head_indirect;
 
+//	ft_printf("process2 : %d\n", process->current);
 	head = (i == 1) ? (process->current + 1 + param->size[0]) :
 		(process->current + 1);
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
 	if (param->size[i] == 4)
 	{
 		copy_memory_area(env, param->param[i], head, 4);
-		param->value[i] = indirect_value(env, head);
+		param->value[i] = indirect_value(env, head + 1);
 	}
 	else if (param->size[i] == 2)
 	{
@@ -49,10 +50,10 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 	else
 		head = process->current + 1;
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
-	if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
-		return (0);
 	if (param->size[i] == 1)
 	{
+		if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
+			return (0);
 		copy_register(process, param->param[i], (int)tmp[0]);
 		param->value[i] = register_value(process, (int)tmp[0]);
 	}
@@ -82,6 +83,7 @@ int	exec_and(t_env *env, t_process *process)
 	int		intresult;
 
 	i = 0;
+//	ft_printf("process : %d\n", process->current);
 	if (!check_and(env, process, &param))
 		return (0);
 	if (!and_param(env, process, &param, 0))

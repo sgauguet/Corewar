@@ -24,7 +24,7 @@ int	or_param2(t_env *env, t_process *process, t_param *param, int i)
 	if (param->size[i] == 4)
 	{
 		copy_memory_area(env, param->param[i], head, 4);
-		param->value[i] = indirect_value(env, head);
+		param->value[i] = indirect_value(env, head + 1);
 	}
 	else if (param->size[i] == 2)
 	{
@@ -48,10 +48,10 @@ int	or_param(t_env *env, t_process *process, t_param *param, int i)
 	else
 		head = process->current + 1;
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
-	if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
-		return (0);
 	if (param->size[i] == 1)
 	{
+		if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
+			return (0);
 		copy_register(process, param->param[i], (int)tmp[0]);
 		param->value[i] = register_value(process, (int)tmp[0]);
 	}
