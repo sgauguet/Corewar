@@ -1,0 +1,729 @@
+4894c4894
+< ADV 3 (0x088e -> 0x0891) 06 05 02 
+---
+> ADV 6 (0x028e -> 0x0294) 07 09 ff f0 00 00 
+4912c4912
+< ADV 3 (0x088e -> 0x0891) 06 05 02 
+---
+> ADV 6 (0x028e -> 0x0294) 07 09 ff f0 00 00 
+4914d4913
+< ADV 2 (0x0896 -> 0x0898) 07 02 
+4927d4925
+< ADV 2 (0x0896 -> 0x0898) 07 02 
+4931,4932d4928
+< P    4 | live 17432428
+< ADV 5 (0x089a -> 0x089f) 01 01 09 ff 6c 
+4935a4932,4934
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 661)
+> ADV 5 (0x0295 -> 0x029a) 0f 0f 0f 0f 07 
+4938,4939d4936
+< P    4 | st r4 -37
+< ADV 5 (0x089f -> 0x08a4) 03 70 04 ff db 
+4957,4960d4953
+< P   10 | live 17432428
+< ADV 5 (0x089a -> 0x089f) 01 01 09 ff 6c 
+< P    4 | st r4 -47
+< ADV 5 (0x08a4 -> 0x08a9) 03 70 04 ff d1 
+4963a4957
+> ADV 4 (0x0295 -> 0x0299) 0f 0f 0f 0f 
+4969,4972d4962
+< P   10 | st r4 -37
+< ADV 5 (0x089f -> 0x08a4) 03 70 04 ff db 
+< P    4 | st r4 -57
+< ADV 5 (0x08a9 -> 0x08ae) 03 70 04 ff c7 
+4976a4967
+> ADV 6 (0x0299 -> 0x029f) 07 09 ff f0 00 00 
+4978,4981d4968
+< P   10 | st r4 -47
+< ADV 5 (0x08a4 -> 0x08a9) 03 70 04 ff d1 
+< P    4 | st r4 -67
+< ADV 5 (0x08ae -> 0x08b3) 03 70 04 ff bd 
+4984a4972
+> P    4 | zjmp -16 OK
+4988,4991d4975
+< P   10 | st r4 -57
+< ADV 5 (0x08a9 -> 0x08ae) 03 70 04 ff c7 
+< P    4 | st r4 -77
+< ADV 5 (0x08b3 -> 0x08b8) 03 70 04 ff b3 
+5001,5002d4984
+< P   10 | st r4 -67
+< ADV 5 (0x08ae -> 0x08b3) 03 70 04 ff bd 
+5004,5005d4985
+< P    4 | st r4 -87
+< ADV 5 (0x08b8 -> 0x08bd) 03 70 04 ff a9 
+5012,5015d4991
+< P   10 | st r4 -77
+< ADV 5 (0x08b3 -> 0x08b8) 03 70 04 ff b3 
+< P    4 | st r4 -97
+< ADV 5 (0x08bd -> 0x08c2) 03 70 04 ff 9f 
+5021,5024d4996
+< P   10 | st r4 -87
+< ADV 5 (0x08b8 -> 0x08bd) 03 70 04 ff a9 
+< P    4 | st r4 -107
+< ADV 5 (0x08c2 -> 0x08c7) 03 70 04 ff 95 
+5030,5033d5001
+< P   10 | st r4 -97
+< ADV 5 (0x08bd -> 0x08c2) 03 70 04 ff 9f 
+< P    4 | st r4 -117
+< ADV 5 (0x08c7 -> 0x08cc) 03 70 04 ff 8b 
+5036a5005,5007
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 650)
+> ADV 5 (0x028a -> 0x028f) 0f 0f 0f 0f 07 
+5039,5042d5009
+< P   10 | st r4 -107
+< ADV 5 (0x08c2 -> 0x08c7) 03 70 04 ff 95 
+< P    4 | st r4 -127
+< ADV 5 (0x08cc -> 0x08d1) 03 70 04 ff 81 
+5060,5063d5026
+< P   10 | st r4 -117
+< ADV 5 (0x08c7 -> 0x08cc) 03 70 04 ff 8b 
+< P    4 | st r4 -137
+< ADV 5 (0x08d1 -> 0x08d6) 03 70 04 ff 77 
+5072,5075d5034
+< P   10 | st r4 -127
+< ADV 5 (0x08cc -> 0x08d1) 03 70 04 ff 81 
+< P    4 | st r4 -147
+< ADV 5 (0x08d6 -> 0x08db) 03 70 04 ff 6d 
+5081,5084d5039
+< P   10 | st r4 -137
+< ADV 5 (0x08d1 -> 0x08d6) 03 70 04 ff 77 
+< P    4 | st r4 -157
+< ADV 5 (0x08db -> 0x08e0) 03 70 04 ff 63 
+5087a5043
+> P    4 | zjmp -16 OK
+5090,5093d5045
+< P   10 | st r4 -147
+< ADV 5 (0x08d6 -> 0x08db) 03 70 04 ff 6d 
+< P    4 | st r4 -167
+< ADV 5 (0x08e0 -> 0x08e5) 03 70 04 ff 59 
+5104,5107d5055
+< P   10 | st r4 -157
+< ADV 5 (0x08db -> 0x08e0) 03 70 04 ff 63 
+< P    4 | st r4 -177
+< ADV 5 (0x08e5 -> 0x08ea) 03 70 04 ff 4f 
+5114,5117d5061
+< P   10 | st r4 -167
+< ADV 5 (0x08e0 -> 0x08e5) 03 70 04 ff 59 
+< P    4 | st r4 -187
+< ADV 5 (0x08ea -> 0x08ef) 03 70 04 ff 45 
+5123,5126d5066
+< P   10 | st r4 -177
+< ADV 5 (0x08e5 -> 0x08ea) 03 70 04 ff 4f 
+< P    4 | st r4 -197
+< ADV 5 (0x08ef -> 0x08f4) 03 70 04 ff 3b 
+5132,5135d5071
+< P   10 | st r4 -187
+< ADV 5 (0x08ea -> 0x08ef) 03 70 04 ff 45 
+< P    4 | st r4 -207
+< ADV 5 (0x08f4 -> 0x08f9) 03 70 04 ff 31 
+5138a5075,5077
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 639)
+> ADV 5 (0x027f -> 0x0284) 0f 0f 0f 0f 07 
+5141,5144d5079
+< P   10 | st r4 -197
+< ADV 5 (0x08ef -> 0x08f4) 03 70 04 ff 3b 
+< P    4 | st r4 -217
+< ADV 5 (0x08f9 -> 0x08fe) 03 70 04 ff 27 
+5162,5165d5096
+< P   10 | st r4 -207
+< ADV 5 (0x08f4 -> 0x08f9) 03 70 04 ff 31 
+< P    4 | st r4 -227
+< ADV 5 (0x08fe -> 0x0903) 03 70 04 ff 1d 
+5174,5177d5104
+< P   10 | st r4 -217
+< ADV 5 (0x08f9 -> 0x08fe) 03 70 04 ff 27 
+< P    4 | st r4 -237
+< ADV 5 (0x0903 -> 0x0908) 03 70 04 ff 13 
+5183,5186d5109
+< P   10 | st r4 -227
+< ADV 5 (0x08fe -> 0x0903) 03 70 04 ff 1d 
+< P    4 | st r4 -247
+< ADV 5 (0x0908 -> 0x090d) 03 70 04 ff 09 
+5189a5113
+> P    4 | zjmp -16 OK
+5192,5195d5115
+< P   10 | st r4 -237
+< ADV 5 (0x0903 -> 0x0908) 03 70 04 ff 13 
+< P    4 | st r4 -257
+< ADV 5 (0x090d -> 0x0912) 03 70 04 fe ff 
+5205,5208d5124
+< P   10 | st r4 -247
+< ADV 5 (0x0908 -> 0x090d) 03 70 04 ff 09 
+< P    4 | st r4 -267
+< ADV 5 (0x0912 -> 0x0917) 03 70 04 fe f5 
+5215,5218d5130
+< P   10 | st r4 -257
+< ADV 5 (0x090d -> 0x0912) 03 70 04 fe ff 
+< P    4 | st r4 -277
+< ADV 5 (0x0917 -> 0x091c) 03 70 04 fe eb 
+5224,5227d5135
+< P   10 | st r4 -267
+< ADV 5 (0x0912 -> 0x0917) 03 70 04 fe f5 
+< P    4 | st r4 -287
+< ADV 5 (0x091c -> 0x0921) 03 70 04 fe e1 
+5233,5236d5140
+< P   10 | st r4 -277
+< ADV 5 (0x0917 -> 0x091c) 03 70 04 fe eb 
+< P    4 | st r4 -297
+< ADV 5 (0x0921 -> 0x0926) 03 70 04 fe d7 
+5239a5144,5146
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 628)
+> ADV 5 (0x0274 -> 0x0279) 0f 0f 0f 0f 07 
+5242,5245d5148
+< P   10 | st r4 -287
+< ADV 5 (0x091c -> 0x0921) 03 70 04 fe e1 
+< P    4 | st r4 -307
+< ADV 5 (0x0926 -> 0x092b) 03 70 04 fe cd 
+5263,5266d5165
+< P   10 | st r4 -297
+< ADV 5 (0x0921 -> 0x0926) 03 70 04 fe d7 
+< P    4 | st r4 -317
+< ADV 5 (0x092b -> 0x0930) 03 70 04 fe c3 
+5275,5278d5173
+< P   10 | st r4 -307
+< ADV 5 (0x0926 -> 0x092b) 03 70 04 fe cd 
+< P    4 | st r4 -327
+< ADV 5 (0x0930 -> 0x0935) 03 70 04 fe b9 
+5284,5287d5178
+< P   10 | st r4 -317
+< ADV 5 (0x092b -> 0x0930) 03 70 04 fe c3 
+< P    4 | st r4 -337
+< ADV 5 (0x0935 -> 0x093a) 03 70 04 fe af 
+5290a5182
+> P    4 | zjmp -16 OK
+5293,5296d5184
+< P   10 | st r4 -327
+< ADV 5 (0x0930 -> 0x0935) 03 70 04 fe b9 
+< P    4 | st r4 -347
+< ADV 5 (0x093a -> 0x093f) 03 70 04 fe a5 
+5306,5309d5193
+< P   10 | st r4 -337
+< ADV 5 (0x0935 -> 0x093a) 03 70 04 fe af 
+< P    4 | st r4 -357
+< ADV 5 (0x093f -> 0x0944) 03 70 04 fe 9b 
+5316,5319d5199
+< P   10 | st r4 -347
+< ADV 5 (0x093a -> 0x093f) 03 70 04 fe a5 
+< P    4 | st r4 -367
+< ADV 5 (0x0944 -> 0x0949) 03 70 04 fe 91 
+5325,5328d5204
+< P   10 | st r4 -357
+< ADV 5 (0x093f -> 0x0944) 03 70 04 fe 9b 
+< P    4 | st r4 -377
+< ADV 5 (0x0949 -> 0x094e) 03 70 04 fe 87 
+5334,5337d5209
+< P   10 | st r4 -367
+< ADV 5 (0x0944 -> 0x0949) 03 70 04 fe 91 
+< P    4 | st r4 -387
+< ADV 5 (0x094e -> 0x0953) 03 70 04 fe 7d 
+5340a5213,5215
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 617)
+> ADV 5 (0x0269 -> 0x026e) 0f 0f 0f 0f 07 
+5343,5346d5217
+< P   10 | st r4 -377
+< ADV 5 (0x0949 -> 0x094e) 03 70 04 fe 87 
+< P    4 | st r4 -501
+< ADV 5 (0x0953 -> 0x0958) 03 70 04 fe 0b 
+5364d5234
+< ADV 2 (0x094e -> 0x0950) 04 01 
+5374,5375d5243
+< ADV 6 (0x0950 -> 0x0956) 07 09 ff f0 70 04 
+< ADV 2 (0x0959 -> 0x095b) 04 01 
+5382d5249
+< ADV 6 (0x095b -> 0x0961) 07 09 ff f0 04 fe 
+5383a5251
+> P    4 | zjmp -16 OK
+5408,5410d5275
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2391)
+< ADV 5 (0x0957 -> 0x095c) 0f 0f 0f 0f 07 
+5418,5419c5283,5284
+<        | -> store to 0 + 0 = 0 (with pc and mod 2402)
+< ADV 5 (0x0962 -> 0x0967) 0f 0f 0f 0f 07 
+---
+>        | -> store to 0 + 0 = 0 (with pc and mod 606)
+> ADV 5 (0x025e -> 0x0263) 0f 0f 0f 0f 07 
+5449d5313
+< P   10 | zjmp -16 OK
+5481,5483d5344
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2380)
+< ADV 5 (0x094c -> 0x0951) 0f 0f 0f 0f 07 
+5489a5351,5353
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 595)
+> ADV 5 (0x0253 -> 0x0258) 0f 0f 0f 0f 07 
+5523d5386
+< P   10 | zjmp -16 OK
+5533a5397
+> P    4 | zjmp -16 OK
+5566,5568d5429
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2369)
+< ADV 5 (0x0941 -> 0x0946) 0f 0f 0f 0f 07 
+5574a5436,5438
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 584)
+> ADV 5 (0x0248 -> 0x024d) 0f 0f 0f 0f 07 
+5612d5475
+< P   10 | zjmp -16 OK
+5618a5482
+> P    4 | zjmp -16 OK
+5651,5653d5514
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2358)
+< ADV 5 (0x0936 -> 0x093b) 0f 0f 0f 0f 07 
+5659a5521,5523
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 573)
+> ADV 5 (0x023d -> 0x0242) 0f 0f 0f 0f 07 
+5697d5560
+< P   10 | zjmp -16 OK
+5703a5567
+> P    4 | zjmp -16 OK
+5736,5738d5599
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2347)
+< ADV 5 (0x092b -> 0x0930) 0f 0f 0f 0f 07 
+5744a5606,5608
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 562)
+> ADV 5 (0x0232 -> 0x0237) 0f 0f 0f 0f 07 
+5782d5645
+< P   10 | zjmp -16 OK
+5788a5652
+> P    4 | zjmp -16 OK
+5821,5823d5684
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2336)
+< ADV 5 (0x0920 -> 0x0925) 0f 0f 0f 0f 07 
+5829a5691,5693
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 551)
+> ADV 5 (0x0227 -> 0x022c) 0f 0f 0f 0f 07 
+5867d5730
+< P   10 | zjmp -16 OK
+5873a5737
+> P    4 | zjmp -16 OK
+5903,5905d5766
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2325)
+< ADV 5 (0x0915 -> 0x091a) 0f 0f 0f 0f 07 
+5911a5773,5775
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 540)
+> ADV 5 (0x021c -> 0x0221) 0f 0f 0f 0f 07 
+5945d5808
+< P   10 | zjmp -16 OK
+5951a5815
+> P    4 | zjmp -16 OK
+5980,5982d5843
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2314)
+< ADV 5 (0x090a -> 0x090f) 0f 0f 0f 0f 07 
+5985a5847,5849
+> P   10 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 1167)
+> ADV 5 (0x048f -> 0x0494) 0f 0f 0f 0f 05 
+5988a5853,5855
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 529)
+> ADV 5 (0x0211 -> 0x0216) 0f 0f 0f 0f 07 
+6025d5891
+< P   10 | zjmp -16 OK
+6028a5895
+> P   10 | zjmp -511 OK
+6031a5899
+> P    4 | zjmp -16 OK
+6061,6063d5928
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2303)
+< ADV 5 (0x08ff -> 0x0904) 0f 0f 0f 0f 07 
+6069a5935,5937
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 518)
+> ADV 5 (0x0206 -> 0x020b) 0f 0f 0f 0f 07 
+6103d5970
+< P   10 | zjmp -16 OK
+6109a5977
+> P    4 | zjmp -16 OK
+6138,6140d6005
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2292)
+< ADV 5 (0x08f4 -> 0x08f9) 0f 0f 0f 0f 07 
+6146a6012,6014
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 507)
+> ADV 5 (0x01fb -> 0x0200) 0f 0f 0f 0f 07 
+6180d6047
+< P   10 | zjmp -16 OK
+6186a6054
+> P    4 | zjmp -16 OK
+6215,6217d6082
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2281)
+< ADV 5 (0x08e9 -> 0x08ee) 0f 0f 0f 0f 07 
+6223a6089,6091
+> P    4 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 496)
+> ADV 5 (0x01f0 -> 0x01f5) 0f 0f 0f 0f 07 
+6254d6121
+< P   10 | zjmp -16 OK
+6260a6128
+> P    4 | zjmp -16 OK
+6288,6290d6155
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2270)
+< ADV 5 (0x08de -> 0x08e3) 0f 0f 0f 0f 07 
+6301a6167,6169
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2402)
+> ADV 5 (0x0962 -> 0x0967) 0f 0f 0f 0f 07 
+6324d6191
+< P   10 | zjmp -16 OK
+6335a6203
+> P    8 | zjmp -16 OK
+6357,6359d6224
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2259)
+< ADV 5 (0x08d3 -> 0x08d8) 0f 0f 0f 0f 07 
+6370a6236,6238
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2391)
+> ADV 5 (0x0957 -> 0x095c) 0f 0f 0f 0f 07 
+6393d6260
+< P   10 | zjmp -16 OK
+6404a6272
+> P    8 | zjmp -16 OK
+6426,6428d6293
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2248)
+< ADV 5 (0x08c8 -> 0x08cd) 0f 0f 0f 0f 07 
+6439a6305,6307
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2380)
+> ADV 5 (0x094c -> 0x0951) 0f 0f 0f 0f 07 
+6462d6329
+< P   10 | zjmp -16 OK
+6473a6341
+> P    8 | zjmp -16 OK
+6495,6497d6362
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2237)
+< ADV 5 (0x08bd -> 0x08c2) 0f 0f 0f 0f 07 
+6508a6374,6376
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2369)
+> ADV 5 (0x0941 -> 0x0946) 0f 0f 0f 0f 07 
+6531d6398
+< P   10 | zjmp -16 OK
+6542a6410
+> P    8 | zjmp -16 OK
+6564,6566d6431
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2226)
+< ADV 5 (0x08b2 -> 0x08b7) 0f 0f 0f 0f 07 
+6577a6443,6445
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2358)
+> ADV 5 (0x0936 -> 0x093b) 0f 0f 0f 0f 07 
+6600d6467
+< P   10 | zjmp -16 OK
+6611a6479
+> P    8 | zjmp -16 OK
+6633,6635d6500
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2215)
+< ADV 5 (0x08a7 -> 0x08ac) 0f 0f 0f 0f 07 
+6646a6512,6514
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2347)
+> ADV 5 (0x092b -> 0x0930) 0f 0f 0f 0f 07 
+6669d6536
+< P   10 | zjmp -16 OK
+6680a6548
+> P    8 | zjmp -16 OK
+6702,6704d6569
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2204)
+< ADV 5 (0x089c -> 0x08a1) 0f 0f 0f 0f 07 
+6715a6581,6583
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2336)
+> ADV 5 (0x0920 -> 0x0925) 0f 0f 0f 0f 07 
+6738d6605
+< P   10 | zjmp -16 OK
+6749a6617
+> P    8 | zjmp -16 OK
+6771,6773d6638
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2193)
+< ADV 5 (0x0891 -> 0x0896) 0f 0f 0f 0f 07 
+6784a6650,6652
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2325)
+> ADV 5 (0x0915 -> 0x091a) 0f 0f 0f 0f 07 
+6807d6674
+< P   10 | zjmp -16 OK
+6818a6686
+> P    8 | zjmp -16 OK
+6840,6842d6707
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2182)
+< ADV 5 (0x0886 -> 0x088b) 0f 0f 0f 0f 07 
+6853a6719,6721
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2314)
+> ADV 5 (0x090a -> 0x090f) 0f 0f 0f 0f 07 
+6876d6743
+< P   10 | zjmp -16 OK
+6887a6755
+> P    8 | zjmp -16 OK
+6909,6911d6776
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2171)
+< ADV 5 (0x087b -> 0x0880) 0f 0f 0f 0f 07 
+6922a6788,6790
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2303)
+> ADV 5 (0x08ff -> 0x0904) 0f 0f 0f 0f 07 
+6945d6812
+< P   10 | zjmp -16 OK
+6956a6824
+> P    8 | zjmp -16 OK
+6978,6980d6845
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2160)
+< ADV 5 (0x0870 -> 0x0875) 0f 0f 0f 0f 07 
+6991a6857,6859
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2292)
+> ADV 5 (0x08f4 -> 0x08f9) 0f 0f 0f 0f 07 
+7014d6881
+< P   10 | zjmp -16 OK
+7025a6893
+> P    8 | zjmp -16 OK
+7047,7049d6914
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2149)
+< ADV 5 (0x0865 -> 0x086a) 0f 0f 0f 0f 07 
+7060a6926,6928
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2281)
+> ADV 5 (0x08e9 -> 0x08ee) 0f 0f 0f 0f 07 
+7083d6950
+< P   10 | zjmp -16 OK
+7094a6962
+> P    8 | zjmp -16 OK
+7104,7105d6971
+< P    4 | lfork 3855 (6246)
+< ADV 3 (0x0957 -> 0x095a) 0f 0f 0f 
+7118,7120d6983
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2138)
+< ADV 5 (0x085a -> 0x085f) 0f 0f 0f 0f 07 
+7131a6995,6997
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2270)
+> ADV 5 (0x08de -> 0x08e3) 0f 0f 0f 0f 07 
+7154d7019
+< P   10 | zjmp -16 OK
+7165a7031
+> P    8 | zjmp -16 OK
+7187,7189d7052
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2127)
+< ADV 5 (0x084f -> 0x0854) 0f 0f 0f 0f 07 
+7200a7064,7066
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2259)
+> ADV 5 (0x08d3 -> 0x08d8) 0f 0f 0f 0f 07 
+7223d7088
+< P   10 | zjmp -16 OK
+7234a7100
+> P    8 | zjmp -16 OK
+7256,7258d7121
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2116)
+< ADV 5 (0x0844 -> 0x0849) 0f 0f 0f 0f 07 
+7269a7133,7135
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2248)
+> ADV 5 (0x08c8 -> 0x08cd) 0f 0f 0f 0f 07 
+7292d7157
+< P   10 | zjmp -16 OK
+7303a7169
+> P    8 | zjmp -16 OK
+7325,7327d7190
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2105)
+< ADV 5 (0x0839 -> 0x083e) 0f 0f 0f 0f 07 
+7338a7202,7204
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2237)
+> ADV 5 (0x08bd -> 0x08c2) 0f 0f 0f 0f 07 
+7361d7226
+< P   10 | zjmp -16 OK
+7372a7238
+> P    8 | zjmp -16 OK
+7394,7396d7259
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2094)
+< ADV 5 (0x082e -> 0x0833) 0f 0f 0f 0f 07 
+7407a7271,7273
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2226)
+> ADV 5 (0x08b2 -> 0x08b7) 0f 0f 0f 0f 07 
+7430d7295
+< P   10 | zjmp -16 OK
+7443a7309
+> P    8 | zjmp -16 OK
+7467,7469d7332
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2083)
+< ADV 5 (0x0823 -> 0x0828) 0f 0f 0f 0f 07 
+7480a7344,7346
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2215)
+> ADV 5 (0x08a7 -> 0x08ac) 0f 0f 0f 0f 07 
+7503d7368
+< P   10 | zjmp -16 OK
+7514a7380
+> P    8 | zjmp -16 OK
+7536,7538d7401
+< P   10 | sti r4 0 0
+<        | -> store to 0 + 0 = 0 (with pc and mod 2072)
+< ADV 5 (0x0818 -> 0x081d) 0f 0f 0f 0f 07 
+7549a7413,7415
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2204)
+> ADV 5 (0x089c -> 0x08a1) 0f 0f 0f 0f 07 
+7572d7437
+< P   10 | zjmp -16 OK
+7583a7449
+> P    8 | zjmp -16 OK
+7589,7590c7455
+< Process 14 hasn't lived for 2078 cycles (CTD 1486)
+< Process 13 hasn't lived for 1559 cycles (CTD 1486)
+---
+> Process 13 hasn't lived for 2078 cycles (CTD 1486)
+7592c7457
+< Process 10 hasn't lived for 1549 cycles (CTD 1486)
+---
+> Process 10 hasn't lived for 1598 cycles (CTD 1486)
+7597c7462
+< Process 4 hasn't lived for 1559 cycles (CTD 1486)
+---
+> Process 4 hasn't lived for 1608 cycles (CTD 1486)
+7624a7490,7492
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2193)
+> ADV 5 (0x0891 -> 0x0896) 0f 0f 0f 0f 07 
+7644a7513
+> P    8 | zjmp -16 OK
+7669a7539,7541
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2182)
+> ADV 5 (0x0886 -> 0x088b) 0f 0f 0f 0f 07 
+7689a7562
+> P    8 | zjmp -16 OK
+7714a7588,7590
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2171)
+> ADV 5 (0x087b -> 0x0880) 0f 0f 0f 0f 07 
+7734a7611
+> P    8 | zjmp -16 OK
+7745,7746d7621
+< P    8 | lfork 3855 (6257)
+< ADV 3 (0x0962 -> 0x0965) 0f 0f 0f 
+7761a7637,7639
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2160)
+> ADV 5 (0x0870 -> 0x0875) 0f 0f 0f 0f 07 
+7781a7660
+> P    8 | zjmp -16 OK
+7806a7686,7688
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2149)
+> ADV 5 (0x0865 -> 0x086a) 0f 0f 0f 0f 07 
+7826a7709
+> P    8 | zjmp -16 OK
+7851a7735,7737
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2138)
+> ADV 5 (0x085a -> 0x085f) 0f 0f 0f 0f 07 
+7871a7758
+> P    8 | zjmp -16 OK
+7896a7784,7786
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2127)
+> ADV 5 (0x084f -> 0x0854) 0f 0f 0f 0f 07 
+7916a7807
+> P    8 | zjmp -16 OK
+7941a7833,7835
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2116)
+> ADV 5 (0x0844 -> 0x0849) 0f 0f 0f 0f 07 
+7961a7856
+> P    8 | zjmp -16 OK
+7986a7882,7884
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2105)
+> ADV 5 (0x0839 -> 0x083e) 0f 0f 0f 0f 07 
+8006a7905
+> P    8 | zjmp -16 OK
+8031a7931,7933
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2094)
+> ADV 5 (0x082e -> 0x0833) 0f 0f 0f 0f 07 
+8051a7954
+> P    8 | zjmp -16 OK
+8076a7980,7982
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2083)
+> ADV 5 (0x0823 -> 0x0828) 0f 0f 0f 0f 07 
+8096a8003
+> P    8 | zjmp -16 OK
+8121a8029,8031
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2072)
+> ADV 5 (0x0818 -> 0x081d) 0f 0f 0f 0f 07 
+8141a8052
+> P    8 | zjmp -16 OK
+8166a8078,8080
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2061)
+> ADV 5 (0x080d -> 0x0812) 0f 0f 0f 0f 07 
+8186a8101
+> P    8 | zjmp -16 OK
+8211a8127,8129
+> P    8 | sti r4 0 0
+>        | -> store to 0 + 0 = 0 (with pc and mod 2050)
+> ADV 5 (0x0802 -> 0x0807) 0f 0f 0f 0f 07 
+8231a8150
+> P    8 | zjmp -16 OK
+8522c8441
+< P   15 | lfork 3855 (6115)
+---
+> P   14 | lfork 3855 (6115)
+8755,8758d8673
+< P   16 | lfork 3855 (6016)
+< ADV 3 (0x0871 -> 0x0874) 0f 0f 0f 
+< P    8 | lfork 1801 (4206)
+< ADV 3 (0x0965 -> 0x0968) 0f 07 09 
+8765d8679
+< ADV 6 (0x0874 -> 0x087a) 07 09 ff f0 0f 0b 
+8769d8682
+< ADV 2 (0x096c -> 0x096e) 03 0f 
+9103,9106d9015
+< Process 20 hasn't lived for 2754 cycles (CTD 1486)
+< Process 19 hasn't lived for 2754 cycles (CTD 1486)
+< Process 18 hasn't lived for 2754 cycles (CTD 1486)
+< Process 17 hasn't lived for 2754 cycles (CTD 1486)
+9108a9018
+> Process 14 hasn't lived for 2754 cycles (CTD 1486)
