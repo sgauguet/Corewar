@@ -25,7 +25,7 @@ int		show_details(t_env *env, t_process *process, t_param *param)
 	if (env && (int)process->opcode == 11)
 		ft_printf("\n       | -> store to %d + %d = %d (with pc and mod %d)",
 			param->value[1], param->value[2], param->value[1] + param->value[2],
-			param->adress);
+				process->current + (param->value[1] + param->value[2]) % IDX_MOD);
 	if ((int)process->opcode == 1 || (int)process->opcode == 9
 			|| (int)process->opcode == 12 || (int)process->opcode == 15)
 		ft_printf(" %d", param->value[0]);

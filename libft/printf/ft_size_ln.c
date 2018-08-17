@@ -24,7 +24,7 @@ static int	ft_ln_string(va_list *ap, t_arg *param)
 		if ((param->type.my_ptrchar = va_arg(*ap, char *)) == NULL)
 			param->type.my_ptrchar = "(null)";
 		ln = ft_strlen(param->type.my_ptrchar);
-		if (param->is_pre == TRUE)
+		if (param->is_pre == TRU)
 			ln = ln < param->precision ? ln : param->precision;
 	}
 	return (ln);
@@ -85,7 +85,7 @@ static int	ft_ln_digit(char specifier, va_list *ap, t_arg *param)
 		ln = ft_unsigned_decimal(ap, &(param->type.my_uint), l, 16);
 	else
 		ln = ft_unsigned_decimal(ap, &(param->type.my_uint), l, 10);
-	if (param->is_pre == TRUE)
+	if (param->is_pre == TRU)
 		ln = ft_specific_case(specifier, ln, param);
 	ln = ln + ft_ln_flags(specifier, param);
 	return (ln);
@@ -114,7 +114,7 @@ int			ft_convert_size(va_list *ap, t_arg *param, int ln_tmp)
 	if (ln == -1)
 		return (-1);
 	param->ln_block = ln;
-	if (param->is_width == TRUE && ln >= 0)
+	if (param->is_width == TRU && ln >= 0)
 		ln = ln < param->width ? param->width : ln;
 	return (ln + ln_tmp);
 }

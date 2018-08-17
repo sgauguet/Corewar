@@ -12,7 +12,7 @@
 
 #include "corewar.h"
 
-int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
+void		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 {
 	t_process	*new;
 	int			i;
@@ -23,20 +23,31 @@ int		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 	while (++i < REG_NUMBER)
 		new->reg[i] = reg[i];
 	new->id = env->process.process_id;
+//	if (new->id == 2339)
+//		ft_printf("opcode = %02x\n",  env->arena[start_position]);
 	new->current = start_position;
-	new->opcode = env->arena[start_position];
 	new->pc = (fork) ? fork->pc : start_position;
+	new->opcode = env->arena[start_position];
+	//new->prev_col = env->arena2[start_position];// % UNDER_LINE;//(fork) ? fork->prev_col : ((mvinch(check_adress(start_position) / 64 + 1, 3 * (check_adress(start_position) % 64)) & A_COLOR) / 256);
+
 	new->cycle_before_exec = 0;
+	new->col_pair = (fork) ? fork->col_pair : -1 * reg[0];
 	new->carry = (fork) ? fork->carry : 0;
 	new->alive = (fork) ? fork->alive : 0;
 	new->last = (fork) ? fork->last : 0;
+
+	new->prev = NULL;
 	new->next = env->process.first_process;
+	if (new->next != NULL)
+		env->process.first_process->prev = new;
 	env->process.first_process = new;
+
 	if (fork)
 		new_instruction(env, new);
 	env->process.process_id++;
 	env->process.nb_process++;
-	return (1);
+	if (env->option.visu)
+		display_ncurses(env, new, new->pc, 0);
 }
 
 int		init_process_stack(t_env *env)
@@ -55,7 +66,14 @@ int		init_process_stack(t_env *env)
 			reg[j] = 0;
 			j++;
 		}
-		create_process(env, reg, (MEM_SIZE * i) / env->nb_players, 0);
+		create_process(env, reg, i * MEM_SIZE / env->nb_players, 0);
+		if (i == 0)
+		{
+			env->process.last_process = env->process.first_process;
+			env->process.last_process->next = NULL;
+			env->process.last_process->prev = NULL;
+			env->process.followed = env->process.first_process;
+		}
 		i++;
 	}
 	return (1);

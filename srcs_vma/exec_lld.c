@@ -29,7 +29,7 @@ int		exec_lld(t_env *env, t_process *process)
 			| (unsigned char)tmp[3]);
 	param.value[1] = (int)env->arena[check_adress(param.size[0]
 			+ process->current + 2)];
-	if (param.value[1] > REG_NUMBER || param.value[1] <= 0)
+	if (param.value[1] > REG_NUMBER || param.value[1] < 1)
 		return (0);
 	param.value[0] = param.size[0] == 2 ? indirect_value(env, process->current
 			+ param.value[0]) / 65536 : param.value[0];

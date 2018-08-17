@@ -31,3 +31,5 @@ int		exec_aff(t_env *env, t_process *process)
 	ft_printf("Aff : %c\n", value);
 	return (0);
 }
+
+//que fait cette fonction? ne faut il pas verifier que le registre est inf a regsize etc? a quoi sert le modulo 256,est ce un mod IDXMOD?

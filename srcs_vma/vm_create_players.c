@@ -37,6 +37,7 @@ int	player_header(char *buf, t_env *env)
 	ft_memcpy(env->champions[env->nb_players].header.comment,
 		&buf[sizeof(((t_header*)0)->magic) + sizeof(((t_header*)0)->prog_name)
 		+ sizeof(((t_header*)0)->prog_size) + mod_padding], COMMENT_LENGTH);
+	env->champions[env->nb_players].player_id = env->nb_players + 1;
 	return (1);
 }
 

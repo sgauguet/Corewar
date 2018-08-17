@@ -30,8 +30,12 @@ int		exec_st(t_env *env, t_process *process)
 	param.value[1] = (param.size[1] == 2) ? (tmp[0] << 8
 		| (unsigned char)tmp[1]) : tmp[0];
 	param.adress = check_adress(param.value[1] % IDX_MOD + process->current);
+	param.length = 4;
+//	ft_printf("0: %d, 1: %d, size1: %d, add: %d", param.value[0], param.value[1], param.size[1], param.adress);
+//	ft_printf(", 0: %d, 1: %d, 2: %d, 3: %d\n", reg_value[0], reg_value[1], reg_value[2], reg_value[3]);
+	//exit (1);
 	if (param.size[1] == 2)
-		modify_memory_content(env, reg_value, param.adress, 4);
+		modify_memory_content(env, reg_value, &param, process);
 	else
 		modify_register_content(process, reg_value, (int)param.value[1]);
 	if (env->option.v == 4 || env->option.v < 0)

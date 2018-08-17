@@ -25,7 +25,7 @@ int		register_value(t_process *process, int reg_number)
 {
 	int result;
 
-	if (reg_number < 1 || reg_number > NB_INSTRUCTIONS)
+	if (reg_number < 1 || reg_number > REG_NUMBER)
 		return (0);
 	result = process->reg[reg_number - 1];
 	return (result);

@@ -21,15 +21,15 @@ char	*ft_width_and_pre(char *buff, t_arg *param, char *nbr, int neg)
 	if (param->width > param->ln_block)
 		buff = ft_bzerocustom(buff, param->width - param->ln_block, ' ');
 	if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->plus == TRUE || neg == TRUE))
+			&& (param->plus == TRU || neg == TRU))
 		buff = ft_write_dec_plus(buff, neg);
 	else if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->space == TRUE && neg == FALSE))
+			&& (param->space == TRU && neg == FAL))
 		buff = ft_write_dec_space(buff);
-	else if ((((c == 'x' || c == 'X') && param->sharp == TRUE) || c == 'p')
+	else if ((((c == 'x' || c == 'X') && param->sharp == TRU) || c == 'p')
 			&& (param->type.my_uint != 0 || param->precision != 0))
 		buff = c == 'X' ? ft_memcpy(buff, "0X", 2) : ft_memcpy(buff, "0x", 2);
-	else if ((c == 'o' || c == 'O') && param->sharp == TRUE
+	else if ((c == 'o' || c == 'O') && param->sharp == TRU
 			&& (param->type.my_uint != 0 || param->precision == 0))
 		buff = ft_memcpy(buff, "0", 1);
 	if ((size_t)param->precision > ft_strlen(nbr))
@@ -47,23 +47,23 @@ char	*ft_only_width(char *buff, t_arg *param, char *nbr, int neg)
 	char	c;
 
 	c = param->specifier;
-	if (param->width > param->ln_block && (param->null != TRUE
-			|| param->space == TRUE))
+	if (param->width > param->ln_block && (param->null != TRU
+			|| param->space == TRU))
 		buff = ft_bzerocustom(buff, param->width - param->ln_block, ' ');
 	if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->plus == TRUE || neg == TRUE))
+			&& (param->plus == TRU || neg == TRU))
 		buff = ft_write_dec_plus(buff, neg);
 	else if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->space == TRUE && neg == FALSE
+			&& (param->space == TRU && neg == FAL
 			&& param->width <= param->ln_block))
 		buff = ft_write_dec_space(buff);
-	else if ((((c == 'x' || c == 'X') && param->sharp == TRUE)
+	else if ((((c == 'x' || c == 'X') && param->sharp == TRU)
 			&& param->type.my_uint != 0) || c == 'p')
 		buff = c == 'X' ? ft_memcpy(buff, "0X", 2) : ft_memcpy(buff, "0x", 2);
-	else if ((c == 'o' || c == 'O') && param->sharp == TRUE
+	else if ((c == 'o' || c == 'O') && param->sharp == TRU
 			&& param->type.my_uint != 0)
 		buff = ft_memcpy(buff, "0", 1);
-	if (param->null == TRUE && param->width > param->ln_block)
+	if (param->null == TRU && param->width > param->ln_block)
 		buff = ft_bzerocustom(buff, param->width - param->ln_block, '0');
 	buff = ft_memcpy(buff, nbr, ft_strlen(nbr));
 	return (buff);
@@ -75,15 +75,15 @@ char	*ft_only_pre(char *buff, t_arg *param, char *nbr, int neg)
 
 	c = param->specifier;
 	if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->plus == TRUE || neg == TRUE))
+			&& (param->plus == TRU || neg == TRU))
 		buff = ft_write_dec_plus(buff, neg);
 	else if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->space == TRUE && neg == FALSE))
+			&& (param->space == TRU && neg == FAL))
 		buff = ft_write_dec_space(buff);
-	else if (c == 'p' || (((c == 'x' || c == 'X') && param->sharp == TRUE)
+	else if (c == 'p' || (((c == 'x' || c == 'X') && param->sharp == TRU)
 			&& (param->type.my_uint != 0 || param->precision != 0)))
 		buff = c == 'X' ? ft_memcpy(buff, "0X", 2) : ft_memcpy(buff, "0x", 2);
-	else if ((c == 'o' || c == 'O') && param->sharp == TRUE
+	else if ((c == 'o' || c == 'O') && param->sharp == TRU
 			&& param->precision == 0)
 		buff = ft_memcpy(buff, "0", 1);
 	if (ft_strlen(nbr) < (size_t)param->precision)
@@ -100,15 +100,15 @@ char	*ft_no_pre_no_width(char *buff, t_arg *param, char *nbr, int neg)
 
 	c = param->specifier;
 	if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->plus == TRUE || neg == TRUE))
+			&& (param->plus == TRU || neg == TRU))
 		buff = ft_write_dec_plus(buff, neg);
 	else if ((c == 'd' || c == 'i' || c == 'D')
-			&& (param->space == TRUE && neg == FALSE))
+			&& (param->space == TRU && neg == FAL))
 		buff = ft_write_dec_space(buff);
-	else if (((c == 'x' || c == 'X') && param->sharp == TRUE
+	else if (((c == 'x' || c == 'X') && param->sharp == TRU
 			&& param->type.my_uint != 0) || c == 'p')
 		buff = c == 'X' ? ft_memcpy(buff, "0X", 2) : ft_memcpy(buff, "0x", 2);
-	else if ((c == 'o' || c == 'O') && param->sharp == TRUE
+	else if ((c == 'o' || c == 'O') && param->sharp == TRU
 			&& param->type.my_uint != 0)
 		buff = ft_memcpy(buff, "0", 1);
 	buff = ft_memcpy(buff, nbr, ft_strlen(nbr));

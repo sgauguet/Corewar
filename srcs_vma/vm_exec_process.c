@@ -17,19 +17,21 @@ int		exec_options(t_env *env)
 	char c;
 
 	c = '0';
-	if (env->option.d != -1 && env->option.d == env->cycle - 1)
+	if ((env->option.d != -1) && (env->option.d == env->cycle - 1)
+		&& env->process.nb_process)
 	{
 		display_arena(env);
+		if (env->process.nb_process == 0)
+			display_end(env);
+		destroy_all(env, 1);
+		endwin();
+		exit (1);
 	}
-	if (env->option.s != -1 && ((env->cycle - 1) % env->option.s == 0))
+	if (env->option.s && ((env->cycle - 1) % env->option.s == 0))
 	{
-		if(env->option.d != -1 && env->option.d <= env->cycle - 1)
-			return (0);
 		display_arena(env);
 		while (c != '\n')
-		{
 			read(0, &c, 1);
-		}
 	}
 	return (1);
 }
@@ -45,13 +47,15 @@ int		exec_process(t_env *env)
 			new_instruction(env, process);
 		if (process->cycle_before_exec == 1)
 			exec_instruction(env, process);
-		process->cycle_before_exec--;
+		process->cycle_before_exec--;//= (process->cycle_before_exec > 0) ? 1 : 0;
 		process = process->next;
 	}
+	if (env->option.visu)
+		ft_display(env);
 	return (1);
 }
 
-int		run_the_game(t_env *env)
+void		run_the_game(t_env *env)
 {
 	int cycle_consumed;
 	int check;
@@ -61,7 +65,7 @@ int		run_the_game(t_env *env)
 	check = 0;
 	display_start(env);
 	exec_options(env);
-	while (env->process.nb_process && cycle_consumed >= 0)
+	while (env->process.nb_process && (env->option.d == -1 || env->option.d >= env->cycle - 1))
 	{
 		if (cycle_consumed >= env->cycle_to_die)
 		{
@@ -74,7 +78,7 @@ int		run_the_game(t_env *env)
 				delta = 1;
 				env->cycle_to_die -= CYCLE_DELTA;
 			}
-				env->nb_live_env = 0;
+			env->nb_live_env = 0;
 		}
 		if (delta && (env->option.v == 2 || env->option.v < 0))
 		{
@@ -83,15 +87,13 @@ int		run_the_game(t_env *env)
 		}
 		if (env->cycle != 1)
 			exec_options(env);
-		if (env->option.d != -1 && (env->option.d == env->cycle - 1))
-			destroy_all(env);
 		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
 			ft_printf("It is now cycle %d\n", env->cycle);
 		exec_process(env);
 		env->cycle++;
 		cycle_consumed++;
 	}
-	if (env->option.d == -1)
-		display_end(env);
-	return (1);
+	display_end(env);
+	clear();
+	endwin();
 }

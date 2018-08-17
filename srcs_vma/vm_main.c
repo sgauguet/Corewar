@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "corewar.h"
+#include <curses.h>
+
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +24,9 @@ int	main(int argc, char **argv)
 	check_options(argv, argc, &env);
 	load_players(&env);
 	init_process_stack(&env);
-	env.last_alive = &env.champions[0];
+	if (env.option.visu)
+		init_arena(&env);
+	env.last_alive = &env.champions[env.nb_players - 1];
 	run_the_game(&env);
 	return (1);
 }

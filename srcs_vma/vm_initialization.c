@@ -43,6 +43,9 @@ int		check_constants(void)
 
 int		init_options(t_env *env)
 {
+	int i;
+
+	i = -1;
 	env->instructions[13] = (t_op){"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR |
 		T_REG, T_REG}, 14, 50, "long load index", 1, 1};
 	env->instructions[14] = (t_op){"lfork", 1, {T_DIR}, 15, 1000,
@@ -50,11 +53,16 @@ int		init_options(t_env *env)
 	env->instructions[15] = (t_op){"aff", 1, {T_REG}, 16, 2, "aff", 1, 0};
 	env->option.a = 0;
 	env->option.d = -1;
-	env->option.s = -1;
+	env->option.s = 0;
 	env->option.v = 0;
-	env->option.b = 0;
-	env->option.stealth = 0;
 	env->option.n = 0;
+	env->option.stealth = 0;
+	env->option.visu = 0;
+	while (++i < MAX_PLAYERS)
+	{
+		env->attr_id[0][i] = 0;
+		env->attr_id[1][i] = 0;
+	}
 	return (1);
 }
 
@@ -91,10 +99,14 @@ int		init_vm_champions(t_env *env)
 {
 	int i;
 
-	i = 0;
-	while (i < MAX_PLAYERS)
+	i = -1;
+	while (++i < MEM_SIZE)
+		env->arena2[i] = 0;
+	i = -1;
+	while (++i < MAX_PLAYERS)
 	{
 		env->champions[i].player_id = i + 1;
+	//	env->attr_id[i] = i + 1;
 		ft_bzero(env->champions[i].file, 50);
 		env->champions[i].header.magic = 0;
 		ft_bzero(env->champions[i].header.prog_name, PROG_NAME_LENGTH + 1);
@@ -102,7 +114,7 @@ int		init_vm_champions(t_env *env)
 		ft_bzero(env->champions[i].header.comment, COMMENT_LENGTH + 1);
 		ft_bzero(env->champions[i].instructions, CHAMP_MAX_SIZE);
 		env->champions[i].nb_lives = 0;
-		i++;
+		env->champions[i].size = 0;
 	}
 	return (1);
 }

@@ -14,6 +14,10 @@
 
 # define COREWAR_H
 # define NB_INSTRUCTIONS 16
+# define COLOR 8
+# define UNDER_LINE 16
+# define STAND_OUT 32
+# include <ncurses.h>
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
 
@@ -35,13 +39,15 @@ typedef struct	s_player
 	char		file[50];
 	t_header	header;
 	char		instructions[CHAMP_MAX_SIZE];
+	int			size;
 	int			nb_lives;
 }				t_player;
 
 typedef struct	s_process
 {
 	unsigned long		id;
-	int					reg[REG_NUMBER];
+	int					reg[REG_NUMBER + 1];
+	int					col_pair;
 	int					current;
 	int					pc;
 	char				opcode;
@@ -51,12 +57,15 @@ typedef struct	s_process
 	int					alive;
 	int					last;
 	int					size;
+	struct s_process	*prev;
 	struct s_process	*next;
 }				t_process;
 
 typedef struct	s_stack
 {
+	t_process		*last_process;
 	t_process		*first_process;
+	t_process		*followed;
 	unsigned long	nb_process;
 	unsigned long	process_id;
 }				t_stack;
@@ -64,6 +73,7 @@ typedef struct	s_stack
 typedef	struct	s_fork
 {
 	int			pc;
+	int			col_pair;
 	int			carry;
 	int			alive;
 	int			last;
@@ -76,17 +86,21 @@ typedef struct	s_option
 	int			s;
 	int			v;
 	int			b;
-	int			stealth;
 	int			n;
+	int			stealth;
+	int			visu;
 }				t_option;
 
 typedef struct	s_env
 {
 	char		arena[MEM_SIZE];
+	unsigned int	arena2[MEM_SIZE];
 	int			cycle;
+	int			attr_id[2][MAX_PLAYERS];
 	int			cycle_to_die;
 	int			nb_players;
 	int			nb_live_env;
+	int			cycle_sec;
 	t_player	champions[MAX_PLAYERS];
 	t_player	*last_alive;
 	t_op		instructions[NB_INSTRUCTIONS];
@@ -99,6 +113,7 @@ typedef struct	s_param
 	int			value[3];
 	int			size[3];
 	int			adress;
+	int			length;
 	int			success;
 	char		param[2][4];
 }				t_param;
@@ -119,6 +134,7 @@ int				init_vm_environment(t_env *env);
 
 int				search_options(t_env *env, char **argv, int argc, int i);
 int				check_options(char **argv, int argc, t_env *env);
+void 			ft_sort_id_and_create_players(t_env *env, char **argv);
 
 /*
  ** vm_create_players.c
@@ -145,7 +161,7 @@ int				load_players(t_env *env);
  ** vm_create_process.c
  */
 
-int				create_process(t_env *env, int *reg, int start_position,
+void				create_process(t_env *env, int *reg, int start_position,
 		t_fork *fork);
 int				init_process_stack(t_env *env);
 
@@ -153,10 +169,9 @@ int				init_process_stack(t_env *env);
  ** vm_destroy_process.c
  */
 
-int				free_memory(t_env *env, t_process *process);
-int				destroy_process(t_env *env, t_process *process);
+//int				free_memory(t_env *env, t_process *process);
+void			destroy_all(t_env *env, int d);
 int				search_dead_process(t_env *env);
-int				destroy_all(t_env *env);
 
 /*
  ** vm_exec_process.c
@@ -164,7 +179,7 @@ int				destroy_all(t_env *env);
 
 int				exec_options(t_env *env);
 int				exec_process(t_env *env);
-int				run_the_game(t_env *env);
+void			run_the_game(t_env *env);
 
 /*
  ** vm_instructions_size.c
@@ -199,8 +214,8 @@ int				copy_register(t_process *process, char *buf, int reg_number);
 void			copy_memory_area(t_env *env, char *buf, int start, int size);
 void			modify_register_content(t_process *process, char *new_value,
 		int reg_number);
-void			modify_memory_content(t_env *env, char *buf, int start,
-		int size);
+void			modify_memory_content(t_env *env, char *buf, t_param *param, 
+				t_process *process);
 
 /*
  ** vm_display_arena.c
@@ -209,6 +224,15 @@ void			modify_memory_content(t_env *env, char *buf, int start,
 int				display_memory_area(char byte);
 int				display_specific_area(t_env *env, int start, int end);
 int				display_arena(t_env *env);
+
+/*
+ ** vm_visu.c
+ */
+void			ft_init_visu(t_env *env);
+int				init_arena(t_env *env);
+int				display_ncurses(t_env *env, t_process *process, int start, int size);
+void			display_info_ncurses(t_env *env, t_process *process);
+void			ft_display(t_env *env);
 
 /*
  ** vm_display_messages.c

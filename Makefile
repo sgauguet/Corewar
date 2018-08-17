@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/07/20 10:48:45 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/08/17 16:06:06 by aserguie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS_ASM =		utils.c \
 SRCS_VMA =		vm_main.c \
 				vm_initialization.c \
 				vm_options.c \
+				vm_options_2.c \
 				vm_create_players.c \
 				vm_check_players.c \
 				vm_load_players.c \
@@ -61,6 +62,8 @@ SRCS_VMA =		vm_main.c \
 				vm_display_messages.c \
 				vm_display_options.c \
 				vm_display_arena.c \
+				vm_visu_0.c \
+				vm_visu_1.c \
 				vm_display_errors.c \
 				vm_debug.c \
 				exec_live.c \
@@ -111,12 +114,12 @@ CC =		gcc
 CFLAGS =	-Wall \
 			-Wextra \
 			-Werror \
-			#-fsanitize=address
+			-fsanitize=address
 
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)
 
-LFLAGS =	-L $(LIBDIR) -lft
+LFLAGS =	-L $(LIBDIR) -lft -lncurses
 
 FLAGS =		$(CFLAGS)		\
 		$(INCFLAGS)

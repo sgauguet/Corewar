@@ -1,75 +1,77 @@
 #include "corewar.h"
 
-int		free_memory(t_env *env, t_process *process)
+void	free_memory(t_env *env, t_process *process, int d)
 {
-	if (env->option.v == 8 || env->option.v < 0)
+	
+	if ((env->option.v == 8 || env->option.v < 0) && d == 0)
+		show_deaths(env, process);
+	//code ci dessous a verifier///////////////////////////////
+	if (env->option.visu)
 	{
-		if(!(env->option.d != -1 && env->option.d == env->cycle - 1))
-			show_deaths(env, process);
+		env->arena2[process->current] %= UNDER_LINE;
+		display_ncurses(env, process, process->current, 0);
 	}
+	///////////////////////////////////////////////////////////
 	ft_memdel((void **)&process);
-	return (1);
+	if (env->process.nb_process > 0)
+		env->process.nb_process--;
 }
 
-int		destroy_process(t_env *env, t_process *process)
+void		destroy_all(t_env *env, int d)
 {
 	t_process *tmp;
 
-	if ((tmp = env->process.first_process) == NULL)
-		return (0);
-	if (tmp == process)
+	while (env->process.first_process)
+	{
+		tmp = env->process.first_process->next;
+		free_memory(env, env->process.first_process, d);
+		env->process.first_process = tmp;
+	}
+}
+
+void		destroy_process(t_env *env, t_process *process)
+{
+	if (process == env->process.first_process)
 	{
 		env->process.first_process = process->next;
-		free_memory(env, process);
-		return (1);
+		if (env->process.first_process)
+			env->process.first_process->prev = NULL;
+		free_memory(env, process, 0);
 	}
-	while (tmp->next != process && tmp->next)
-		tmp = tmp->next;
-	if (tmp->next == process)
+	else
 	{
-		tmp->next = process->next;
-		free_memory(env, process);
-		return (1);
+		(process->prev)->next = process->next;
+		if (process->next != NULL)
+			process->next->prev = process->prev;
+		free_memory(env, process, 0);
 	}
-	return (0);
-}
-
-int		destroy_all(t_env *env)
-{
-	t_process *process;
-	t_process *tmp;
-
-	process = env->process.first_process;
-	while (process)
-	{
-		tmp = process->next;
-		destroy_process(env, process);
-		env->process.nb_process--;
-		process = tmp;
-	}
-	return (1);
 }
 
 int		search_dead_process(t_env *env)
 {
-	t_process *process;
-	t_process *tmp;
+	t_process 	*tmp;
+	t_process 	*process;
+	int			destr_follow;
 
+	destr_follow = 0;
 	process = env->process.first_process;
 	while (process)
-	{
 		if (process->alive == 0)
 		{
+			if (process == env->process.followed)
+				destr_follow = 1;
 			tmp = process->next;
-			if (destroy_process(env, process))
-				env->process.nb_process--;
+			if (tmp == NULL)
+				env->process.last_process = process;
+			destroy_process(env, process);
 			process = tmp;
 		}
 		else
 		{
 			process->alive = 0;
+//			if (process->next == NULL)
+				env->process.followed = process;
 			process = process->next;
 		}
-	}
 	return (1);
 }

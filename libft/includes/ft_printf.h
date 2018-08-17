@@ -67,8 +67,8 @@ typedef enum	e_length
 
 typedef	enum	e_bool
 {
-	FALSE,
-	TRUE
+	FAL,
+	TRU
 }				t_bool;
 
 typedef struct	s_arg

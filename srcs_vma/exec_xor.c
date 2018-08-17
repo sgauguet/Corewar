@@ -24,7 +24,7 @@ int	xor_param2(t_env *env, t_process *process, t_param *param, int i)
 	if (param->size[i] == 4)
 	{
 		copy_memory_area(env, param->param[i], head, 4);
-		param->value[i] = indirect_value(env, head + 1);
+		param->value[i] = tmp[0] << 24 | tmp[1] << 16 | tmp[2] << 8 | tmp[3];
 	}
 	else if (param->size[i] == 2)
 	{
@@ -48,10 +48,10 @@ int	xor_param(t_env *env, t_process *process, t_param *param, int i)
 	else
 		head = process->current + 1;
 	copy_memory_area(env, tmp, check_adress(head), param->size[i]);
+	if (process->ocp[i] == 1 && ((int)tmp[0] < 1 || (int)tmp[0] > REG_NUMBER))
+		return (0);
 	if (param->size[i] == 1)
 	{
-		if ((int)tmp[0] <= 0 || (int)tmp[0] > REG_NUMBER)
-			return (0);
 		copy_register(process, param->param[i], (int)tmp[0]);
 		param->value[i] = register_value(process, (int)tmp[0]);
 	}

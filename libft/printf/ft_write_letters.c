@@ -17,7 +17,7 @@ int		ft_cpy_str(t_arg *param)
 {
 	int		ln_str;
 
-	if (param->is_pre == TRUE
+	if (param->is_pre == TRU
 				&& ft_strlen(param->type.my_ptrchar) > (size_t)param->precision)
 		ln_str = param->precision;
 	else
@@ -46,7 +46,7 @@ char	*ft_unicode(char *buff, t_arg *param)
 	int	i;
 
 	i = 0;
-	if (param->minus != TRUE)
+	if (param->minus != TRU)
 		buff = ft_write_unicode_with_flags(buff, param);
 	if (param->specifier == 'S' || param->specifier == 's')
 	{
@@ -58,7 +58,7 @@ char	*ft_unicode(char *buff, t_arg *param)
 	}
 	else
 		buff = ft_utf8(param->type.my_wint_t, buff);
-	if (param->minus == TRUE)
+	if (param->minus == TRU)
 		buff = ft_write_unicode_with_flags(buff, param);
 	return (buff);
 }

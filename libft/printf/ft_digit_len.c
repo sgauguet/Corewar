@@ -18,20 +18,20 @@ int	ft_ln_flags(char specifier, t_arg *param)
 	int	ln;
 
 	ln = 0;
-	if (specifier == 'p' || (param->sharp == TRUE &&
+	if (specifier == 'p' || (param->sharp == TRU &&
 			(specifier == 'x' || specifier == 'X')
 			&& param->type.my_uint != 0))
 		ln += 2;
-	if (param->sharp == TRUE && (specifier == 'o' || specifier == 'O')
-				&& ((param->is_pre != TRUE && param->type.my_uint != 0)
-				|| (param->is_pre == TRUE
+	if (param->sharp == TRU && (specifier == 'o' || specifier == 'O')
+				&& ((param->is_pre != TRU && param->type.my_uint != 0)
+				|| (param->is_pre == TRU
 				&& (((ft_base_digitlen(param->type.my_uint, 8)
 				>= param->precision))
 				|| param->precision == 0))))
 		++ln;
 	if ((specifier == 'd' || specifier == 'i' || specifier == 'D')
-			&& ((param->plus == TRUE || param->type.my_int < 0)
-			|| (param->space == TRUE && param->type.my_int >= 0)))
+			&& ((param->plus == TRU || param->type.my_int < 0)
+			|| (param->space == TRU && param->type.my_int >= 0)))
 		++ln;
 	return (ln);
 }
@@ -54,7 +54,7 @@ int	ft_w_arg(va_list *ap, t_arg *param, int ln_tmp)
 		s = param->type.my_wchar_t;
 		while (s[i] && ln >= 0)
 		{
-			if (param->is_pre == TRUE
+			if (param->is_pre == TRU
 					&& (ln_tmp = (ln + ft_utf8_len(s[i]))) > param->precision)
 				return (ln);
 			else

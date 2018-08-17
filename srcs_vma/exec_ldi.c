@@ -50,7 +50,7 @@ int		exec_ldi(t_env *env, t_process *process)
 	{
 		copy_memory_area(env, (tmp + 2 * i), check_adress(process->current + 1
 					+ i * param.size[0]), param.size[i]);
-		if (((int)tmp[2 * i] < 1 || (int)tmp[2 * i] > (int)REG_NUMBER)
+		if (((int)tmp[2 * i] < 1 || (int)tmp[2 * i] > REG_NUMBER)
 				&& param.size[i] == 1)
 			return (0);
 		else if (param.size[i] == 1)

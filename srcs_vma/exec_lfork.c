@@ -26,7 +26,13 @@ int		exec_lfork(t_env *env, t_process *process)
 	lfork.carry = process->carry;
 	lfork.alive = process->alive;
 	lfork.last = process->last;
+	lfork.col_pair = process->col_pair % UNDER_LINE;
 	create_process(env, process->reg, process->current, &lfork);
+	if (env->option.visu)
+	{
+	env->arena2[check_adress(process->current)] += (env->arena2[check_adress(process->current)] < STAND_OUT) ? STAND_OUT : 0;
+	display_ncurses(env, process, check_adress(process->current), 1);
+	}
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);
 	return (1);

@@ -15,22 +15,22 @@
 
 int	ft_check_flags(char **str, t_arg *param)
 {
-	param->param_good = FALSE;
+	param->param_good = FAL;
 	while (**str == '#' || **str == '0' || **str == '-' || **str == '+' ||
 			**str == ' ')
 	{
 		if (**str == '#')
-			param->sharp = TRUE;
+			param->sharp = TRU;
 		else if (**str == '0')
-			param->null = TRUE;
+			param->null = TRU;
 		else if (**str == '-')
-			param->minus = TRUE;
+			param->minus = TRU;
 		else if (**str == '+')
-			param->plus = TRUE;
+			param->plus = TRU;
 		else if (**str == ' ')
-			param->space = TRUE;
+			param->space = TRU;
 		++(*str);
-		param->param_good = TRUE;
+		param->param_good = TRU;
 	}
 	return (param->param_good);
 }
@@ -42,14 +42,14 @@ int	ft_check_width(char **str, t_arg *param)
 	ok = 0;
 	if (ft_isdigit(**str) == GOOD)
 	{
-		param->is_width = TRUE;
+		param->is_width = TRU;
 		param->width = ft_atoi(*str);
 		while (ft_isdigit(**str) == GOOD)
 			++(*str);
 		ok = 1;
 	}
-	else if (param->is_width != TRUE)
-		param->is_width = FALSE;
+	else if (param->is_width != TRU)
+		param->is_width = FAL;
 	return (ok);
 }
 
@@ -64,11 +64,11 @@ int	ft_check_precision(char **str, t_arg *param)
 		param->precision = ft_atoi(*str);
 		while (ft_isdigit(**str) == 1)
 			++(*str);
-		param->is_pre = TRUE;
+		param->is_pre = TRU;
 		ok = 1;
 	}
-	else if (param->is_pre != TRUE)
-		param->is_pre = FALSE;
+	else if (param->is_pre != TRU)
+		param->is_pre = FAL;
 	return (ok);
 }
 

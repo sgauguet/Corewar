@@ -15,7 +15,7 @@
 
 char	*ft_write_dec_plus(char *buff, int is_neg)
 {
-	*buff = is_neg == TRUE ? '-' : '+';
+	*buff = is_neg == TRU ? '-' : '+';
 	++buff;
 	return (buff);
 }
