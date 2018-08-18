@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/25 15:27:31 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:07:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ int		ft_is_valid(char **argv, char *str, int min)
 		i++;
 	while (str[i] != '\0' && ft_isdigit((int)(str[i])))
 		i++;
-	if (str[i] != '\0' || (!((res = ft_atoi_l(str)) >= min) || !(res < INT_MAX))
-		|| (min == -1 && res != -1 && res != 0 && res != 1 && res != 2
-		&& res != 4 && res != 8 && res != 16) || (min == 1 && (res < 1 || res > MAX_PLAYERS)))
+	if (str[i] != '\0' || (!((res = ft_atoi_l(str)) >= min)
+		|| !(res < INT_MAX)) || (min == -1 && res != -1 && res != 0 && res != 1
+		&& res != 2 && res != 4 && res != 8 && res != 16) || (min == 1
+			&& (res < 1 || res > MAX_PLAYERS)))
 		display_usage(argv);
 	return (1);
 }
@@ -61,13 +62,11 @@ int		search_options(t_env *env, char **argv, int argc, int i)
 
 	ret = 0;
 	check = argc - (i + 1);
-	//if (ft_strlen(argv[i]) < 1 || argv[i][0] != '-')
-	//	return (0);
 	if (!ft_strcmp(argv[i], "-a") && (ret = 1))
 		env->option.a = 1;
 	else if ((!ft_strcmp(argv[i], "-d") || !ft_strcmp(argv[i], "-dump"))
 			&& check > 0 && (ret = 2) && ft_is_valid(argv, argv[i + 1], 0))
-				env->option.d = ft_atoi(argv[i + 1]);
+		env->option.d = ft_atoi(argv[i + 1]);
 	else if (!ft_strcmp(argv[i], "-s") && check > 0 && (ret = 2)
 			&& ft_is_valid(argv, argv[i + 1], 0))
 		env->option.s = ft_atoi(argv[i + 1]);
@@ -84,7 +83,7 @@ int		search_options(t_env *env, char **argv, int argc, int i)
 	return (ret);
 }
 
-int 	ft_is_doublon_int(t_env *env)
+int		ft_is_doublon_int(t_env *env)
 {
 	int i;
 	int j;
@@ -94,9 +93,10 @@ int 	ft_is_doublon_int(t_env *env)
 	{
 		j = i;
 		while (++j < env->nb_players)
-			if (env->attr_id[0][i] != 0 && (env->attr_id[0][i] == env->attr_id[0][j]
+			if (env->attr_id[0][i] != 0
+					&& (env->attr_id[0][i] == env->attr_id[0][j]
 				|| env->attr_id[0][i] > env->nb_players))
-				return(1);
+				return (1);
 	}
 	return (0);
 }
@@ -111,7 +111,7 @@ int		check_options(char **argv, int argc, t_env *env)
 	{
 		if (!(ret = search_options(env, argv, argc, i)) || ret == 3)
 		{
-			if (env->nb_players < MAX_PLAYERS) //J'ai rajouté cette condition car il y avait un segfault si on continuait a rajouter des joueurs
+			if (env->nb_players < MAX_PLAYERS)
 			{
 				env->attr_id[1][env->nb_players] = i + (ret ? ret - 1 : 0);
 				env->nb_players++;

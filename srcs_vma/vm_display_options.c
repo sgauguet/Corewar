@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:09:12 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/25 16:54:28 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:18:45 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		show_details(t_env *env, t_process *process, t_param *param)
 	if (env && (int)process->opcode == 11)
 		ft_printf("\n       | -> store to %d + %d = %d (with pc and mod %d)",
 			param->value[1], param->value[2], param->value[1] + param->value[2],
-				process->current + (param->value[1] + param->value[2]) % IDX_MOD);
+				process->current +
+				(param->value[1] + param->value[2]) % IDX_MOD);
 	if ((int)process->opcode == 1 || (int)process->opcode == 9
 			|| (int)process->opcode == 12 || (int)process->opcode == 15)
 		ft_printf(" %d", param->value[0]);
@@ -61,12 +62,9 @@ int		show_operations(t_env *env, t_process *process, t_param *param)
 
 int		show_deaths(t_env *env, t_process *process)
 {
-	ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id, (env->cycle - process->last - ((env->cycle - process->last > 0)
-				? 1 : 0)), env->cycle_to_die);
-	/*ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id,
-			env->cycle - process->last - ((env->cycle - process->last > 0)
-				? 1 : 0), env->cycle_to_die);*/
-	//ft_printf("cycle : %d\n last : %d\n to die : %d\n", env->cycle, process->last, env->cycle_to_die);
+	ft_printf("Process %lu hasn't lived for %d cycles (CTD %d)\n", process->id,
+			(env->cycle - process->last - ((env->cycle - process->last > 0)
+			? 1 : 0)), env->cycle_to_die);
 	return (1);
 }
 

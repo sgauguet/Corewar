@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 11:50:53 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/23 17:37:41 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:27:12 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	new_instruction(t_env *env, t_process *process)
 {
 	int process_current;
 	int current_col;
-	
+
 	process_current = process->current;
 	current_col = process->col_pair;
 	process->current = check_adress(process->pc);
@@ -37,12 +37,12 @@ int	new_instruction(t_env *env, t_process *process)
 	process->ocp[2] = 0;
 	if (env->option.visu)
 	{
-		env->arena2[process_current] %= STAND_OUT;// ? process->prev_col : env->arena2[process_current] - UNDER_LINE;
+		env->arena2[process_current] %= STAND_OUT;
 		display_ncurses(env, process, process_current, 0);
-		//if ((mvinch(check_adress(process->current + 1) / 64 + 1, 3 * (check_adress(process->current + 1) % 64)) & A_COLOR) == 0 && (mvinch(process->current / 64 + 1, 3 * (process->current % 64)) & A_COLOR) == 0)
-		//process->col_pair = current_col;
-		env->arena2[process->current] += (env->arena2[process->current] < STAND_OUT) ? STAND_OUT : 0;
-		display_ncurses(env, env->process.followed, env->process.followed->current, 5);
+		env->arena2[process->current] += (env->arena2[process->current]
+				< STAND_OUT) ? STAND_OUT : 0;
+		display_ncurses(env, env->process.followed,
+				env->process.followed->current, 5);
 		display_ncurses(env, process, process->current, 1);
 	}
 	return (1);
@@ -75,10 +75,8 @@ int	exec_instruction2(t_env *env, t_process *process)
 
 int	exec_instruction(t_env *env, t_process *process)
 {
-	//printw("%d.%d", process->col_pair, process->prev_col);
 	process->size = size_instruction(env, process);
 	process->pc = process->current + process->size;
-
 	if ((int)(process->opcode) == 1)
 		exec_live(env, process);
 	if ((int)(process->opcode) == 2)

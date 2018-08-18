@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/18 18:03:08 by aserguie          #+#    #+#             */
-/*   Updated: 2018/07/24 18:00:55 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:29:31 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int		exec_live(t_env *env, t_process *process)
 		env->last_alive = &env->champions[-1 * param.value[0] - 1];
 		if (env->option.v == 1 || env->option.v < 0)
 			ft_printf("Player %d (%s) is said to be alive\n",
-					-1 * param.value[0], env->champions[-1 * param.value[0] - 1].header.prog_name);
+					-1 * param.value[0], env->champions[-1 * param.value[0]
+					- 1].header.prog_name);
 	}
 	process->alive = (env->cycle_to_die >= 0) ? 1 : 0;
 	process->last = env->cycle;

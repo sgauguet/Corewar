@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:09:08 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/09 13:01:24 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:58:48 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int		exec_aff(t_env *env, t_process *process)
 	value = reg_value[0] << 24 | reg_value[1] << 16 | reg_value[2] << 8
 		| reg_value[3];
 	value = value % 256;
-	process->carry = 1;
 	ft_printf("Aff : %c\n", value);
 	return (0);
 }
-
-//que fait cette fonction? ne faut il pas verifier que le registre est inf a regsize etc? a quoi sert le modulo 256,est ce un mod IDXMOD?

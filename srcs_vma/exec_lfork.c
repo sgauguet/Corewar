@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:08:52 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 19:48:55 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:29:06 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int		exec_lfork(t_env *env, t_process *process)
 	create_process(env, process->reg, process->current, &lfork);
 	if (env->option.visu)
 	{
-	env->arena2[check_adress(process->current)] += (env->arena2[check_adress(process->current)] < STAND_OUT) ? STAND_OUT : 0;
-	display_ncurses(env, process, check_adress(process->current), 1);
+		env->arena2[check_adress(process->current)] +=
+			(env->arena2[check_adress(process->current)] < STAND_OUT)
+			? STAND_OUT : 0;
+		display_ncurses(env, process, check_adress(process->current), 1);
 	}
 	if (env->option.v == 4 || env->option.v < 0)
 		show_operations(env, process, &param);

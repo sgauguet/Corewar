@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/22 19:47:57 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:40:34 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,19 @@ void		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 	while (++i < REG_NUMBER)
 		new->reg[i] = reg[i];
 	new->id = env->process.process_id;
-//	if (new->id == 2339)
-//		ft_printf("opcode = %02x\n",  env->arena[start_position]);
 	new->current = start_position;
 	new->pc = (fork) ? fork->pc : start_position;
 	new->opcode = env->arena[start_position];
-	//new->prev_col = env->arena2[start_position];// % UNDER_LINE;//(fork) ? fork->prev_col : ((mvinch(check_adress(start_position) / 64 + 1, 3 * (check_adress(start_position) % 64)) & A_COLOR) / 256);
-
 	new->cycle_before_exec = 0;
 	new->col_pair = (fork) ? fork->col_pair : -1 * reg[0];
 	new->carry = (fork) ? fork->carry : 0;
 	new->alive = (fork) ? fork->alive : 0;
 	new->last = (fork) ? fork->last : 0;
-
 	new->prev = NULL;
 	new->next = env->process.first_process;
 	if (new->next != NULL)
 		env->process.first_process->prev = new;
 	env->process.first_process = new;
-
 	if (fork)
 		new_instruction(env, new);
 	env->process.process_id++;

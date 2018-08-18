@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:14 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/18 14:54:52 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:34:51 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		display_info_ncurses(t_env *env, t_process *process)
 		attroff(COLOR_PAIR(process->col_pair));
 		reg++;
 	}
-	mvprintw(3 + reg, 200, "OPERATION = %02x", process->opcode);
+	mvprintw(3 + reg, 200, "OPERATION = %02x", (unsigned char)process->opcode);
 	mvprintw(4 + reg, 200, "CARRY = %d", process->carry);
 	mvprintw(5 + reg, 200, "PROCESS CURRENT = %04x",
 		check_adress(process->current));
@@ -91,6 +91,7 @@ int		init_arena(t_env *env)
 		}
 	}
 	getch();
+//	nodelay(stdscr, TRUE);
 	return (1);
 }
 
@@ -98,13 +99,13 @@ void	 ft_init_visu(t_env *env)
 {
 	initscr();
 	noecho();
-	nodelay(stdscr, TRUE);
+	nodelay(stdscr, TRUE); //supprimer celui la et decommenter celui a la fin de init arena
 	curs_set(FALSE);
 	env->cycle_sec = 10000;
 	if (has_colors() == FALSE)
 	{
 		endwin();
-		printf("Your terminal does not support color\n");
+		ft_printf("Your terminal does not support color\n");
 		destroy_all(env, 1);
 		exit(1);
 	}

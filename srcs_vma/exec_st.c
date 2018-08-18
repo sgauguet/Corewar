@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/30 09:07:44 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 18:38:13 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:31:56 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ int		exec_st(t_env *env, t_process *process)
 		| (unsigned char)tmp[1]) : tmp[0];
 	param.adress = check_adress(param.value[1] % IDX_MOD + process->current);
 	param.length = 4;
-//	ft_printf("0: %d, 1: %d, size1: %d, add: %d", param.value[0], param.value[1], param.size[1], param.adress);
-//	ft_printf(", 0: %d, 1: %d, 2: %d, 3: %d\n", reg_value[0], reg_value[1], reg_value[2], reg_value[3]);
-	//exit (1);
 	if (param.size[1] == 2)
 		modify_memory_content(env, reg_value, &param, process);
 	else

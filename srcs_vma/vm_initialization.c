@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 19:19:38 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:03:35 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int		init_vm_champions(t_env *env)
 	while (++i < MAX_PLAYERS)
 	{
 		env->champions[i].player_id = i + 1;
-	//	env->attr_id[i] = i + 1;
 		ft_bzero(env->champions[i].file, 50);
 		env->champions[i].header.magic = 0;
 		ft_bzero(env->champions[i].header.prog_name, PROG_NAME_LENGTH + 1);

@@ -6,13 +6,13 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:19 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/17 16:49:14 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:16:28 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void 	ft_rotate(t_env *env, int i)
+void	ft_rotate(t_env *env, int i)
 {
 	int j;
 	int index;
@@ -31,28 +31,23 @@ void 	ft_rotate(t_env *env, int i)
 	}
 }
 
-void 	ft_sort_id_and_create_players(t_env *env, char **argv)
+void	ft_sort_id_and_create_players(t_env *env, char **argv)
 {
 	int i;
 	int k;
 
 	i = -1;
-	//ft_printf("%d %d, %d %d, %d %d, %d %d\n",env->attr_id[0][0],env->attr_id[1][0],env->attr_id[0][1],env->attr_id[1][1],env->attr_id[0][2],env->attr_id[1][2],env->attr_id[0][3],env->attr_id[1][3]);
-	
 	while (++i < env->nb_players)
 	{
-		if (env->attr_id[0][i] == 0 || (env->attr_id[0][env->attr_id[0][i]] != 0 && env->attr_id[0][i] < i + 1))
+		if (env->attr_id[0][i] == 0 || ((env->attr_id[0][i] < i + 1)
+				&& env->attr_id[0][env->attr_id[0][i]] != 0))
 			env->attr_id[0][i] = i + 1;
 		else if (env->attr_id[0][i] > i + 1)
 		{
 			ft_rotate(env, i);
 			i = -1;
 		}
-	//	ft_printf("%d %d, %d %d, %d %d, %d %d\n",env->attr_id[0][0],env->attr_id[1][0],env->attr_id[0][1],env->attr_id[1][1],env->attr_id[0][2],env->attr_id[1][2],env->attr_id[0][3],env->attr_id[1][3]);
-	
-		//i++;
 	}
-	//ft_printf("%d %d, %d %d, %d %d, %d %d\n",env->attr_id[0][0],env->attr_id[1][0],env->attr_id[0][1],env->attr_id[1][1],env->attr_id[0][2],env->attr_id[1][2],env->attr_id[0][3],env->attr_id[1][3]);
 	k = env->nb_players;
 	i = -1;
 	env->nb_players = 0;

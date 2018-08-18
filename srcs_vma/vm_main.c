@@ -6,13 +6,11 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:22 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/19 16:19:13 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:16:55 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-#include <curses.h>
-
 
 int	main(int argc, char **argv)
 {

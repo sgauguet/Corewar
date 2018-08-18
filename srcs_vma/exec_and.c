@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 16:33:19 by jebossue          #+#    #+#             */
-/*   Updated: 2018/07/25 16:47:53 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:31:08 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int	and_param2(t_env *env, t_process *process, t_param *param, int i)
 	else if (param->size[i] == 2)
 	{
 		head_indirect = tmp[0] << 8 | (unsigned char)tmp[1];
-		copy_memory_area(env, param->param[i], check_adress(head_indirect % IDX_MOD
-				+ process->current - 1), 4);
-		param->value[i] = indirect_value(env, check_adress(head_indirect % IDX_MOD
-					+ process->current));
+		copy_memory_area(env, param->param[i],
+				check_adress(head_indirect % IDX_MOD + process->current - 1)
+				, 4);
+		param->value[i] = indirect_value(env,
+				check_adress(head_indirect % IDX_MOD + process->current));
 	}
 	return (1);
 }
@@ -62,8 +63,8 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 int	check_and(t_env *env, t_process *process, t_param *param)
 {
 	if ((process->ocp[0] != 1 && process->ocp[0] != 2 && process->ocp[0] != 3)
-		|| (process->ocp[1] != 1 && process->ocp[1] != 2
-			&& process->ocp[1] != 3) || process->ocp[2] != 1)
+			|| (process->ocp[1] != 1 && process->ocp[1] != 2
+				&& process->ocp[1] != 3) || process->ocp[2] != 1)
 		return (0);
 	if (!params_size_ocp(env, process, param))
 		return (0);

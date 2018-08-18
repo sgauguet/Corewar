@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 17:16:35 by jebossue          #+#    #+#             */
-/*   Updated: 2018/08/17 16:48:49 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:33:50 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	or_param2(t_env *env, t_process *process, t_param *param, int i)
 		head2param = tmp[0] << 8 | (unsigned char)tmp[1];
 		copy_memory_area(env, param->param[i], head2param % IDX_MOD
 				+ process->current - 1, 4);
-		param->value[i] = indirect_value(env, head2param % IDX_MOD + process->current);
+		param->value[i] = indirect_value(env, head2param % IDX_MOD
+				+ process->current);
 	}
 	return (1);
 }

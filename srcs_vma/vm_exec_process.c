@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 15:10:39 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:42:16 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		exec_process(t_env *env)
 			new_instruction(env, process);
 		if (process->cycle_before_exec == 1)
 			exec_instruction(env, process);
-		process->cycle_before_exec--;//= (process->cycle_before_exec > 0) ? 1 : 0;
+		process->cycle_before_exec--;
 		process = process->next;
 	}
 	if (env->process.first_process && env->option.visu)
@@ -59,10 +59,11 @@ void		run_the_game(t_env *env)
 {
 	int cycle_consumed;
 	int check;
-	int	delta = 0;
+	int	delta;
 
 	cycle_consumed = 0;
 	check = 0;
+	delta = 0;
 	display_start(env);
 	exec_options(env);
 	while (env->process.nb_process && (env->option.d == -1 || env->option.d >= env->cycle - 1))

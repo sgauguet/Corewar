@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 10:03:45 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/20 16:13:43 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:25:03 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	copy_memory_area(t_env *env, char *buf, int start, int size)
 	}
 }
 
-void	modify_register_content(t_process *process, char *new_value, int reg_number)
+void	modify_register_content(t_process *process, char *new_value,
+		int reg_number)
 {
 	int result;
 
@@ -53,7 +54,8 @@ void	modify_register_content(t_process *process, char *new_value, int reg_number
 	process->reg[reg_number - 1] = result;
 }
 
-void	modify_memory_content(t_env *env, char *buf, t_param *param, t_process *process)
+void	modify_memory_content(t_env *env, char *buf, t_param *param,
+		t_process *process)
 {
 	int i;
 	int pos;
@@ -64,24 +66,14 @@ void	modify_memory_content(t_env *env, char *buf, t_param *param, t_process *pro
 	{
 		pos = check_adress(pos + 1);
 		env->arena[pos] = buf[i];
-
-		//env->arena2[pos] -= (env->arena2[pos] % UNDER_LINE - env->arena2[pos] % COLOR);// || ((env->arena2[pos] >= STAND_OUT) && (env->arena2[pos] < UNDER_LINE + STAND_OUT))) ? UNDER_LINE : 0;
 		env->arena2[pos] = env->arena2[pos] % COLOR + UNDER_LINE;
-		//env->arena2[pos] += ((env->arena2[pos] < UNDER_LINE) || ((env->arena2[pos] >= STAND_OUT) && (env->arena2[pos] < UNDER_LINE + STAND_OUT))) ? UNDER_LINE : 0;
 		if (pos != process->current)
 		{
-		env->arena2[pos] -= env->arena2[pos] % COLOR;// || ((env->arena2[pos] >= STAND_OUT) && (env->arena2[pos] < UNDER_LINE + STAND_OUT))) ? UNDER_LINE : 0;
-		env->arena2[pos] += env->arena2[process->current] % COLOR;
+			env->arena2[pos] -= env->arena2[pos] % COLOR;
+			env->arena2[pos] += env->arena2[process->current] % COLOR;
 		}
-	if (env->option.visu)
-	{
-		//attron(A_UNDERLINE);
-		display_ncurses(env, process, pos, 0);
-		//attroff(A_UNDERLINE);
-	}
-	//getch();
+		if (env->option.visu)
+			display_ncurses(env, process, pos, 0);
 		i++;
 	}
 }
-
-//J'ai modifie memory content et la structure de param (ajout de param->len)  en lui envoyant adress et longueur pour pouvoir aussi passer le process en parametre

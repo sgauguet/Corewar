@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 18:16:58 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/18 18:19:55 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		display_end(t_env *env)
 	ft_printf("Contestant %d, \"%s\", has won !\n", env->last_alive->player_id,
 				env->last_alive->header.prog_name);
 	destroy_all(env, 1);
-	exit (1);
+	return (1);
 }
 
 int		display_start(t_env *env)
@@ -52,12 +52,10 @@ int		display_start(t_env *env)
 
 	i = 0;
 	if (env->option.visu)
-		return(1);
+		return (1);
 	ft_printf("Introducing contestants...\n");
-
 	while (ft_strlen(env->champions[i].file) && i < env->nb_players)
 	{
-	//ft_printf("--- %s ---\n",env->champions[i].file);
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n",
 			env->champions[i].player_id, env->champions[i].header.prog_size,
 			env->champions[i].header.prog_name,
