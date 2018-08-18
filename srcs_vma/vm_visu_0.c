@@ -51,7 +51,7 @@ void		display_info_ncurses(t_env *env, t_process *process)
 		attroff(COLOR_PAIR(process->col_pair));
 		reg++;
 	}
-	mvprintw(3 + reg, 200, "OPERATION = %02x", process->opcode);
+	mvprintw(3 + reg, 200, "OPERATION = %02x", (unsigned char)process->opcode);
 	mvprintw(4 + reg, 200, "CARRY = %d", process->carry);
 	mvprintw(5 + reg, 200, "PROCESS CURRENT = %04x",
 		check_adress(process->current));

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 18:16:58 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/18 16:28:28 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int		display_end(t_env *env)
 	ft_printf("Contestant %d, \"%s\", has won !\n", env->last_alive->player_id,
 				env->last_alive->header.prog_name);
 	destroy_all(env, 1);
-	exit (1);
+	//exit (1);
+	return (1);
 }
 
 int		display_start(t_env *env)
