@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/25 17:59:35 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 15:10:39 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		exec_process(t_env *env)
 		process->cycle_before_exec--;//= (process->cycle_before_exec > 0) ? 1 : 0;
 		process = process->next;
 	}
-	if (env->option.visu)
+	if (env->process.first_process && env->option.visu)
 		ft_display(env);
 	return (1);
 }

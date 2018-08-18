@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:14 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/17 16:50:19 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/18 14:54:52 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	 ft_init_visu(t_env *env)
 	noecho();
 	nodelay(stdscr, TRUE);
 	curs_set(FALSE);
-	env->cycle_sec = 1;
+	env->cycle_sec = 10000;
 	if (has_colors() == FALSE)
 	{
 		endwin();

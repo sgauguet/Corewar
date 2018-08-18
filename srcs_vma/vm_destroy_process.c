@@ -62,16 +62,31 @@ int		search_dead_process(t_env *env)
 				destr_follow = 1;
 			tmp = process->next;
 			if (tmp == NULL)
-				env->process.last_process = process;
+				env->process.last_process = process->prev;
 			destroy_process(env, process);
 			process = tmp;
 		}
 		else
 		{
 			process->alive = 0;
-//			if (process->next == NULL)
-				env->process.followed = process;
+//			if (destr_follow == 1)
+//				env->process.followed = process;
 			process = process->next;
 		}
+	if (destr_follow == 1)
+		env->process.followed = env->process.first_process;
 	return (1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
