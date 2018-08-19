@@ -6,13 +6,21 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/08/19 20:29:34 by aserguie         ###   ########.fr       */
+=======
+/*   Updated: 2018/08/19 16:17:07 by sgauguet         ###   ########.fr       */
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
+<<<<<<< HEAD
 void	init_new(t_env *env, t_process *new, int start_position, t_fork *fork)
+=======
+void	create_process(t_env *env, int *reg, int start_position, t_fork *fork)
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 {
 	new->id = env->process.process_id;
 	new->current = start_position;

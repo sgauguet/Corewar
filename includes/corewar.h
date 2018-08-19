@@ -6,7 +6,11 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/08/19 19:48:06 by aserguie         ###   ########.fr       */
+=======
+/*   Updated: 2018/08/19 17:01:24 by sgauguet         ###   ########.fr       */
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +173,7 @@ int				init_process_stack(t_env *env);
  ** vm_destroy_process.c
  */
 
-//int				free_memory(t_env *env, t_process *process);
+void			free_memory(t_env *env, t_process *process, int d);
 void			destroy_all(t_env *env, int d);
 int				search_dead_process(t_env *env);
 
@@ -179,7 +183,7 @@ int				search_dead_process(t_env *env);
 
 int				exec_options(t_env *env);
 int				exec_process(t_env *env);
-void			run_the_game(t_env *env);
+void			run_the_game(t_env *env, int cycle_consumed, int check, int delta);
 
 /*
  ** vm_instructions_size.c

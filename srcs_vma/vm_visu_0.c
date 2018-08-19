@@ -6,7 +6,11 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:14 by aserguie          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/08/19 20:44:34 by aserguie         ###   ########.fr       */
+=======
+/*   Updated: 2018/08/19 16:13:48 by sgauguet         ###   ########.fr       */
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +40,12 @@ void	display_info_ncurses(t_env *env, t_process *process)
 	int reg;
 
 	reg = 0;
+<<<<<<< HEAD
 	mvprintw(1 + reg, 200, "PROCESS ID = %8d", process->id);
+=======
+	move(1 + reg, 200);
+	printw("PROCESS ID = %d", process->id);
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 	while (reg < REG_NUMBER)
 	{
 		move(2 + reg, 200);
@@ -63,8 +72,15 @@ void	init_arena(t_env *env)
 	int j;
 	int player;
 
+<<<<<<< HEAD
 	mvprintw(0, 0, "Press any key to START the game.");
 	i = -1;
+=======
+	move(0, 0);
+	printw("Press any key to START the game.");
+	move(1, 0);
+	i = 0;
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 	j = 0;
 	player = 1;
 	move(1, 0);
@@ -75,8 +91,14 @@ void	init_arena(t_env *env)
 		display_memory_area_ncurses(i, env->arena[i], env->arena2[i], env);
 		if (i == j + env->champions[player - 1].size)
 		{
+<<<<<<< HEAD
 			player++;
 			j += MEM_SIZE / env->nb_players;
+=======
+			display_memory_area_ncurses(i, env->arena[i],
+				env->champions[player - 1].player_id, env);
+			i++;
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 		}
 		if (player == 4 && j == MEM_SIZE - 1)
 			j++;
@@ -90,6 +112,11 @@ void	ft_init_visu(t_env *env)
 {
 	initscr();
 	noecho();
+<<<<<<< HEAD
+=======
+	nodelay(stdscr, TRUE);
+	//supprimer celui la et decommenter celui a la fin de init arena
+>>>>>>> 539577d8bfe9a427b65d268c1ce428c3e1952378
 	curs_set(FALSE);
 	env->cycle_sec = 1;
 	if (has_colors() == FALSE || getmaxy(stdscr) <= 66
