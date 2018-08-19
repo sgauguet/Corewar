@@ -25,7 +25,7 @@ int		exec_options(t_env *env)
 			display_end(env);
 		destroy_all(env, 1);
 		endwin();
-		exit (1);
+		exit(1);
 	}
 	if (env->option.s && ((env->cycle - 1) % env->option.s == 0))
 	{
@@ -55,7 +55,7 @@ int		exec_process(t_env *env)
 	return (1);
 }
 
-void		run_the_game(t_env *env)
+void	run_the_game(t_env *env)
 {
 	int cycle_consumed;
 	int check;

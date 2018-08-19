@@ -6,13 +6,13 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:14 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/18 18:34:51 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/19 16:13:48 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int	display_memory_area_ncurses(int i, char byte, int col, t_env *env)
+int		display_memory_area_ncurses(int i, char byte, int col, t_env *env)
 {
 	attron(COLOR_PAIR(col));
 	if (env->arena2[i] >= UNDER_LINE && env->arena2[i] <= STAND_OUT)
@@ -31,12 +31,12 @@ int	display_memory_area_ncurses(int i, char byte, int col, t_env *env)
 	return (1);
 }
 
-void		display_info_ncurses(t_env *env, t_process *process)
+void	display_info_ncurses(t_env *env, t_process *process)
 {
 	int reg;
 
 	reg = 0;
-	move (1 + reg, 200);
+	move(1 + reg, 200);
 	printw("PROCESS ID = %d", process->id);
 	while (reg < REG_NUMBER)
 	{
@@ -67,7 +67,7 @@ int		init_arena(t_env *env)
 
 	move(0, 0);
 	printw("Press any key to START the game.");
-	move(1,0);
+	move(1, 0);
 	i = 0;
 	j = 0;
 	player = 1;
@@ -77,7 +77,8 @@ int		init_arena(t_env *env)
 			attron(A_STANDOUT);
 		while (i < j + env->champions[player - 1].size)
 		{
-			display_memory_area_ncurses(i, env->arena[i], env->champions[player - 1].player_id, env);
+			display_memory_area_ncurses(i, env->arena[i],
+				env->champions[player - 1].player_id, env);
 			i++;
 		}
 		player++;
@@ -95,11 +96,12 @@ int		init_arena(t_env *env)
 	return (1);
 }
 
-void	 ft_init_visu(t_env *env)
+void	ft_init_visu(t_env *env)
 {
 	initscr();
 	noecho();
-	nodelay(stdscr, TRUE); //supprimer celui la et decommenter celui a la fin de init arena
+	nodelay(stdscr, TRUE);
+	//supprimer celui la et decommenter celui a la fin de init arena
 	curs_set(FALSE);
 	env->cycle_sec = 10000;
 	if (has_colors() == FALSE)
@@ -132,7 +134,7 @@ int		display_ncurses(t_env *env, t_process *process, int start, int pc)
 	if (pc == 5)
 		display_memory_area_ncurses(start, env->arena[start], 5, env);
 	else
-		display_memory_area_ncurses(start, env->arena[start], pc == 0 ? 
+		display_memory_area_ncurses(start, env->arena[start], pc == 0 ?
 		env->arena2[start] % COLOR : process->col_pair % COLOR, env);
 	if (pc != 0 && env->process.followed == process)
 		display_info_ncurses(env, process);

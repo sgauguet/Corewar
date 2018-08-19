@@ -6,13 +6,13 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 09:47:39 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 18:40:34 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/19 16:17:07 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void		create_process(t_env *env, int *reg, int start_position, t_fork *fork)
+void	create_process(t_env *env, int *reg, int start_position, t_fork *fork)
 {
 	t_process	*new;
 	int			i;
