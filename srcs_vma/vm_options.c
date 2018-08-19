@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:49:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 18:07:35 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/19 19:56:03 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ int		search_options(t_env *env, char **argv, int argc, int i)
 			&& ft_is_valid(argv, argv[i + 1], -1))
 		env->option.v = ft_atoi(argv[i + 1]);
 	else if (!ft_strcmp(argv[i], "-visu") && (ret = 1))
-		ft_init_visu(env);
-	else if (!ft_strcmp(argv[i], "--stealth") && (ret = 1))
-		env->option.stealth = 1;
+		env->option.visu = 1;
 	return (ret);
 }
 
