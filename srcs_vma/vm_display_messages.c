@@ -40,10 +40,12 @@ void	display_usage(char **argv)
 
 int		display_end(t_env *env)
 {
-	ft_printf("Contestant %d, \"%s\", has won !\n", env->last_alive->player_id,
-				env->last_alive->header.prog_name);
+	if (!env->option.visu)
+		ft_printf("Contestant %d, \"%s\", has won !\n",
+			env->last_alive->player_id, env->last_alive->header.prog_name);
 	destroy_all(env, 1);
-	//exit (1);
+	clear();
+	endwin();
 	return (1);
 }
 
@@ -53,12 +55,10 @@ int		display_start(t_env *env)
 
 	i = 0;
 	if (env->option.visu)
-		return(1);
+		return (1);
 	ft_printf("Introducing contestants...\n");
-
 	while (ft_strlen(env->champions[i].file) && i < env->nb_players)
 	{
-	//ft_printf("--- %s ---\n",env->champions[i].file);
 		ft_printf("* Player %d, weighing %d bytes, \"%s\" (\"%s\") !\n",
 			env->champions[i].player_id, env->champions[i].header.prog_size,
 			env->champions[i].header.prog_name,

@@ -17,8 +17,8 @@ int		exec_options(t_env *env)
 	char c;
 
 	c = '0';
-	if ((env->option.d != -1) && (env->option.d == env->cycle - 1)
-		&& env->process.nb_process)
+	if (env->cycle != 1 && (env->option.d != -1)
+		&& (env->option.d == env->cycle - 1) && env->process.nb_process)
 	{
 		display_arena(env);
 		if (env->process.nb_process == 0)
@@ -27,12 +27,15 @@ int		exec_options(t_env *env)
 		endwin();
 		exit(1);
 	}
-	if (env->option.s && ((env->cycle - 1) % env->option.s == 0))
+	if (env->cycle != 1 && env->option.s
+		&& ((env->cycle - 1) % env->option.s == 0))
 	{
 		display_arena(env);
 		while (c != '\n')
 			read(0, &c, 1);
 	}
+	if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
+		ft_printf("It is now cycle %d\n", env->cycle);
 	return (1);
 }
 
@@ -55,18 +58,12 @@ int		exec_process(t_env *env)
 	return (1);
 }
 
-void	run_the_game(t_env *env)
+void	run_the_game(t_env *env, int cycle_consumed, int check, int delta)
 {
-	int cycle_consumed;
-	int check;
-	int	delta;
-
-	cycle_consumed = 0;
-	check = 0;
-	delta = 0;
 	display_start(env);
 	exec_options(env);
-	while (env->process.nb_process && (env->option.d == -1 || env->option.d >= env->cycle - 1))
+	while (env->process.nb_process && (env->option.d == -1
+		|| env->option.d >= env->cycle - 1))
 	{
 		if (cycle_consumed >= env->cycle_to_die)
 		{
@@ -81,20 +78,11 @@ void	run_the_game(t_env *env)
 			}
 			env->nb_live_env = 0;
 		}
-		if (delta && (env->option.v == 2 || env->option.v < 0))
-		{
-			delta = 0;
+		if (delta && (env->option.v == 2 || env->option.v < 0) && !(delta = 0))
 			ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
-		}
-		if (env->cycle != 1)
-			exec_options(env);
-		if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
-			ft_printf("It is now cycle %d\n", env->cycle);
+		exec_options(env);
 		exec_process(env);
 		env->cycle++;
 		cycle_consumed++;
 	}
-	display_end(env);
-	clear();
-	endwin();
 }

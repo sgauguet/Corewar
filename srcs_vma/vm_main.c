@@ -25,6 +25,6 @@ int	main(int argc, char **argv)
 	if (env.option.visu)
 		init_arena(&env);
 	env.last_alive = &env.champions[env.nb_players - 1];
-	run_the_game(&env);
+	run_the_game(&env, 0, 0, 0);
 	return (1);
 }
