@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 15:00:59 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 15:21:07 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	display_usage(char **argv)
 {
-	ft_printf("Usage: %s [-a -d N -s N -v N | -visu] [-n N] <champion1.cor>"
+	ft_printf("Usage: %s [-a -d N -s N -v N | -visu] [-n N] <champion1.cor> "
 			"[-n N] <champion2.cor> <...>\n"
 	"\t-a        : Prints output from \"aff\" (Default is to hide it)\n"
 	"#### TEXT OUTPUT MODE #################################################\n"
