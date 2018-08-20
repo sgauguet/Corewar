@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/08/20 12:24:15 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/08/20 12:51:41 by sgauguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,7 +119,7 @@ CFLAGS =	-Wall \
 INCFLAGS =	-I $(INCDIR)	\
 			-I $(LIBINCDIR)
 
-LFLAGS =	-lncurses -L $(LIBDIR) -lft 
+LFLAGS =	-L $(LIBDIR) -lft -lncurses
 
 FLAGS =		$(CFLAGS)		\
 		$(INCFLAGS)

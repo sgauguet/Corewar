@@ -6,7 +6,7 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/19 17:24:38 by jebossue          #+#    #+#             */
-/*   Updated: 2018/08/18 18:34:02 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 12:48:28 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	xor_param2(t_env *env, t_process *process, t_param *param, int i)
 	if (param->size[i] == 4)
 	{
 		copy_memory_area(env, param->param[i], head, 4);
-		param->value[i] = tmp[0] << 24 | tmp[1] << 16 | tmp[2] << 8 | tmp[3];
+		param->value[i] = tmp[0] << 24 | (unsigned char)tmp[1] << 16
+			| (unsigned char)tmp[2] << 8 | (unsigned char)tmp[3];
 	}
 	else if (param->size[i] == 2)
 	{
