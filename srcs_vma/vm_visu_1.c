@@ -6,11 +6,26 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:04 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/19 16:11:22 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 11:18:44 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void	ft_print_info(t_env *env)
+{
+	int i;
+
+	i = -1;
+	mvprintw(0, 0, "Press SPACE to pause, Q to quit, LEFT/RIGHT to navigate "
+			"between processes and UP/DOWN to change speed");
+	while (++i < env->nb_players)
+	{
+		attron(COLOR_PAIR(i + 1));
+		mvprintw(30 + i, 200, "%s", env->champions[i].header.prog_name);
+		attron(COLOR_PAIR(i + 1));
+	}
+}
 
 void	ft_display_pcs(t_env *env)
 {
@@ -20,12 +35,12 @@ void	ft_display_pcs(t_env *env)
 	while (process)
 	{
 		env->arena2[process->current] += env->arena2[process->current]
-		< STAND_OUT ? STAND_OUT : 0;
+			< STAND_OUT ? STAND_OUT : 0;
 		display_ncurses(env, process, process->current, 1);
 		process = process->next;
 	}
 	display_ncurses(env, env->process.followed,
-		env->process.followed->current, 5);
+			env->process.followed->current, 5);
 }
 
 void	ft_display_followed(t_env *env, int *c)
@@ -36,11 +51,11 @@ void	ft_display_followed(t_env *env, int *c)
 	{
 		pc_tmp = env->process.followed;
 		if (*c == KEY_LEFT)
-			env->process.followed = (env->process.followed->next == NULL)
-			? env->process.first_process : env->process.followed->next;
+			env->process.followed = (env->process.followed->next == NULL) ?
+				env->process.first_process : env->process.followed->next;
 		else if (*c == KEY_RIGHT)
-			env->process.followed = (env->process.followed->prev == NULL)
-			? env->process.last_process : env->process.followed->prev;
+			env->process.followed = (env->process.followed->prev == NULL) ?
+				env->process.last_process : env->process.followed->prev;
 		else if (*c == KEY_UP)
 			env->cycle_sec += env->cycle_sec < 9990 ? 10 : 0;
 		else if (*c == KEY_DOWN)
@@ -61,7 +76,7 @@ void	ft_pause(t_env *env)
 
 	pause = 0;
 	while ((((c = getch()) == ' ' || c == 'q') && pause == 0) || c == KEY_LEFT
-		|| c == KEY_RIGHT || c == KEY_UP || c == KEY_DOWN)
+			|| c == KEY_RIGHT || c == KEY_UP || c == KEY_DOWN)
 	{
 		nodelay(stdscr, FALSE);
 		if (c == ' ')
@@ -85,8 +100,8 @@ void	ft_pause(t_env *env)
 
 void	ft_display(t_env *env)
 {
-	mvprintw(0, 0, "It is now cycle: %d, process alive: %d",
-		env->cycle - 1, env->process.nb_process);
+	mvprintw(25, 200, "CYCLE =  %d", env->cycle - 1);
+	mvprintw(27, 200, "PROCESSES = %d", env->process.nb_process);
 	ft_display_pcs(env);
 	refresh();
 	ft_pause(env);

@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/19 18:01:55 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 10:55:06 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,10 +229,11 @@ int				display_arena(t_env *env);
  ** vm_visu.c
  */
 void			ft_init_visu(t_env *env);
-int				init_arena(t_env *env);
+void				init_arena(t_env *env);
 int				display_ncurses(t_env *env, t_process *process, int start, int size);
 void			display_info_ncurses(t_env *env, t_process *process);
 void			ft_display(t_env *env);
+void			ft_print_info(t_env *env);
 
 /*
  ** vm_display_messages.c
