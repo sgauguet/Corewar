@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:04 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/20 13:22:48 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 14:32:56 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_pause(t_env *env)
 			{
 				endwin();
 				destroy_all(env, 1);
-				exit (1);
+				exit(1);
 			}
 			pause = 1;
 			nodelay(stdscr, TRUE);
