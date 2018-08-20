@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 10:55:06 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 12:11:12 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../libft/includes/libft.h"
 # include "../includes/op.h"
 
-typedef struct	s_op
+typedef struct		s_op
 {
 	char	name[6];
 	int		params_number;
@@ -31,9 +31,9 @@ typedef struct	s_op
 	char	description[37];
 	int		modify_carry;
 	int		direct_size;
-}				t_op;
+}					t_op;
 
-typedef struct	s_player
+typedef struct		s_player
 {
 	int			player_id;
 	char		file[50];
@@ -41,9 +41,9 @@ typedef struct	s_player
 	char		instructions[CHAMP_MAX_SIZE];
 	int			size;
 	int			nb_lives;
-}				t_player;
+}					t_player;
 
-typedef struct	s_process
+typedef struct		s_process
 {
 	unsigned long		id;
 	int					reg[REG_NUMBER + 1];
@@ -59,249 +59,258 @@ typedef struct	s_process
 	int					size;
 	struct s_process	*prev;
 	struct s_process	*next;
-}				t_process;
+}					t_process;
 
-typedef struct	s_stack
+typedef struct		s_stack
 {
 	t_process		*last_process;
 	t_process		*first_process;
 	t_process		*followed;
 	unsigned long	nb_process;
 	unsigned long	process_id;
-}				t_stack;
+}					t_stack;
 
-typedef	struct	s_fork
+typedef	struct		s_fork
 {
-	int			pc;
-	int			col_pair;
-	int			carry;
-	int			alive;
-	int			last;
-}				t_fork;
+	int	pc;
+	int	col_pair;
+	int	carry;
+	int	alive;
+	int	last;
+}					t_fork;
 
-typedef struct	s_option
+typedef struct		s_option
 {
-	int			a;
-	int			d;
-	int			s;
-	int			v;
-	int			b;
-	int			n;
-	int			stealth;
-	int			visu;
-}				t_option;
+	int	a;
+	int	d;
+	int	s;
+	int	v;
+	int	b;
+	int	n;
+	int	stealth;
+	int	visu;
+}					t_option;
 
-typedef struct	s_env
+typedef struct		s_env
 {
-	char		arena[MEM_SIZE];
+	char			arena[MEM_SIZE];
 	unsigned int	arena2[MEM_SIZE];
-	int			cycle;
-	int			attr_id[2][MAX_PLAYERS];
-	int			cycle_to_die;
-	int			nb_players;
-	int			nb_live_env;
-	int			cycle_sec;
-	t_player	champions[MAX_PLAYERS];
-	t_player	*last_alive;
-	t_op		instructions[NB_INSTRUCTIONS];
-	t_stack		process;
-	t_option	option;
-}				t_env;
+	int				cycle;
+	int				attr_id[2][MAX_PLAYERS];
+	int				cycle_to_die;
+	int				nb_players;
+	int				nb_live_env;
+	int				cycle_sec;
+	t_player		champions[MAX_PLAYERS];
+	t_player		*last_alive;
+	t_op			instructions[NB_INSTRUCTIONS];
+	t_stack			process;
+	t_option		option;
+}					t_env;
 
-typedef struct	s_param
+typedef struct		s_param
 {
-	int			value[3];
-	int			size[3];
-	int			adress;
-	int			length;
-	int			success;
-	char		param[2][4];
-}				t_param;
+	int		value[3];
+	int		size[3];
+	int		adress;
+	int		length;
+	int		success;
+	char	param[2][4];
+}					t_param;
 
 /*
- ** vm_initialization.c
- */
+** vm_initialization.c
+*/
 
-int				check_constants(void);
-int				init_options(t_env *env);
-int				init_instructions(t_env *env);
-int				init_vm_champions(t_env *env);
-int				init_vm_environment(t_env *env);
-
-/*
- ** vm_options.c
- */
-
-int				search_options(t_env *env, char **argv, int argc, int i);
-int				check_options(char **argv, int argc, t_env *env);
-void 			ft_sort_id_and_create_players(t_env *env, char **argv);
+int					check_constants(void);
+int					init_options(t_env *env);
+int					init_instructions(t_env *env);
+int					init_vm_champions(t_env *env);
+int					init_vm_environment(t_env *env);
 
 /*
- ** vm_create_players.c
- */
+** vm_options.c
+*/
 
-int				player_instructions(char *buf, t_env *env);
-int				player_header(char *buf, t_env *env);
-int				create_player(char *file, t_env *env);
-
-/*
- ** vm_check_players.c
- */
-
-int				check_magic(char *magic, t_env *env);
-int				check_prog_size(char *prog_size, t_env *env);
+int					search_options(t_env *env, char **argv, int argc, int i);
+int					check_options(char **argv, int argc, t_env *env);
+void				ft_sort_id_and_create_players(t_env *env, char **argv);
 
 /*
- ** vm_load_players.c
- */
+** vm_create_players.c
+*/
 
-int				load_players(t_env *env);
+int					player_instructions(char *buf, t_env *env);
+int					player_header(char *buf, t_env *env);
+int					create_player(char *file, t_env *env);
 
 /*
- ** vm_create_process.c
- */
+** vm_check_players.c
+*/
+
+int					check_magic(char *magic, t_env *env);
+int					check_prog_size(char *prog_size, t_env *env);
+
+/*
+** vm_load_players.c
+*/
+
+int					load_players(t_env *env);
+
+/*
+** vm_create_process.c
+*/
 
 void				create_process(t_env *env, int *reg, int start_position,
-		t_fork *fork);
-int				init_process_stack(t_env *env);
+					t_fork *fork);
+int					init_process_stack(t_env *env);
 
 /*
- ** vm_destroy_process.c
- */
+** vm_destroy_process.c
+*/
 
-void			free_memory(t_env *env, t_process *process, int d);
-void			destroy_all(t_env *env, int d);
-int				search_dead_process(t_env *env);
-
-/*
- ** vm_exec_process.c
- */
-
-int				exec_options(t_env *env, int cycle);
-int				exec_process(t_env *env);
-void			run_the_game(t_env *env, int cycle_consumed, int check, int delta);
+void				free_memory(t_env *env, t_process *process, int d);
+void				destroy_all(t_env *env, int d);
+int					search_dead_process(t_env *env);
 
 /*
- ** vm_instructions_size.c
- */
+** vm_exec_process.c
+*/
 
-int				params_size_ocp(t_env *env, t_process *process, t_param *param);
-int				size_param(t_env *env, t_process *process);
-int				check_ocp(t_env *env, t_process *process);
-int				size_instruction(t_env *env, t_process *process);
-
-/*
- ** vm_exec_instructions.c
- */
-
-int				nb_cycles_instruction(t_env *env, t_process *process);
-int				new_instruction(t_env *env, t_process *process);
-int				exec_instruction(t_env *env, t_process *process);
+int					exec_options(t_env *env, int cycle);
+int					exec_process(t_env *env);
+void				run_the_game(t_env *env, int cycle_consumed,
+					int check, int delta);
 
 /*
- ** vm_exec_functions.c
- */
+** vm_instructions_size.c
+*/
 
-int				check_adress(int adress);
-int				register_value(t_process *process, int reg_number);
-int				indirect_value(t_env *env, int start);
-
-/*
- ** vm_exec_functions_2.c
- */
-
-int				copy_register(t_process *process, char *buf, int reg_number);
-void			copy_memory_area(t_env *env, char *buf, int start, int size);
-void			modify_register_content(t_process *process, char *new_value,
-		int reg_number);
-void			modify_memory_content(t_env *env, char *buf, t_param *param, 
-				t_process *process);
+int					params_size_ocp(t_env *env, t_process *process,
+					t_param *param);
+int					size_param(t_env *env, t_process *process);
+int					check_ocp(t_env *env, t_process *process);
+int					size_instruction(t_env *env, t_process *process);
 
 /*
- ** vm_display_arena.c
- */
+** vm_exec_instructions.c
+*/
 
-int				display_memory_area(char byte);
-int				display_specific_area(t_env *env, int start, int end);
-int				display_arena(t_env *env);
+int					nb_cycles_instruction(t_env *env, t_process *process);
+int					new_instruction(t_env *env, t_process *process);
+int					exec_instruction(t_env *env, t_process *process);
 
 /*
- ** vm_visu.c
- */
-void			ft_init_visu(t_env *env);
+** vm_exec_functions.c
+*/
+
+int					check_adress(int adress);
+int					register_value(t_process *process, int reg_number);
+int					indirect_value(t_env *env, int start);
+
+/*
+** vm_exec_functions_2.c
+*/
+
+int					copy_register(t_process *process, char *buf,
+					int reg_number);
+void				copy_memory_area(t_env *env, char *buf, int start,
+					int size);
+void				modify_register_content(t_process *process, char *new_value,
+					int reg_number);
+void				modify_memory_content(t_env *env, char *buf, t_param *param,
+					t_process *process);
+
+/*
+** vm_display_arena.c
+*/
+
+int					display_memory_area(char byte);
+int					display_specific_area(t_env *env, int start, int end);
+int					display_arena(t_env *env);
+
+/*
+** vm_visu.c
+*/
+
+void				ft_init_visu(t_env *env);
 void				init_arena(t_env *env);
-int				display_ncurses(t_env *env, t_process *process, int start, int size);
-void			display_info_ncurses(t_env *env, t_process *process);
-void			ft_display(t_env *env);
-void			ft_print_info(t_env *env);
+int					display_ncurses(t_env *env, t_process *process, int start,
+					int size);
+void				display_info_ncurses(t_env *env, t_process *process);
+void				ft_display(t_env *env);
+void				ft_print_info(t_env *env);
 
 /*
- ** vm_display_messages.c
- */
+** vm_display_messages.c
+*/
 
-void			display_usage(char **argv);
-int				display_end(t_env *env);
-int				display_start(t_env *env);
-
-/*
- ** vm_display_options.c
- */
-
-int				show_details(t_env *env, t_process *process, t_param *param);
-int				show_operations(t_env *env, t_process *process, t_param *param);
-int				show_deaths(t_env *env, t_process *process);
-int				show_pc_movements(t_env *env, t_process *process);
+void				display_usage(char **argv);
+int					display_end(t_env *env);
+int					display_start(t_env *env);
 
 /*
- ** vm_display_errors.c
- */
+** vm_display_options.c
+*/
 
-void			display_errors_with_value(int value, int code, t_env *env);
-void			display_errors(char *error_message);
-
-/*
- ** vm_debug.c
- */
-
-int				display_process(t_env *env);
-int				display_champions(t_env *env);
-int				display_instructions(t_env *env);
-int				debug(t_env *env);
+int					show_details(t_env *env, t_process *process,
+					t_param *param);
+int					show_operations(t_env *env, t_process *process,
+					t_param *param);
+int					show_deaths(t_env *env, t_process *process);
+int					show_pc_movements(t_env *env, t_process *process);
 
 /*
- ** exec
- */
+** vm_display_errors.c
+*/
 
-int				exec_live(t_env *env, t_process *process);
-int				exec_ld(t_env *env, t_process *process);
-int				exec_lld(t_env *env, t_process *process);
-int				exec_ldi(t_env *env, t_process *process);
-int				exec_lldi(t_env *env, t_process *process);
-int				exec_st(t_env *env, t_process *process);
-int				exec_and(t_env *env, t_process *process);
-int				exec_zjmp(t_env *env, t_process *process);
-int				exec_sti(t_env *env, t_process *process);
-int				exec_fork(t_env *env, t_process *process);
-int				exec_lfork(t_env *env, t_process *process);
-int				exec_aff(t_env *env, t_process *process);
-int				exec_add(t_env *env, t_process *process);
-int				exec_sub(t_env *env, t_process *process);
-int				exec_or(t_env *env, t_process *process);
-int				exec_xor(t_env *env, t_process *process);
-/*
- ** ============================================================================
- */
+void				display_errors_with_value(int value, int code, t_env *env);
+void				display_errors(char *error_message);
 
 /*
- ** ASM FILES
- */
+** vm_debug.c
+*/
 
-typedef struct		ss_list
+int					display_process(t_env *env);
+int					display_champions(t_env *env);
+int					display_instructions(t_env *env);
+int					debug(t_env *env);
+
+/*
+** exec
+*/
+
+int					exec_live(t_env *env, t_process *process);
+int					exec_ld(t_env *env, t_process *process);
+int					exec_lld(t_env *env, t_process *process);
+int					exec_ldi(t_env *env, t_process *process);
+int					exec_lldi(t_env *env, t_process *process);
+int					exec_st(t_env *env, t_process *process);
+int					exec_and(t_env *env, t_process *process);
+int					exec_zjmp(t_env *env, t_process *process);
+int					exec_sti(t_env *env, t_process *process);
+int					exec_fork(t_env *env, t_process *process);
+int					exec_lfork(t_env *env, t_process *process);
+int					exec_aff(t_env *env, t_process *process);
+int					exec_add(t_env *env, t_process *process);
+int					exec_sub(t_env *env, t_process *process);
+int					exec_or(t_env *env, t_process *process);
+int					exec_xor(t_env *env, t_process *process);
+
+/*
+** ============================================================================
+*/
+
+/*
+** ASM FILES
+*/
+
+typedef struct		s_slist
 {
 	char			*str;
 	struct s_list	*first;
 	struct s_list	*next;
-}					tt_list;
+}					t_tlist;
 
 typedef struct		s_asm
 {
