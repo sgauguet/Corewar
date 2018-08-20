@@ -6,13 +6,12 @@
 /*   By: jebossue <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 15:55:01 by jebossue          #+#    #+#             */
-/*   Updated: 2018/08/20 11:31:15 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 11:48:20 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
@@ -88,6 +87,7 @@ char				*ft_strndup(const char *s, size_t n);
 int					ft_nbrwords(char const *s, char c);
 int					ft_strarraycmp(char *str, char **rule);
 int					ft_str_isdigit(const char *s);
+
 /*
 **Travail sur des nombres.
 */
