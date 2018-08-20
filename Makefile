@@ -6,7 +6,7 @@
 #    By: jebossue <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/09 17:54:20 by jebossue          #+#    #+#              #
-#    Updated: 2018/08/20 15:18:31 by sgauguet         ###   ########.fr        #
+#    Updated: 2018/08/20 18:48:08 by aserguie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRCS_ASM =		utils.c \
 				main.c \
 				put.c \
 				malloc_tabtab.c \
+				loop.c
 
 SRCS_VMA =		vm_main.c \
 				vm_initialization.c \

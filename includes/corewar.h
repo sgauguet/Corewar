@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 15:11:24 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 18:47:03 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,6 +340,7 @@ typedef struct		s_ins
 	unsigned char	inst;
 }					t_ins;
 
+void				ft_error_strukt(t_asm *strukt);
 char				**ft_malloc_tabtab(char **tab, char *str);
 void				ft_put(char *str, char c, char fd, char bool_free);
 void				ft_write(t_asm *strukt, const void *tmp, size_t len);

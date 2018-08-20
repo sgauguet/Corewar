@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:26:30 by juspende          #+#    #+#             */
-/*   Updated: 2018/08/20 17:06:42 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 18:47:42 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void			ft_open_check_and_get_file(t_asm *strukt)
 		strukt->file = ft_malloc_tabtab(strukt->file, str_gnl);
 		ft_strdel(&str_gnl);
 	}
+	ft_strdel(&str_gnl);
 	if (ret != 0)
 		ft_error(3, strukt->av[strukt->ac - 1]);
 	strukt->file_s_name = ft_strdup(strukt->av[strukt->ac - 1]);
-	if (strukt->file_s_name == NULL)
-		ft_error(1, "s_asm->file_s_name");
+	ft_error_strukt(strukt);
 	close(fd);
 }
 
