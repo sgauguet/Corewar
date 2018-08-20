@@ -6,13 +6,13 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 16:22:41 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 18:42:16 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/19 19:12:19 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		exec_options(t_env *env)
+int		exec_options(t_env *env, int cycle)
 {
 	char c;
 
@@ -32,9 +32,11 @@ int		exec_options(t_env *env)
 	{
 		display_arena(env);
 		while (c != '\n')
-			read(0, &c, 1);
+			if (read(0, &c, 1) == -1)
+				exit(1);
 	}
-	if ((env->option.v == 2 || env->option.v < 0) && env->process.nb_process)
+	if (cycle == 1 && (env->option.v == 2 || env->option.v < 0)
+		&& env->process.nb_process)
 		ft_printf("It is now cycle %d\n", env->cycle);
 	return (1);
 }
@@ -61,7 +63,7 @@ int		exec_process(t_env *env)
 void	run_the_game(t_env *env, int cycle_consumed, int check, int delta)
 {
 	display_start(env);
-	exec_options(env);
+	exec_options(env, 0);
 	while (env->process.nb_process && (env->option.d == -1
 		|| env->option.d >= env->cycle - 1))
 	{
@@ -80,7 +82,7 @@ void	run_the_game(t_env *env, int cycle_consumed, int check, int delta)
 		}
 		if (delta && (env->option.v == 2 || env->option.v < 0) && !(delta = 0))
 			ft_printf("Cycle to die is now %d\n", env->cycle_to_die);
-		exec_options(env);
+		exec_options(env, 1);
 		exec_process(env);
 		env->cycle++;
 		cycle_consumed++;

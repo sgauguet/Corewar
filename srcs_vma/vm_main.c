@@ -26,5 +26,6 @@ int	main(int argc, char **argv)
 		init_arena(&env);
 	env.last_alive = &env.champions[env.nb_players - 1];
 	run_the_game(&env, 0, 0, 0);
+	display_end(env);
 	return (1);
 }

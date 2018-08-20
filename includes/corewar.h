@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/19 17:01:24 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/19 18:01:55 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ int				search_dead_process(t_env *env);
  ** vm_exec_process.c
  */
 
-int				exec_options(t_env *env);
+int				exec_options(t_env *env, int cycle);
 int				exec_process(t_env *env);
 void			run_the_game(t_env *env, int cycle_consumed, int check, int delta);
 
