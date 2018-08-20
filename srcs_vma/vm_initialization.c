@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 18:03:35 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 14:23:37 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int		init_options(t_env *env)
 	env->option.s = 0;
 	env->option.v = 0;
 	env->option.n = 0;
-	env->option.stealth = 0;
 	env->option.visu = 0;
 	while (++i < MAX_PLAYERS)
 	{

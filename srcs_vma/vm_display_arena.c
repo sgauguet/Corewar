@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/19 09:17:47 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/19 19:32:23 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 14:30:32 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		display_arena(t_env *env)
 			line++;
 			ft_printf("%#06x : ", i);
 		}
-		display_memory_area(env->arena2[i]);
+		display_memory_area(env->arena[i]);
 		if ((i + 1) % 64 == 0)
 			ft_printf("\n");
 		i++;

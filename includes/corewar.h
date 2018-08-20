@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/12 16:53:01 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 14:16:47 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 14:24:01 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,7 @@ typedef struct		s_option
 	int	d;
 	int	s;
 	int	v;
-	int	b;
 	int	n;
-	int	stealth;
 	int	visu;
 }					t_option;
 
