@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 15:21:07 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 17:24:42 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	display_usage(char **argv)
 	"\t\t- 2  : Show cycles\n"
 	"\t\t- 4  : Show operations (Params are NOT litteral ...)\n"
 	"\t\t- 8  : Show deaths\n"
-	"\t\t- 16 : Show PC movements (Except for jumps)\n"	
+	"\t\t- 16 : Show PC movements (Except for jumps)\n"
 	"#### CHANGE PLAYER ORDER ##############################################\n"
 	"\t-n N      : Attributes Nth place to following champion  if available.\n"
 	"#### NCURSES OUTPUT MODE ##############################################\n"
@@ -39,7 +39,8 @@ void	display_usage(char **argv)
 
 int		display_end(t_env *env)
 {
-	if (!env->option.visu)		ft_printf("Contestant %d, \"%s\", has won !\n",
+	if (!env->option.visu)
+		ft_printf("Contestant %d, \"%s\", has won !\n",
 			env->last_alive->player_id, env->last_alive->header.prog_name);
 	else
 	{
