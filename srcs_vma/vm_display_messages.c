@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 14:32:38 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 15:00:59 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 
 void	display_usage(char **argv)
 {
-	ft_printf("Usage: %s [-d N -s N -v N | -b --stealth | --stealth ]"
-	"| -n --stealth] [-a] <champion1.cor> <...>\n"
+	ft_printf("Usage: %s [-a -d N -s N -v N | -visu] [-n N] <champion1.cor>"
+			"[-n N] <champion2.cor> <...>\n"
 	"\t-a        : Prints output from \"aff\" (Default is to hide it)\n"
 	"#### TEXT OUTPUT MODE #################################################\n"
 	"\t-d N      : Dumps memory after N cycles then exits\n"
 	"\t-s N      : Runs N cycles, dumps memory, pauses, then repeats\n"
-	"\t-v N      : Verbosity levels, can be added together to enable several\n"
-	"\t\t- 0 : Show only essentials\n"
-	"\t\t- 1 : Show lives\n"
-	"\t\t- 2 : Show cycles\n"
-	"\t\t- 4 : Show operations (Params are NOT litteral ...)\n"
-	"\t\t- 8 : Show deaths\n"
-	"\t\t- 16 : Show PC movements (Except for jumps)\n"
-	"#### BINARY OUTPUT MODE ###############################################\n"
-	"\t-b        : Binary output mode for corewar.42.fr\n"
-	"\t--stealth : Hides the real contents of the memory\n"
+	"\t-v N      : Verbosity levels\n"
+	"\t\t- -1 : Show everything\n"
+	"\t\t- 0  : Show only essentials\n"
+	"\t\t- 1  : Show lives\n"
+	"\t\t- 2  : Show cycles\n"
+	"\t\t- 4  : Show operations (Params are NOT litteral ...)\n"
+	"\t\t- 8  : Show deaths\n"
+	"\t\t- 16 : Show PC movements (Except for jumps)\n"	
+	"#### CHANGE PLAYER ORDER ##############################################\n"
+	"\t-n N      : Attributes Nth place to following champion  if available.\n"
 	"#### NCURSES OUTPUT MODE ##############################################\n"
-	"\t-n        : Ncurses output mode\n"
-	"\t--stealth : Hides the real contents of the memory\n"
+	"\t-visu     : Ncurses output mode\n"
 	"#######################################################################\n",
 	argv[0]);
 	exit(0);
