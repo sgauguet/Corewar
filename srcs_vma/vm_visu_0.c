@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:14 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/20 11:06:02 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 13:14:58 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	display_info_ncurses(t_env *env, t_process *process)
 	mvprintw(4 + reg, 200, "CARRY = %d", process->carry);
 	mvprintw(5 + reg, 200, "PROCESS CURRENT = %04x",
 		check_adress(process->current));
-	mvprintw(6 + reg, 200, "CYCLES/SEC = %05d", env->cycle_sec);
+	mvprintw(6 + reg, 200, "CYCLES/SEC = %5d", env->cycle_sec);
 }
 
 void	init_arena(t_env *env)

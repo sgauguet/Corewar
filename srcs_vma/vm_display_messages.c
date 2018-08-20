@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/05 09:45:35 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/18 16:28:28 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 12:08:01 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,17 @@ void	display_usage(char **argv)
 
 int		display_end(t_env *env)
 {
-	if (!env->option.visu)
-		ft_printf("Contestant %d, \"%s\", has won !\n",
+	if (!env->option.visu)		ft_printf("Contestant %d, \"%s\", has won !\n",
 			env->last_alive->player_id, env->last_alive->header.prog_name);
+	else
+	{
+		attron(COLOR_PAIR(env->last_alive->player_id));
+		mvprintw(35, 195, "Contestant %d, \"%s\", has won !\n", env->last_alive->player_id, env->last_alive->header.prog_name);
+		attroff(COLOR_PAIR(env->last_alive->player_id));
+		mvprintw(0, 0, "Press any key to quit the game.\n", env->last_alive->player_id, env->last_alive->header.prog_name);
+		nodelay(stdscr, FALSE);
+		getch();
+	}
 	destroy_all(env, 1);
 	clear();
 	endwin();

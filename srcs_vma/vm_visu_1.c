@@ -6,7 +6,7 @@
 /*   By: aserguie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 16:48:04 by aserguie          #+#    #+#             */
-/*   Updated: 2018/08/20 11:18:44 by sgauguet         ###   ########.fr       */
+/*   Updated: 2018/08/20 13:22:48 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_display_pcs(t_env *env)
 
 void	ft_display_followed(t_env *env, int *c)
 {
-	t_process *pc_tmp;
+	t_process	*pc_tmp;
 
 	while (!(*c == ' '))
 	{
@@ -87,9 +87,9 @@ void	ft_pause(t_env *env)
 		{
 			if (c == 'q')
 			{
-				clear();
 				endwin();
 				destroy_all(env, 1);
+				exit (1);
 			}
 			pause = 1;
 			nodelay(stdscr, TRUE);
