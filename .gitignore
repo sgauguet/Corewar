@@ -2,3 +2,5 @@
 .DS_STORE
 asm
 corewar
+.swo
+.swp

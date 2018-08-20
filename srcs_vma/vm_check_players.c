@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:19 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/07/24 16:15:30 by jebossue         ###   ########.fr       */
+/*   Updated: 2018/08/20 17:02:39 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		check_prog_size(char *prog_size, t_env *env)
 
 int		check_magic(char *magic, t_env *env)
 {
-	unsigned int check_magic;
+	int check_magic;
 
 	check_magic = COREWAR_EXEC_MAGIC;
 	if ((magic[1] << 16 & 0xff0000) == (check_magic & 0xff0000) &&

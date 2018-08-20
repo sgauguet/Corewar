@@ -6,7 +6,7 @@
 /*   By: sgauguet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 09:48:55 by sgauguet          #+#    #+#             */
-/*   Updated: 2018/08/20 14:23:37 by aserguie         ###   ########.fr       */
+/*   Updated: 2018/08/20 17:18:36 by sgauguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int		check_constants(void)
 		display_errors("CYCLE_TO_DIE incorrect");
 	if (CYCLE_DELTA < 1 || CYCLE_DELTA > CYCLE_TO_DIE)
 		display_errors("CYCLE_DELTA incorrect");
-	if (NBR_LIVE < 0)
-		display_errors("NBR_LIVE incorrect");
+	if (NBR_LIVE < 0 || COLOR != 8 || UNDER_LINE != 16)
+		display_errors("NBR_LIVE or COLOR or UNDER_LINE incorrect");
 	if (MAX_CHECKS < 0)
 		display_errors("MAX_CHECKS incorrect");
 	if (PROG_NAME_LENGTH != (128) || COMMENT_LENGTH != (2048) ||
