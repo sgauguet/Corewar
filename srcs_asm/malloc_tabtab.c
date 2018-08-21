@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 17:01:43 by juspende          #+#    #+#             */
-/*   Updated: 2018/08/21 14:55:27 by juspende         ###   ########.fr       */
+/*   Updated: 2018/08/21 15:47:42 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char	**ft_create(int size_y, char **tab, char *str)
 {
 	if (!(tab = (char **)malloc(sizeof(char *) * (size_y + 1))))
 		return (NULL);
-	tab[0] = ft_strdup(str);
+	tab[0] = str ? ft_strdup(str) : NULL;
 	tab[1] = NULL;
 	return (tab);
 }

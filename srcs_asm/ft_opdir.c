@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:24:10 by juspende          #+#    #+#             */
-/*   Updated: 2018/08/21 14:54:41 by juspende         ###   ########.fr       */
+/*   Updated: 2018/08/21 15:24:47 by aserguie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void			ft_op_dir(char *s, char *bool_op, char *bool_dir)
 			i++;
 	}
 	inst = ft_strndup(s + tmp, i - tmp);
+	if (!inst)
+		return ;
 	i = ft_fd_inst(inst, tmp);
 	ft_bool(i, bool_op, bool_dir);
 }
