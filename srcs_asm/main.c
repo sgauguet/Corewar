@@ -6,7 +6,7 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:26:30 by juspende          #+#    #+#             */
-/*   Updated: 2018/08/21 14:55:05 by juspende         ###   ########.fr       */
+/*   Updated: 2018/08/21 15:07:46 by juspende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,8 @@ int				main(int c, char **v)
 		return (ft_print_file(strukt));
 	strukt->fd_cor = -1;
 	strukt = ft_ins(strukt);
-	strukt = ft_create_file_cor(strukt);
+	if (strukt->size != 0)
+		strukt = ft_create_file_cor(strukt);
 	if (strukt->size == 0)
 		ft_exit("NO IA");
 	if (ft_strcmp(v[1], "-a") == 0 || ft_strcmp(v[1], "-b") == 0)
