@@ -88,6 +88,7 @@ static void	ft_command_2(char **ins, int i)
 		free(tmp);
 	if (ins != NULL)
 		ft_strdel(ins);
+	//modifs ci dessus: free en tmp et tmp2=strdup
 }
 
 static void	ft_command(char *s, t_asm *strukt, int line, int i)
@@ -97,6 +98,7 @@ static void	ft_command(char *s, t_asm *strukt, int line, int i)
 
 	tmp2 = ft_strndup(s, ft_strlen(s));
 	(strukt->a == 3) ? ft_command_2(&tmp2, strukt->h) : 0;
+	//modifs ci dessus : creation de tmp2
 	(strukt->h == 0 && strukt->a == 3) ? strukt->h = 1 : 0;
 	ft_strdel(&tmp2);
 	while (s[i] && s[i] != 32 && s[i] != '\t')

@@ -22,6 +22,7 @@ void			ft_write(t_asm *strukt, const void *tmp, size_t len)
 	fd = strukt->fd_cor;
 	if (fd < 0)
 		return ;
+	//modifs ci dessus
 	i = 0;
 	tmp0 = tmp;
 	tmp1 = NULL;

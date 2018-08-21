@@ -14,7 +14,8 @@
 
 void	ft_print_info(t_env *env)
 {
-	int i;
+	int		i;
+	int		j;
 
 	i = -1;
 	mvprintw(0, 0, "Press SPACE to pause, Q to quit, LEFT/RIGHT to navigate "
@@ -22,7 +23,12 @@ void	ft_print_info(t_env *env)
 	while (++i < env->nb_players)
 	{
 		attron(COLOR_PAIR(i + 1));
-		mvprintw(30 + i, 200, "%s", env->champions[i].header.prog_name);
+		j = -1;
+		while (++j < 10 && env->champions[i].header.prog_name[j]
+		&& env->champions[i].header.prog_name[j] != '\n')
+			mvprintw(30 + i, 200 + j, "%c",
+			env->champions[i].header.prog_name[j]);
+		// modifs ci dessus
 		attron(COLOR_PAIR(i + 1));
 	}
 }
