@@ -6,7 +6,11 @@
 /*   By: juspende <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 14:24:41 by juspende          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2018/08/21 15:02:51 by aserguie         ###   ########.fr       */
+=======
 /*   Updated: 2018/08/21 14:54:46 by juspende         ###   ########.fr       */
+>>>>>>> 05b3a7189bb72b9df9a10d5127581a4a1dba9ff5
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +73,7 @@ static void	ft_command_ext(char *s, char *tmp, t_asm *strukt, int line)
 		ft_exit("Wrong command.");
 }
 
-static void	ft_command_2(char **ins, int i)
+static void	ft_command_2(char *ins, int i)
 {
 	char	**tmp;
 	int		g;
@@ -77,7 +81,7 @@ static void	ft_command_2(char **ins, int i)
 	g = 0;
 	if (i == 1)
 		write(1, "\n", 1);
-	tmp = ft_strsplit(*ins, ' ');
+	tmp = ft_strsplit(ins, ' ');
 	while (tmp[g])
 	{
 		ft_put(tmp[g], '\t', 1, 1);
@@ -87,8 +91,8 @@ static void	ft_command_2(char **ins, int i)
 	if (tmp != NULL)
 		free(tmp);
 	if (ins != NULL)
-		ft_strdel(ins);
-	//modifs ci dessus: free en tmp et tmp2=strdup
+		ft_strdel(&ins);
+	//modifs ci desus: free en tmp et tmp2=strdup
 }
 
 static void	ft_command(char *s, t_asm *strukt, int line, int i)
@@ -97,10 +101,9 @@ static void	ft_command(char *s, t_asm *strukt, int line, int i)
 	char	*tmp2;
 
 	tmp2 = ft_strndup(s, ft_strlen(s));
-	(strukt->a == 3) ? ft_command_2(&tmp2, strukt->h) : 0;
+	(strukt->a == 3) ? ft_command_2(tmp2, strukt->h) : ft_strdel(&tmp2);
 	//modifs ci dessus : creation de tmp2
 	(strukt->h == 0 && strukt->a == 3) ? strukt->h = 1 : 0;
-	ft_strdel(&tmp2);
 	while (s[i] && s[i] != 32 && s[i] != '\t')
 		i++;
 	if (!(tmp = (char *)malloc(sizeof(char) * i + 1)))
