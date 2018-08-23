@@ -1,4 +1,4 @@
-### Corewar
+# Corewar
 
 ## Objectif: 
 
@@ -21,11 +21,10 @@ La machine virtuelle constitue l'environnement où vont s'affronter les champion
 
 ![middle](https://user-images.githubusercontent.com/29833564/44538804-bef06980-a702-11e8-9b8d-7bf221c90aa4.png)
 
-La partie se déroule jusqu'à ce qu'il n'y ait plus aucun processus en vie. La VM détermine alors le vainqueur, qui est le dernier champion à avoir été déclaré vivant.
+*La partie se déroule jusqu'à ce qu'il n'y ait plus aucun processus en vie. La VM détermine alors le vainqueur, qui est le dernier champion à avoir été déclaré vivant.*
 
 Usage: ./corewar [-a -d N -s N -v N | -visu] [-n N] <champion1.cor> [-n N] <champion2.cor> <...>
         -a        : Prints output from "aff" (Default is to hide it)
-#### TEXT OUTPUT MODE #################################################
         -d N      : Dumps memory after N cycles then exits
         -s N      : Runs N cycles, dumps memory, pauses, then repeats
         -v N      : Verbosity levels
@@ -36,10 +35,5 @@ Usage: ./corewar [-a -d N -s N -v N | -visu] [-n N] <champion1.cor> [-n N] <cham
                 - 4  : Show operations (Params are NOT litteral ...)
                 - 8  : Show deaths
                 - 16 : Show PC movements (Except for jumps)
-#### CHANGE PLAYER ORDER ##############################################
         -n N      : Attributes Nth place to following champion  if available.
-#### NCURSES OUTPUT MODE ##############################################
         -visu     : Ncurses output mode
-#######################################################################
-
-
