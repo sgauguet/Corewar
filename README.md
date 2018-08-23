@@ -33,6 +33,6 @@ La partie se déroule jusqu'à ce qu'il n'y ait plus aucun processus en vie. La 
                 - 2  : Show cycles####
                 - 4  : Show operations (Params are NOT litteral ...)####
                 - 8  : Show deaths####
-                - 16 : Show PC movements (Except for jumps)####
-        -n N      : Attributes Nth place to following champion  if available.####
-        -visu     : Ncurses output mode*####
+                - 16 : Show PC movements (Except for jumps)  
+        -n N      : Attributes Nth place to following champion  if available.  
+        -visu     : Ncurses output mode*  
