@@ -1,15 +1,15 @@
 ### Corewar
 
-# Objectif: 
+## Objectif: 
 
 Créer une arène virtuelle dans laquelle vont s'affronter des programmes, les champions, écrits dans un langage assembleur spécifique.
 
-# Partie 1 : L'assembleur
+## Partie 1 : L'assembleur
 
 L'assembleur permet de compiler des programmes afin qu'ils deviennent compréhensibles par la VM. Il est donc utilisé pour transformer en bytecode les champions conçus par les joueurs. Usage: ./asm [-vab] <source-file.s>
 L'asm génère un fichier ".cor" à partir des fichiers ".s" écrit par le joueur qui pourra être lu par la VM.
 
-# Partie 2 : La machine virtuelle (VM)
+## Partie 2 : La machine virtuelle (VM)
 
 La machine virtuelle constitue l'environnement où vont s'affronter les champions. Elle comporte une mémoire circulaire de 4096 octets et ne peut exécuter qu'un jeu d'instructions prédéterminées, écrites en bytecode. 
 
