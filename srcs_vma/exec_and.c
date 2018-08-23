@@ -43,9 +43,7 @@ int	and_param(t_env *env, t_process *process, t_param *param, int i)
 {
 	char	tmp[4];
 	int		head;
-	int		j;
 
-	j = 0;
 	if (i == 1)
 		head = process->current + 1 + param->size[0];
 	else

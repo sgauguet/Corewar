@@ -53,11 +53,10 @@ void	ft_write_prog_size(t_asm *strukt)
 {
 	int				index;
 	unsigned int	tmp;
-	int				u;
 
 	index = -1;
 	strukt->header.prog_size = strukt->size;
-	u = lseek(strukt->fd_cor, 4 + PROG_NAME_LENGTH, SEEK_SET);
+	lseek(strukt->fd_cor, 4 + PROG_NAME_LENGTH, SEEK_SET);
 	while (++index < 4)
 		ft_write(strukt, "\0", 1);
 	tmp = strukt->header.prog_size >> 24;

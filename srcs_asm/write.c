@@ -16,7 +16,6 @@ void			ft_write(t_asm *strukt, const void *tmp, size_t len)
 {
 	size_t		i;
 	const char	*tmp0;
-	char		*tmp1;
 	int			fd;
 
 	fd = strukt->fd_cor;
@@ -24,7 +23,6 @@ void			ft_write(t_asm *strukt, const void *tmp, size_t len)
 		return ;
 	i = 0;
 	tmp0 = tmp;
-	tmp1 = NULL;
 	write(fd, tmp, len);
 	if (strukt->a == 0 || strukt->a == 2)
 		return ;

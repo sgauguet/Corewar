@@ -25,10 +25,8 @@ int	nb_cycles_instruction(t_env *env, t_process *process)
 int	new_instruction(t_env *env, t_process *process)
 {
 	int process_current;
-	int current_col;
 
 	process_current = process->current;
-	current_col = process->col_pair;
 	process->current = check_adress(process->pc);
 	process->opcode = env->arena[process->current];
 	process->cycle_before_exec = nb_cycles_instruction(env, process);

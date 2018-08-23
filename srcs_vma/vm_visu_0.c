@@ -127,8 +127,9 @@ int		display_ncurses(t_env *env, t_process *process, int start, int pc)
 	if (pc == 5)
 		display_memory_area_ncurses(start, env->arena[start], 5, env);
 	else
-		display_memory_area_ncurses(start, env->arena[start], pc == 0 ?
-		env->arena2[start] % COLOR : process->col_pair % COLOR, env);
+		display_memory_area_ncurses(start, env->arena[start], ((pc == 0)
+			? (env->arena2[start] % (unsigned int)COLOR)
+			: ((unsigned int)process->col_pair % COLOR)), env);
 	if (pc != 0 && env->process.followed == process)
 		display_info_ncurses(env, process);
 	return (1);

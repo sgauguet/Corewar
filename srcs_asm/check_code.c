@@ -64,12 +64,10 @@ void		ft_check_asm(t_asm *s_asm, int index)
 {
 	static int	bool_label = 0;
 	int			i;
-	int			index_copy;
 
 	bool_label++;
 	if (bool_label != 1)
 		return ;
-	index_copy = index;
 	while (s_asm->file[++index])
 	{
 		i = 0;
