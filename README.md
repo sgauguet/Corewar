@@ -22,17 +22,17 @@ Les processus de chaque champions sont ensuite exécutés tour à tour de maniè
 
 La partie se déroule jusqu'à ce qu'il n'y ait plus aucun processus en vie. La VM détermine alors le vainqueur, qui est le dernier champion à avoir été déclaré vivant.
 
-*Usage: ./corewar [-a -d N -s N -v N | -visu] [-n N] <champion1.cor> [-n N] <champion2.cor> <...>####
-        -a        : Prints output from "aff" (Default is to hide it)####
-        -d N      : Dumps memory after N cycles then exits####
-        -s N      : Runs N cycles, dumps memory, pauses, then repeats####
-        -v N      : Verbosity levels####
-                - -1 : Show everything####
-                - 0  : Show only essentials####
-                - 1  : Show lives####
-                - 2  : Show cycles####
-                - 4  : Show operations (Params are NOT litteral ...)####
-                - 8  : Show deaths####
+*Usage: ./corewar [-a -d N -s N -v N | -visu] [-n N] <champion1.cor> [-n N] <champion2.cor> <...>  
+        -a        : Prints output from "aff" (Default is to hide it)  
+        -d N      : Dumps memory after N cycles then exits  
+        -s N      : Runs N cycles, dumps memory, pauses, then repeats  
+        -v N      : Verbosity levels  
+                - -1 : Show everything  
+                - 0  : Show only essentials  
+                - 1  : Show lives  
+                - 2  : Show cycles  
+                - 4  : Show operations (Params are NOT litteral ...)  
+                - 8  : Show deaths  
                 - 16 : Show PC movements (Except for jumps)  
         -n N      : Attributes Nth place to following champion  if available.  
         -visu     : Ncurses output mode*  
