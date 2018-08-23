@@ -6,8 +6,8 @@ Créer une arène virtuelle dans laquelle vont s'affronter des programmes, les c
 
 ## Partie 1 : L'assembleur
 
-L'assembleur permet de compiler des programmes afin qu'ils deviennent compréhensibles par la VM. Il est donc utilisé pour transformer en bytecode les champions conçus par les joueurs. Usage: ./asm [-vab] <source-file.s>
-L'asm génère un fichier ".cor" à partir des fichiers ".s" écrit par le joueur qui pourra être lu par la VM.
+L'assembleur permet de compiler des programmes afin qu'ils deviennent compréhensibles par la VM. Il est donc utilisé pour transformer en bytecode les champions conçus par les joueurs. L'asm génère un fichier ".cor" à partir des fichiers ".s" écrit par le joueur qui pourra être lu par la VM.
+*Usage: ./asm [-vab] <source-file.s>*
 
 ## Partie 2 : La machine virtuelle (VM)
 
