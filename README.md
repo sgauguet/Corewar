@@ -16,7 +16,7 @@ La machine virtuelle constitue l'environnement où vont s'affronter les champion
 
 ![start](https://user-images.githubusercontent.com/29833564/44538805-bef06980-a702-11e8-8e76-68500f9da807.png)
 
-Les processus de chaque champions sont ensuite exécutés tour à tour de manière équitable, en tenant compte du nombre de cycles nécessaires à l'exécution de chaque instruction. Les processus des joueurs peuvent écrire dans l'arène, stocker une valeur dans un registre, ou encore se dupliquer. Ils doivent régulièrement faire des "live" pour ne pas être mis à mort.
+Les processus de chaque champions sont ensuite exécutés tour à tour de manière équitable, en tenant compte du nombre de cycles nécessaire à l'exécution de chaque instruction. Les processus des joueurs peuvent écrire dans l'arène, stocker une valeur dans un registre, ou encore se dupliquer. Ils doivent régulièrement faire des "live" pour ne pas être mis à mort.
 
 ![middle](https://user-images.githubusercontent.com/29833564/44538804-bef06980-a702-11e8-9b8d-7bf221c90aa4.png)
 
